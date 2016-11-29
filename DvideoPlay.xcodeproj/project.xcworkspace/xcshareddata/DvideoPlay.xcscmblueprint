@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EB7D87412908AC38F55F6F4EAE5DE75BC4CA76FB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EB7D87412908AC38F55F6F4EAE5DE75BC4CA76FB" : 9223372036854775807,
+    "1A71B08B37A381F094C5B3280B8EAB6F5AA61EF6" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "62F2F49A-E083-4ED6-A43A-6A4113579164",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EB7D87412908AC38F55F6F4EAE5DE75BC4CA76FB" : "DvideoPlay\/",
+    "1A71B08B37A381F094C5B3280B8EAB6F5AA61EF6" : "DVoiceSend\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DvideoPlay",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DvideoPlay.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kevindcw\/DVoiceSend.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1A71B08B37A381F094C5B3280B8EAB6F5AA61EF6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kevindcw\/DvideoPlay.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EB7D87412908AC38F55F6F4EAE5DE75BC4CA76FB"
+    }
+  ]
+}

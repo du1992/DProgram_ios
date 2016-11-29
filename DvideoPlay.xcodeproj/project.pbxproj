@@ -44,7 +44,6 @@
 		3C2B9C4A1DEC758700525B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../DvideoPlay/DvideoPlay/Assets.xcassets; sourceTree = "<group>"; };
 		3C2B9C4D1DEC758700525B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C2B9C4F1DEC758700525B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3C2B9C571DEC76D900525B51 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		3C2B9C631DEC76EA00525B51 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		3C2B9C641DEC76EA00525B51 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		3C2B9C651DEC76EA00525B51 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		3C2B9CA71DED22B900525B51 /* KSYMediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSYMediaPlayer.framework; path = DvideoPlay/live/KSYMediaPlayer.framework; sourceTree = "<group>"; };
 		3C2B9CA91DED3E0D00525B51 /* DNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNavigationController.h; sourceTree = "<group>"; };
 		3C2B9CAA1DED3E0D00525B51 /* DNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNavigationController.m; sourceTree = "<group>"; };
+		3C2B9CAD1DED6C1500525B51 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +122,8 @@
 		3C2B9C3A1DEC758700525B51 /* DvideoPlay */ = {
 			isa = PBXGroup;
 			children = (
+				3C2B9CAC1DED6C1500525B51 /* DPublic */,
 				3C2B9C611DEC76EA00525B51 /* DTools */,
-				3C2B9C561DEC76D900525B51 /* DPublic */,
 				3C2B9C861DEC77B600525B51 /* DvideoPlayView */,
 				3C2B9C551DEC767700525B51 /* APP */,
 				3C2B9C3B1DEC758700525B51 /* Supporting Files */,
@@ -150,15 +150,6 @@
 				3C2B9C471DEC758700525B51 /* DvideoPlay.xcdatamodeld */,
 			);
 			name = APP;
-			sourceTree = "<group>";
-		};
-		3C2B9C561DEC76D900525B51 /* DPublic */ = {
-			isa = PBXGroup;
-			children = (
-				3C2B9C571DEC76D900525B51 /* Definition.h */,
-			);
-			name = DPublic;
-			path = ../../DVoiceSend/DVoiceSend/DPublic;
 			sourceTree = "<group>";
 		};
 		3C2B9C611DEC76EA00525B51 /* DTools */ = {
@@ -245,6 +236,14 @@
 				3C2B9C981DEC8B4200525B51 /* VideoToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C2B9CAC1DED6C1500525B51 /* DPublic */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B9CAD1DED6C1500525B51 /* Definition.h */,
+			);
+			path = DPublic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

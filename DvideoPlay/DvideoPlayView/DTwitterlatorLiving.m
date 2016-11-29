@@ -494,7 +494,6 @@
         }
         _LiveProtoco.hidden=NO;
         _palyer.currentPlaybackTime=_palyer.currentPlaybackTime-self.VerticaTime;
-        CGFloat duration = _palyer.duration;
         [self palyTimeDidChangeWithTime:_palyer.currentPlaybackTime];
         [self handleSwipEsevent:@"后退"];
         NSLog(@"后退");

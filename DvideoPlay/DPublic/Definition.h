@@ -35,6 +35,18 @@
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 /** 屏幕的宽度 */
 #define WIDTH [UIScreen mainScreen].bounds.size.width
+
+//字体大小
+
+#define kFountBig       [UIFont systemFontOfSize:16]
+#define kFountNormal    [UIFont systemFontOfSize:14]
+#define kFountTen       [UIFont systemFontOfSize:10]
+#define kFountNormalSmall    [UIFont systemFontOfSize:13]
+#define kFountEighteen       [UIFont systemFontOfSize:18]
+
+#define kFountSmall  [UIFont systemFontOfSize:12]
+
+
 /*
  ====================================================================================================//颜色相关1
  */
@@ -118,6 +130,19 @@
 /** 16进制颜色值，如：#000000 , 注意：在使用的时候hexValue写成：0x000000 */
 #define HexColor(hexValue)  [UIColor colorWithRed:((float)(((hexValue) & 0xFF0000) >> 16))/255.0 green:((float)(((hexValue) & 0xFF00) >> 8))/255.0 blue:((float)((hexValue) & 0xFF))/255.0 alpha:1.0]
 
+// 视图背景颜色
+#define kLineBackGroundGrayColor RGB(230,230,230)
+#define kblueColor          RGB(0,168,255)
+#define korangeColor        RGB(251,140,38)
+#define kYellowColor        RGB(255,226,2)
+#define kBlackColor80       RGB(80,40,24)
+#define kBlackColor29       RGB(29,29,38)
+#define kBlackColor91       RGB(91,91,91)
+#define kGrayColor105       RGB(105,105,105)
+#define kGrayColor186       RGB(186,186,186)
+#define kGrayColor174       RGB(174,174,175)
+#define kGrayColor105       RGB(105,105,105)
+#define kHomePageBlackColor   RGB(237,237,237)
 
 
 
@@ -129,17 +154,7 @@
 #define ButtonHeight 44
 #define NavigationBarHeight 44
 
-#define APPID_VALUE           @"580487e1"
-#define URL_VALUE             @""                 // url
-#define TIMEOUT_VALUE         @"20000"            // timeout      连接超时的时间，以ms为单位
-#define BEST_URL_VALUE        @"1"                // best_search_url 最优搜索路径
-
-#define SEARCH_AREA_VALUE     @"安徽省合肥市"
-#define ASR_PTT_VALUE         @"1"
-#define VAD_BOS_VALUE         @"5000"
-#define VAD_EOS_VALUE         @"1800"
-#define PLAIN_RESULT_VALUE    @"1"
-#define ASR_SCH_VALUE         @"1"
+#define  URL_playURL @"http://ic.snssdk.com/neihan/video/playback/?video_id=63016571739e4328a08928001f7389df&quality=480p&line=0&is_gif=1.mp4"
 
 #ifdef __IPHONE_6_0
 # define IFLY_ALIGN_CENTER NSTextAlignmentCenter
