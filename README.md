@@ -1,4 +1,6 @@
 # DvideoPlay
+传送门链接地址：https://github.com/kevindcw/DvideoPlay
+
 播放器横竖屏切换，左右滑动手势快进
 
 <h1> <img src="http://7xpxoc.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E5%9B%BE.gif" width="320" /> </h1>
