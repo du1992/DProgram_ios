@@ -41,7 +41,7 @@
 		3C2B9C3F1DEC758700525B51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3C2B9C451DEC758700525B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C2B9C481DEC758700525B51 /* DvideoPlay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DvideoPlay.xcdatamodel; sourceTree = "<group>"; };
-		3C2B9C4A1DEC758700525B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../DvideoPlay/DvideoPlay/Assets.xcassets; sourceTree = "<group>"; };
+		3C2B9C4A1DEC758700525B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		3C2B9C4D1DEC758700525B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C2B9C4F1DEC758700525B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C2B9C871DEC77E900525B51 /* DvideoPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DvideoPlayViewController.h; sourceTree = "<group>"; };
@@ -156,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				3C2B9CAE1DEEA23800525B51 /* Masonry */,
-				3C2B9C4A1DEC758700525B51 /* Assets.xcassets */,
 			);
 			name = DTools;
 			path = ../../DVoiceSend/DVoiceSend/DTools;
@@ -210,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				3C2B9CAD1DED6C1500525B51 /* Definition.h */,
+				3C2B9C4A1DEC758700525B51 /* Assets.xcassets */,
 			);
 			path = DPublic;
 			sourceTree = "<group>";
