@@ -1,0 +1,86 @@
+ [
+     {
+         "problemID": "iOS",
+         "title": "ios开发",
+         "directions": "用于iPhone、iPad、苹果电脑开发等",
+         "honor":  "🏆称号：苹果专属",
+         "introduce": "iOS是苹果公司研发的一款手机操作系统。于2007年开始运用于iPhone，iPod Touch和苹果电视。iOS从OSX演化而来，并且和OSX共享Darwin。iOS是OSX运用于苹果电脑操作系统的一款手机操作系统。",
+         "backgroundImg":  "http://pic1.win4000.com/wallpaper/2/5799631a9509c.jpg",
+     },
+     
+     {
+         "problemID": "java",
+         "title": "java开发",
+         "directions": "用于Android、网站、服务器开发等",
+         "honor":  "🏆称号：多面手",
+         "introduce": "Java 是由Sun Microsystems公司于1995年5月推出的高级程序设计语言。Java可运行于多个平台，如Windows, Mac OS，及其他多种UNIX版本的系统",
+          "backgroundImg":  "http://pic1.win4000.com/wallpaper/a/5798143582ecd.jpg",
+     },
+     {
+         "problemID": "PHP",
+         "title": "PHP开发",
+         "directions": "用于网站、后台、数据收集等开发",
+         "honor":  "🏆称号：宇宙最好语言",
+         "introduce": "PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。PHP 是免费的，并且使用非常广泛。",
+          "backgroundImg":  "http://pic1.win4000.com/wallpaper/f/577e1a55c3332.jpg",
+     },
+     {
+         "problemID": "HTML",
+         "title": "HTML开发",
+         "directions": "用于网页开发等",
+         "honor":  "🏆称号：简单易学",
+         "introduce": "超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。您可以使用 HTML 来建立自己的 WEB 站点，HTML 运行在浏览器上，由浏览器来解析。",
+          "backgroundImg":  "http://pic1.win4000.com/wallpaper/8/5879b72927130.jpg",
+     },
+     {
+         "problemID": "python",
+         "title": "python开发",
+         "directions": "用于大数据分析、脚本、人工智能开发等",
+         "honor":  "🏆称号：万能胶水",
+         "introduce": "Python是一种动态解释型的编程语言。Python可以在Windows、UNIX、MAC等多种操作系统上使用，也可以在Java、.NET开发平台上使用。",
+          "backgroundImg": "http://pic1.win4000.com/wallpaper/7/55f7dc5a2025a.jpg",
+     },
+     
+     
+     {
+         "problemID": "SQL",
+         "title": "SQL开发",
+         "directions": "用于数据库的开发等",
+         "honor":  "🏆称号：数据库专属",
+         "introduce": "SQL 是用于访问和处理数据库的标准的计算机语言。全称是 Structured Query Language。让您可以访问和处理数据库",
+          "backgroundImg":  "http://pic1.win4000.com/wallpaper/a/55f7dcbf33aa4.jpg",
+     },
+     {
+         "problemID": "JavaScript",
+         "title": "JavaScript开发",
+         "directions": "用于网站前端、网站后端、插件开发等",
+         "honor":  "🏆称号：脚本语言",
+         "introduce": "JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言",
+          "backgroundImg": "http://pic1.win4000.com/wallpaper/2019-05-17/5cde6d126cccb.jpg",
+     },
+     {
+         "problemID": "C",
+         "title": "C/C++开发",
+         "directions": "用于游戏、操作系统、复杂运算软件开发等",
+         "honor":  "🏆称号：老古董",
+         "introduce": "C语言是一门面向过程、抽象化的通用程序设计语言，广泛应用于底层开发。C语言能以简易的方式编译、处理低级存储器。C语言是仅产生少量的机器语言以及不需要任何运行环境支持便能运行的高效率程序设计语言。",
+          "backgroundImg":  "http://pic1.win4000.com/wallpaper/2019-05-17/5cde6d15796d7.jpg",
+     },
+     {
+         "problemID": "CJ",
+         "title": "C#开发",
+         "directions": "用于网站、电脑软件、单片机开发等",
+         "honor":  "🏆称号：功能强大",
+         "introduce": "C#(C Sharp)是微软(Microsoft)为.NET Framework量身订做的程序语言，C#拥有C/C++的强大功能以及Visual Basic简易使用的特性，是第一个组件导向(Component-oriented)的程序语言，和C++与Java一样亦为对象导向(object-oriented)程序语言。",
+          "backgroundImg":  "http://pic1.win4000.com/wallpaper/2019-05-17/5cde6d1682729.jpg",
+     },
+     {
+         "problemID": "Ruby",
+         "title": "Ruby开发",
+         "directions": "用于web、脚本、智能硬件开发等",
+         "honor":  "🏆称号：敏捷开发",
+         "introduce": "Ruby 是一种开源的面向对象程序设计的服务器端脚本语言，在 20 世纪 90 年代中期由日本的松本行弘（まつもとゆきひろ/Yukihiro Matsumoto）设计并开发。",
+          "backgroundImg":  "http://pic1.win4000.com/wallpaper/2019-05-10/5cd4f366b9ed0.jpg",
+     }
+  
+]

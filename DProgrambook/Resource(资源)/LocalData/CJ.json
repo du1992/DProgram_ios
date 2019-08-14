@@ -1,0 +1,610 @@
+[
+        {
+            "ID": "1235",
+            "typeID": "17",
+            "question": "C#中的排序方式有哪些?",
+            "answer": "选择排序,冒泡排序,快速排序,插入排序,希尔排序,归并排序。"
+        },
+        {
+            "ID": "1234",
+            "typeID": "17",
+            "question": "C#的委托是什么?有何用处?",
+            "answer": "委托类似于一种安全的指针引用,在使用它时是当做类来看待而不是一个方法,相当于对一 组方法的列表的引用。\r\n用处:使用委托使程序员可以将方法引用封装在委托对象内。\r\n然后可以将该委托对象传递给可调用所引用方法的代码,而不必在编译时知道将调用哪个方 法。\r\n与 C 或 C++中的函数指针不同,委托是面向对象,而且是类型安全的。"
+        },
+        {
+            "ID": "1233",
+            "typeID": "17",
+            "question": "ref 参数和 out 参数是什么?有什么区别?",
+            "answer": " ref 和 out 参数的效果一样,都是通过关键字找到定义在主函数里面的变量的内存地址,并 通过方法体内的语法改变它的大小。不同点就是输出参数必须对参数进行初始化。ref 必须 初始化,out 参数必须在函数里赋值。ref 参数是引用,out 参数为输出参数。"
+        },
+        {
+            "ID": "1232",
+            "typeID": "17",
+            "question": "结构体和类有何区别?",
+            "answer": "结构体是一种值类型,而类是引用类型。(值类型、引用类型是根据数据存储的角度来分的) 就是值类型用于存储数据的值,引用类型用于存储对实际数据的引用。那么结构体就是当成 值来使用的,类则通过引用来对实际数据操作。"
+        },
+        {
+            "ID": "1231",
+            "typeID": "17",
+            "question": "C#和 C++的区别?",
+            "answer": "简单的说:C# 与 C++ 比较的话,最重要的特性就是 C# 是一种完全面向对象的语言,而 C++ 不是,另外 C# 是基于 IL 中间语言和.NET Framework CLR 的,在可移植性,可维 护性和强壮性都比 C++ 有很大的改进。\r\nC# 的设计目标是用来开发快速稳定可扩展的应用程序,当然也可以通过 Interop 和 Pinvoke 完成一些底层操作。"
+        },
+        {
+            "ID": "1230",
+            "typeID": "17",
+            "question": "Unity 和 cocos2d 的区别？",
+            "answer": "1、Unity3D 支持 C#、javascript 等,cocos2d-x 支持 c++、Html5、Lua 等；\r\n2、cocos2d 开源 并且免费；\r\n3、Unity3D 支持 iOS、Android、Flash、Windows、Mac、Wii 等平台的游戏开发,cocos2d-x 支持 iOS、Android、WP 等。"
+        },
+        {
+            "ID": "1229",
+            "typeID": "17",
+            "question": "什么是 LightMap?",
+            "answer": "LightMap:就是指在三维软件里实现打好光,然后渲染把场景各表面的光照输出到贴图上, 最后又通过引擎贴到场景上,这样就使物体有了光照的感觉。"
+        },
+        {
+            "ID": "1228",
+            "typeID": "17",
+            "question": "请简述如何在不同分辨率下保持 UI 的一致性？",
+            "answer": " NGUI 很好的解决了这一点,屏幕分辨率的自适应性,原理就是计算出屏幕的宽高比跟原来 的预设的屏幕分辨率求出一个对比值,然后修改摄像机的 size。UGUI 通过锚点和中心点和 分辨率也解决这个问题。"
+        },
+        {
+            "ID": "1227",
+            "typeID": "17",
+            "question": "为何大家都在移动设备上寻求 U3D 原生 GUI 的替代方案？",
+            "answer": "不美观,OnGUI 很耗费时间,效率不高,使用不方便"
+        },
+        {
+            "ID": "1226",
+            "typeID": "17",
+            "question": "向量的点乘、叉乘以及归一化的意义?",
+            "answer": "1.点乘描述了两个向量的相似程度,结果越大两向量越相似,还可表示投影； \r\n2.叉乘得到的向量垂直于原来的两个向量； \r\n3.标准化向量:用在只关系方向,不关心大小的时候；"
+        },
+        {
+            "ID": "1225",
+            "typeID": "17",
+            "question": "U3D 中用于记录节点空间几何信息的组件名称,及其父类名称？",
+            "answer": "Transform 父类是 Component"
+        },
+        {
+            "ID": "1224",
+            "typeID": "17",
+            "question": "简述 Unity3D 支持的作为脚本的语言的名称？",
+            "answer": "Unity 的脚本语言基于 Mono 的.Net 平台上运行,可以使用.NET 库,这也为 XML、数据库、\r\n正则表达式等问题提供了很好的解决方案。\r\nUnity 里的脚本都会经过编译,他们的运行速度也很快。这三种语言实际上的功能和运行速\r\n度是一样的,区别主要体现在语言特性上。JavaScript、 C#、Boo。"
+        },
+        {
+            "ID": "1223",
+            "typeID": "17",
+            "question": ".Net 与 Mono 的关系?",
+            "answer": "mono 是.net 的一个开源跨平台工具,就类似 java 虚拟机,java 本身不是跨平台语言,但\r\n运行在虚拟机上就能够实现了跨平台。\r\n.net 只能在 windows 下运行,mono 可以实现跨平台跑,可以运行于 linux,Unix,Mac OS 等。"
+        },
+        {
+            "ID": "1222",
+            "typeID": "17",
+            "question": "请描述 Interface 与抽象类之间的不同？",
+            "answer": "抽象类表示该类中可能已经有一些方法的具体定义,但接口就是公公只能定义各个方法的界\r\n面 ,不能具体的实现代码在成员方法中。\r\n类是子类用来继承的,当父类已经有实际功能的方法时该方法在子类中可以不必实现,直接 引用父类的方法,子类也可以重写该父类的方法。实现接口的时候必须要实现接口中所有的 方法,不能遗漏任何一个。"
+        },
+        {
+            "ID": "1221",
+            "typeID": "17",
+            "question": "MipMap 是什么,作用?",
+            "answer": "MipMapping:在三维计算机图形的贴图渲染中有常用的技术,为加快渲染进度和减少图像 锯齿,贴图被处理成由一系列被预先计算和优化过的图片组成的文件,这样的贴图被称为 MipMap。"
+        },
+        {
+            "ID": "1220",
+            "typeID": "17",
+            "question": "LOD 是什么,优缺点是什么?",
+            "answer": "LOD(Level of detail)多层次细节,是最常用的游戏优化技术。它按照模型的位置和重要程度 决定物体渲染的资源分配,降低非重要物体的面数和细节度,从而获得高效率的渲染运算。 缺点是增加了内存。"
+        },
+        {
+            "ID": "1219",
+            "typeID": "17",
+            "question": "请描述为什么 Unity3d 中会发生在组件上出现数据丢失的情况？",
+            "answer": "一般是组件上绑定的物体对象被删除了。"
+        },
+        {
+            "ID": "1218",
+            "typeID": "17",
+            "question": "如何销毁一个 UnityEngine.Object 及其子类?",
+            "answer": "使用 Destroy()方法;"
+        },
+        {
+            "ID": "1217",
+            "typeID": "17",
+            "question": "在场景中放置多个 Camera 并同时处于活动状态会发生什么?",
+            "answer": "游戏界面可以看到很多摄像机的混合。"
+        },
+        {
+            "ID": "1216",
+            "typeID": "17",
+            "question": "物理更新一般放在哪个系统函数里?",
+            "answer": "FixedUpdate,每固定帧绘制时执行一次,和Update不同的是FixedUpdate是渲染帧执行, 如果你的渲染效率低下的时候 FixedUpdate 调用次数就会跟着下降。FixedUpdate 比较适 用于物理引擎的计算,因为是跟每帧渲染有关。Update 就比较适合做控制。"
+        },
+        {
+            "ID": "1215",
+            "typeID": "17",
+            "question": "Unity3d 脚本从唤醒到销毁有着一套比较完整的生命周期,请列出系统自带的几个重要的方法？",
+            "answer": "Awake——>OnEnable–>Start——>Update——>FixedUpdate——>LateUpdate——>On GUI——>OnDisable——>OnDestroy"
+        },
+        {
+            "ID": "1214",
+            "typeID": "17",
+            "question": "Unity3d 提供了一个用于保存和读取数据的类(PlayerPrefs),请列出保存和读取整形\r\n数据的函数？",
+            "answer": "PlayerPrefs.SetInt() ；\r\nPlayerPrefs.GetInt() ；"
+        },
+        {
+            "ID": "1213",
+            "typeID": "17",
+            "question": "物体自身旋转使用的函数?",
+            "answer": "Transform.Rotate()"
+        },
+        {
+            "ID": "1212",
+            "typeID": "17",
+            "question": "什么叫做链条关节？",
+            "answer": "Hinge Joint,可以模拟两个物体间用一根链条连接在一起的情况,能保持两个物体在一个固 定距离内部相互移动而不产生作用力,但是达到固定距离后就会产生拉力。"
+        },
+        {
+            "ID": "1211",
+            "typeID": "17",
+            "question": "Unity3d 的物理引擎中,有几种施加力的方式,分别描述出来？",
+            "answer": "rigidbody.AddForce/AddForceAtPosition,都在 rigidbody 系列函数中。"
+        },
+        {
+            "ID": "1210",
+            "typeID": "17",
+            "question": "在物体发生碰撞的整个过程中,有几个阶段,分别列出对应的函数？",
+            "answer": "三个阶段：\r\n1.OnCollisionEnter \r\n2.OnCollisionStay \r\n3.OnCollisionExit"
+        },
+        {
+            "ID": "1209",
+            "typeID": "17",
+            "question": "使用 Unity3d 实现 2d 游戏,有几种方式?",
+            "answer": "1.使用本身的 GUI,在 Unity4.6 以后出现的 UGUI；\r\n2.把摄像机的 Projection(投影)值调为 Orthographic(正交投影),不考虑 z 轴; \r\n3.使用 2d 插件,如:2DToolKit,和 NGUI；"
+        },
+        {
+            "ID": "1208",
+            "typeID": "17",
+            "question": "请简述 private,public,protected,internal 的区别？",
+            "answer": "public:对任何类和成员都公开,无限制访问 ；\r\nprivate:仅对该类公开 ；\r\nprotected:对该类和其派生类公开；\r\ninternal:只能在包含该类的程序集中访问该类；"
+        },
+        {
+            "ID": "1207",
+            "typeID": "17",
+            "question": "请简述 sealed 关键字用在类声明时与函数声明时的作用？",
+            "answer": "sealed 修饰的类为密封类,类声明时可防止其他类继承此类,在方法中声明则可防止派生\r\n类重写此方法。"
+        },
+        {
+            "ID": "1206",
+            "typeID": "17",
+            "question": "简述 prefab 的用处？",
+            "answer": "在游戏运行时实例化,prefab 相当于一个模板,对你已经有的素材、脚本、参数做一个默 认的配置,以便于以后的修改,同时 prefab 打包的内容简化了导出的操作,便于团队的交 流。"
+        },
+        {
+            "ID": "1205",
+            "typeID": "17",
+            "question": "CharacterController 和 Rigidbody 的区别？",
+            "answer": "Rigidbody 具有完全真实物理的特性,Unity 中物理系统最基本的一个组件,包含了常用的 物理特性。而 CharacterController 可以说是受限的的 Rigidbody,具有一定的物理效果但不是完全真实 的,是 Unity 为了使开发者能方便的开发第一人称视角的游戏而封装的一个组件。"
+        },
+        {
+            "ID": "1204",
+            "typeID": "17",
+            "question": "简述一下对象池,你觉得在 FPS 里哪些东西适合使用对象池？",
+            "answer": "对象池就存放需要被反复调用资源的一个空间,当一个对象回大量生成的时候如果每次都销\r\n毁创建会很费时间,通过对象池把暂时不用的对象放到一个池中(也就是一个集合)。\r\n当下次要重新生成这个对象的时候先去池中查找一下是否有可用的对象,如果有的话就直接 拿出来使用,不需要再创建。\r\n如果池中没有可用的对象,才需要重新创建,利用空间换时间来达到游戏的高速运行效果, 在 FPS 游戏中要常被大量复制的对象包括子弹,敌人,粒子等"
+        },
+        {
+            "ID": "1203",
+            "typeID": "17",
+            "question": "Unity 提供了几种光源,分别是什么？",
+            "answer": "四种：\r\n平行光:Directional Light \r\n点光源:Point Light \r\n聚光灯:Spot Light \r\n区域光源:Area Light"
+        },
+        {
+            "ID": "1202",
+            "typeID": "17",
+            "question": "MeshRender 中 material 和 sharedmaterial 的区别?",
+            "answer": "修改 sharedMaterial 将改变所有物体使用这个材质的外观,并且也改变储存在工程里的材\r\n质设置。\r\n不推荐修改由 sharedMaterial 返回的材质。如果你想修改渲染器的材质,使用 material 替 代。"
+        },
+        {
+            "ID": "1201",
+            "typeID": "17",
+            "question": "OnEnable、Awake、Start 运行时的发生顺序?哪些可能在同一\r\n个对象周期中反复的发生？",
+            "answer": "Awake –>OnEnable->Start,OnEnable \r\n在同一周期中可以反复地发生；"
+        },
+        {
+            "ID": "1200",
+            "typeID": "17",
+            "question": "如何安全的在不同工程间安全地迁移 asset 数据?",
+            "answer": "三种方法：\r\n1.将 Assets 目录和 Library 目录一起迁移 ；\r\n2.导出包,export Package；\r\n3.用 unity 自带的 assets Server 功能；"
+        },
+        {
+            "ID": "1199",
+            "typeID": "17",
+            "question": "请简述 ArrayList 和 List 的主要区别?",
+            "answer": "ArrayList 存在不安全类型(ArrayList 会把所有插入其中的数据都当做 Object 来处理) 装箱拆箱的操作(费时)List 是接口,ArrayList 是一个实现了该接口的类,可以被实例化；"
+        },
+        {
+            "ID": "1198",
+            "typeID": "17",
+            "question": "物体发生碰撞的必要条件?",
+            "answer": "两个物体都必须带有碰撞器(Collider),其中一个物体还必须带有 Rigidbody 刚体,而且\r\n必须是运动的物体带有 Rigidbody 脚本才能检测到碰撞。"
+        },
+        {
+            "ID": "1197",
+            "typeID": "17",
+            "question": "Unity3d 中的碰撞器和触发器的区别?",
+            "answer": "碰撞器是触发器的载体,而触发器只是碰撞器身上的一个属性。当 Is Trigger=false 时,碰 撞器根据物理引擎引发碰撞,产生碰撞的效果,可以调用 OnCollisionEnter/Stay/Exit 函数;\r\n当 Is Trigger=true 时,碰撞器被物理引擎所忽略,没有碰撞效果,可以调用 OnTriggerEnter/Stay/Exit 函数；\r\n如果既要检测到物体的接触又不想让碰撞检测影响物体移动或要检测一个物件是否经过空 间中的某个区域这时就可以用到触发器；"
+        },
+        {
+            "ID": "1196",
+            "typeID": "17",
+            "question": "什么是协同程序?",
+            "answer": "在主线程运行的同时开启另一段逻辑处理,来协助当前程序的执行,协程很像多线程,但是\r\n不是多线程,Unity 的协程实在每帧结束之后去检测 yield 的条件是否满足。"
+        },
+        {
+            "ID": "1022",
+            "typeID": "17",
+            "question": "new 关键字用法?",
+            "answer": "(1)new 运算符 用于创建对象和调用构造函数。\r\n\r\n    (2)new 修饰符 用于向基类成员隐藏继承成员。\r\n\r\n    (3)new 约束   用于在泛型声明中约束可能用作类型参数的参数的类型。"
+        },
+        {
+            "ID": "1021",
+            "typeID": "17",
+            "question": "C#中的接口和类有什么异同?",
+            "answer": "接口,是可以多继承,类只有单继承.接口强调了你必须实现,而没有具本实现的方法和虚类有点相似。"
+        },
+        {
+            "ID": "1020",
+            "typeID": "17",
+            "question": "简述WebService",
+            "answer": "WebService服务可以描述为可以在web上部署并可以被任何应用程序或其他服务调用的功能。所谓服务就是系统提供一组接口，并通过接口使用系统提供的功能，WebService服务可以提供任何企业到客户，企业到企业，点对点或部门对部门通讯所需的服务，比如一个公司可以通过网络连接到另一个公司的服务，从而直接传递订购单。"
+        },
+        {
+            "ID": "1019",
+            "typeID": "17",
+            "question": "如何把一个array复制到arrayist里?",
+            "answer": "foreach( object arr in array) arrayist.Add(arr);"
+        },
+        {
+            "ID": "1018",
+            "typeID": "17",
+            "question": "C#中的委托是什么？事件是不是一种委托？",
+            "answer": "委托本质上是一种“方法接口”，它相当于C/C++中的函数指针，当然它比函数指针安全，在C#中通常用于事件处理。事件不是委托，不过由于事件的性质决定了处理它的程序逻辑能访问的参数，因此，在C#中处理事件的逻辑都包装为委托。"
+        },
+        {
+            "ID": "360",
+            "typeID": "17",
+            "question": "什么是Sessionid?",
+            "answer": "SessionID是会不停变换的，也就是说一个clientPage并非Sessionid都是保持一致的，除非：\r\n\r\n1）至少有一个request成功完整地执行\r\n\r\n2）至少存储一些data在session state中。可以通过session变量或者加上session_onstart来实现。\r\n"
+        },
+        {
+            "ID": "359",
+            "typeID": "17",
+            "question": "as 运算符的作用是什么?",
+            "answer": "as 运算符用于执行引用类型的显式类型转换。 如果要转换的类型与指定类型兼容，转换就会成功；如果类型不兼容，则返回null。\r\n\r\n表达式as 类型\r\n\r\nas 运算符类似于类型转换，所不同的是，当转换失败时，as 运算符将返回null，而不是引发异常。\r\n\r\nas的规则如下：\r\n\r\n• 检查对象类型的兼容性，并返回结果，如果不兼容就返回null；\r\n\r\n• 不会抛出异常；\r\n\r\n• 如果结果判断为空，则强制执行类型转换将抛出NullReferenceException异常。\r\n\r\n代码如下：\r\n\r\nStudent s1 = studentObj as Student; //如果CLR检测studentProgram引用对象类型不兼容目标类型,即不能进行强制类型转换,则返回一个null,永远不会抛出异常"
+        },
+        {
+            "ID": "358",
+            "typeID": "17",
+            "question": "请编程实现一个冒泡排序算法?",
+            "answer": "int [] array = new int ;\r\nint temp = 0 ;\r\nfor (int i = 0 ; i < array.Length – 1 ; i++)\r\n{\r\nfor (int j = i + 1 ; j < array.Length ; j++)\r\n{\r\nif (array[j] < array[i])\r\n{\r\ntemp = array[i] ;\r\narray[i] = array[j] ;\r\narray[j] = temp ;\r\n}\r\n}\r\n}\r\n"
+        },
+        {
+            "ID": "357",
+            "typeID": "17",
+            "question": "写一个函数计算当参数为N的值:1-2+3-4+5-6+7……+N",
+            "answer": "public int returnSum(int n)\r\n{\r\nint sum = 0;\r\nfor (int i = 1; i <= n; i++)\r\n{\r\nint k = i;\r\nif (i % 2 == 0)\r\n{\r\nk = -k;\r\n}\r\nsum = sum + k;\r\n}\r\nreturn sum;\r\n}\r\n\r\n    public int returnSum1(int n)\r\n{\r\nint k = n;\r\nif (n == 0)\r\n{\r\nreturn 0;\r\n}\r\nif (n % 2 == 0)\r\n{\r\nk = -k;\r\n}\r\nreturn aaa(n – 1) + k;\r\n}"
+        },
+        {
+            "ID": "356",
+            "typeID": "17",
+            "question": "用C#写一段选择排序算法，要求用自己的编程风格",
+            "answer": "private int min;\r\n\r\n    public void xuanZhe(int[] list)//选择排序\r\n\r\n    {\r\n\r\n        for (int i = 0; i < list.Length – 1; i++)\r\n\r\n        {\r\n\r\n            min = i;\r\n\r\n            for (int j = i + 1; j < list.Length; j++)\r\n\r\n            {\r\n\r\n                if (list[j] < list[min])\r\n\r\n                    min = j;\r\n\r\n            }\r\n\r\n            int t = list[min];\r\n\r\n            list[min] = list[i];\r\n\r\n            list[i] = t;\r\n\r\n        }\r\n\r\n    }"
+        },
+        {
+            "ID": "355",
+            "typeID": "17",
+            "question": "如何把一个Array复制到ArrayList?",
+            "answer": "foreach( object o in array )arrayList.Add(o);"
+        },
+        {
+            "ID": "354",
+            "typeID": "17",
+            "question": "如何进行LDAP用户校验?",
+            "answer": "private bool Authenticate(string userName, string password, string domain)\r\n\r\n{\r\n\r\nbool authentic = false;\r\n\r\ntry\r\n\r\n{\r\n\r\nDirectoryEntry entry = new DirectoryEntry(“LDAP://”+domain, userName, password);\r\n\r\nobject nativeObject = entry.NativeObject;\r\n\r\nauthentic = true;\r\n\r\n}\r\n\r\ncatch (DirectoryServicesCOMException) { }\r\n\r\nreturn authentic;\r\n\r\n}\r\n"
+        },
+        {
+            "ID": "353",
+            "typeID": "17",
+            "question": "如何获得客户端的IP,主机名 获取当前时间?",
+            "answer": "客户端ip:\r\n\r\nRequest.ServerVariables.Get(“Remote_Addr”).ToString();\r\n\r\n客户端主机名:\r\n\r\nRequest.ServerVariables.Get(“Remote_Host”).ToString();\r\n\r\n客户端浏览器IE：\r\n\r\nRequest.Browser.Browser;\r\n\r\n客户端浏览器 版本号：\r\n\r\nRequest.Browser.MajorVersion;\r\n\r\n客户端操作系统：\r\n\r\nRequest.Browser.Platform;\r\n\r\n服务器ip:\r\n\r\nRequest.ServerVariables.Get(“Local_Addr”).ToString();\r\n\r\n服务器名：\r\n\r\nRequest.ServerVariables.Get(“Server_Name”).ToString();\r\n"
+        },
+        {
+            "ID": "352",
+            "typeID": "17",
+            "question": "根据线程安全的相关知识，分析以下代码，当调用test方法时i>10时是否会引起死锁?并简要说明理由",
+            "answer": "public void test(int i)\r\n{\r\nlock(this)\r\n{\r\nif (i>10)\r\n{\r\ni--;\r\ntest(i);\r\n}\r\n}\r\n}\r\n答：不会发生死锁，（但有一点int是按值传递的，所以每次改变的都只是一个副本，因此不会出现死锁。但如果把int换做一个object，那么死锁会发生）"
+        },
+        {
+            "ID": "350",
+            "typeID": "17",
+            "question": "分析以下代码，完成填空(10分)\r\nstring strTmp = “abcdefg某某某”;\r\nint i= System.Text.Encoding.Default.GetBytes(strTmp).Length;\r\nint j= strTmp.Length;\r\n以上代码执行完后，i= j=",
+            "answer": "i=13,j=10"
+        },
+        {
+            "ID": "349",
+            "typeID": "17",
+            "question": "根据委托(delegate)的知识，请完成以下用户控件中代码片段的填写",
+            "answer": "namespace test\r\n{\r\npublic delegate void OnDBOperate();\r\npublic class UserControlBase : System.Windows.Forms.UserControl\r\n{\r\npublic event OnDBOperate OnNew;\r\nprivatevoidtoolBar_ButtonClick(objectsender,System.Windows.Forms.ToolBarButtonClickEventArgs e)\r\n{\r\nif(e.Button.Equals(BtnNew))\r\n{\r\n//请在以下补齐代码用来调用OnDBOperate委托签名的OnNew事件。\r\n}\r\n}\r\n}\r\n答：if( OnNew != null )\r\nOnNew( this, e );"
+        },
+        {
+            "ID": "348",
+            "typeID": "17",
+            "question": "请详述在dotnet中类(class)与结构(struct)的异同",
+            "answer": "Class可以被实例化,属于引用类型,是分配在内存的堆上的,Struct属于值类型,是分配在内存的栈上的."
+        },
+        {
+            "ID": "347",
+            "typeID": "17",
+            "question": "在C＃中，string str = null与string str = “” 请尽量使用文字或图象说明其中的区别?",
+            "answer": "string str = null是不给他分配内存空间,而string str = “” 给它分配长度为空字符串的内存空间."
+        },
+        {
+            "ID": "346",
+            "typeID": "17",
+            "question": "简述堆和栈的区别?",
+            "answer": "栈是系统提供的功能，优点是快速高效，缺点是有限制，数据不灵活；堆是函数库提供的功能，特点是灵活方便，数据适用面广，但是效率较低。\r\n\r\n栈是系统数据结构，对于进程或线程是唯一的；堆是函数库内部数据结构，不一定唯一，不同堆分配的内存无法相互操作。\r\n\r\n占空间分静态分配和动态分配两种，其中，静态分配是编译器完成的，比如自动变量的分配；而动态分配由alloca函数完成的，栈的分配无需释放，但是为了可移植的程序起见，栈的动态分配操作是不鼓励的。堆空间总是动态分配。"
+        },
+        {
+            "ID": "345",
+            "typeID": "17",
+            "question": "什么是装箱拆箱，举例说明",
+            "answer": "数据类型有两种，分别为值类型和引用类型，这两者之间的转换需要用到拆箱和装箱技术。\r\n\r\n装箱是把值类型转换成引用类型的过程，例如\"int i=10; object obj=i;\";拆箱是指有引用类型转换成值类型的过程，例如\"int j=(int)obj;\"."
+        },
+        {
+            "ID": "344",
+            "typeID": "17",
+            "question": "写出数据类型的四种转换方法，并举例",
+            "answer": "显示转换：\r\n\r\nint  i=(int)1.30;\r\n\r\n显示转换：\r\n\r\nlong  l=2;\r\n\r\nint/double/float.Parase方法转换，代码如下：\r\n\r\nstring s=\"13\";\r\n\r\nint i=int.Parase(s);\r\n\r\nConvert转换，代码如下：\r\n\r\nint x=13;\r\n\r\ndouble d=Convert.ToDouble(x);"
+        },
+        {
+            "ID": "343",
+            "typeID": "17",
+            "question": "简述枚举的作用？",
+            "answer": "枚举通常用于定义多个常量，这些常量公用一种基本的数据类型，该类型在定义是由冒号来指定。\r\n\r\n答案：枚举可以避免不合理的赋值，它表示一组有限的值，对可能的值进行约束，是代码更清晰。并且允许使用描述性的名称表示数据，使用时直观方便。"
+        },
+        {
+            "ID": "342",
+            "typeID": "17",
+            "question": "简述堆和栈的区别？",
+            "answer": "栈是由编译器自动分配，释放的，在方法体中定义的变量通常在栈上。堆一般由程序员分配释放，用new运算符等分配内存方法分配得到的就是在堆上。栈是机器系统提供的数据结构，而堆是C/C++函数提供的，他们的区别如下：\r\n\r\n栈是系统提供的功能，特点是快速高效，缺点是有限制，数据不灵活；而堆是函数库提供的功能。特点是灵活方便，数据适应面广泛，但是效率有一定降低。\r\n\r\n栈是系统数据结构，对于进程或线程式唯一的；而堆是函数库内部的结构，不一定唯一，不同的堆分配的内存无法相互操作。\r\n\r\n栈空间分静态分配和动态分配两种，其中，静态分配是编译器完成的，比如自动变量的分配；而动态分配是由啊alloca()函数完成的，栈的动态分配无需释放，但为了可移植的程序，栈的动态分配操作是不鼓励的。堆空间的分配总是动态的。\r\n\r\n答案：栈是编译期间就分配好内存空间，因此代码中必须就栈的大小明确定义；堆是程序运行期间动态分配内存空间，可以根据程序的运行情况确定要分配的堆的大小。"
+        },
+        {
+            "ID": "341",
+            "typeID": "17",
+            "question": "引用类型何止类型的区别？",
+            "answer": "C#中的数据类型有两种，分别是值类型和引用类型，二者的差异在于数据的存储方式，值类型直接存储数据；而引用类型则存储实际数据的引用，程序通过此引用找到真正的数据，因此引用类型的变量通常也叫做对象。对于值类型，由于每个变量都有自己的值，所以对一个变量的操作不会影响另一个变量；而对于引用类型来说，两个或多个引用类型的变量引用同一个对象，实际上是指这些变量在堆栈中保存的堆地址相同，因此对一个变量的操作会影响到引用相同对象的另一个变量。\r\n\r\n技巧：值类型变量声明初始化后即可访问，引用类型变量必须先使用new关键字为其声明的变量分配内存后方可访问。\r\n\r\n引用类型存储在堆上，包含一个指向实例的指针，默认值为null；值类型存储在堆上，存储的是一个实际的值。未赋值前不同值类型有不同的默认值但不能为空。"
+        },
+        {
+            "ID": "340",
+            "typeID": "17",
+            "question": "const和readonly有什么区别？",
+            "answer": "C#定义了两种类型的常量，一种用const关键字声明，一种用readonly关键字声明。用const声明的是真正的常量，而用readonly声明的实际上是“只读的变量”。const声明的变量在编译时进行设置并且设置后就永远不能改变，此时编译器会把所有的const常量全部替换为常数；而readonly声明的常量是在程序运行期间初始化，该操作只能进行一次。另外，const常量只能在声明中赋值，readonly常量的初始化既可以在声明中进行，也可以在构造函数中进行，使用构造函数，readonly字段可被赋予不同的值。\r\n总之，const关键字用来声明编译时的常量，readonly用来声明运行是常量。"
+        },
+        {
+            "ID": "339",
+            "typeID": "17",
+            "question": "谈谈final,finally和finalize的区别?",
+            "answer": "final是一个修饰符，如果一个类被声明为final，意味着它不能再派生出新的子类，不能作为父类被继承；而如果将变量或方法声明为final，可以保证它们在使用中不被改变。被声明为final的变量必须在声名时给定初值，而在以后的引用中只能读取，不可修改；被声明为final的方法同样也只能使用，不能重载。\r\n\r\nfinally用来在异常处理时执行任何任何清除操作，如果抛出一个异常，那么相匹配的catch子句就会执行，然后控制就会进入finally块（如果有的话）。\r\n\r\nfinalize(_)是一个方法名，是在垃圾收集器删除对象之前对这个对象调用的，它是Object类中定义的，因此所有的类都继承了它。子类覆盖finalize()方法以整理系统资源或者执行其它清理工作。"
+        },
+        {
+            "ID": "338",
+            "typeID": "17",
+            "question": "为什么在C#中我们不担心内存漏洞？",
+            "answer": "解析：考察C#的内存管理机制。C#采用垃圾回收机制来管理内存，当程序运行时，垃圾收集器在内存中建立一个托管堆，每使用一次new运算符，运行库就在上一个对象之后为新建的对象在托管堆中分配一个内存空间，垃圾收集器保存了一个指针，该指针始终指向最后一个对象的内存空间。当该指针指向托管堆以外的空间时，就需要对该托管堆中的无用内存进行回收，此时假设队中的所有的对象都需要回收。\r\n\r\n说明：垃圾回收机制是C#相对于C和C++的一大优点，它不需要程序员显示地删除动态分配给堆的内存。\r\nGC 是垃圾收集器，C#程序员不用担心内存管理，因为垃圾收集器会自行进行管理。如果要请求垃圾收集，可以使用下面的方法之一：\r\n\r\nSystem.gc()\r\n\r\nRuntime.getRuntime().gc()"
+        },
+        {
+            "ID": "337",
+            "typeID": "17",
+            "question": "什么是强类型，什么是,弱类型？",
+            "answer": "强若类型是指类型检查的严格程度，语言有无类型、弱类型和强类型三种。无类型的语言不检查且不区分指令和数据；若类型的语言检查很弱，仅能严格区分指令和数据；强类型语言则严格地在编译的时候进行检查。例如，C语言和JavaScript是若类型语言，Java和C#是强类型语言。\r\n\r\n技巧提示：编写简单小应用，使用弱类型语言可以节省代码量，有更高的开发效率；而对于构建大型项目，使用强类型语言会更加规范可靠。"
+        },
+        {
+            "ID": "336",
+            "typeID": "17",
+            "question": "概述.NET里对 remoting 和 webservice 两项技术的理解和实际中的应用?",
+            "answer": "远程逻辑调用，remoing接口只能用在.net中"
+        },
+        {
+            "ID": "335",
+            "typeID": "17",
+            "question": "概述o/r mapping 的原理?",
+            "answer": "利用反射，配置 将类于数据库表映射"
+        },
+        {
+            "ID": "334",
+            "typeID": "17",
+            "question": "在C#中有一个double型的变量，比如10321.5，比如122235401.21644，作为货币的值如何按各个不同国家的习惯来输出。比如美国用$10,321.50和$122，235，401.22而在英国则为￡10 \r\n321.50和￡122 235 401.22",
+            "answer": "System.Globalization.CultureInfo MyCulture = new \r\nSystem.Globalization.CultureInfo(“en-US“);\r\n\r\n　　//System.Globalization.CultureInfo MyCulture = new \r\nSystem.Globalization.CultureInfo(“en-GB“);为英国货币类型\r\n\r\n　　decimal y = 9999999999999999999999999999m;\r\nstring str = String.Format(MyCulture,“My amount = {0:c}“,y);"
+        },
+        {
+            "ID": "333",
+            "typeID": "17",
+            "question": "在c#中using和new这两个关键字有什么意义，请写出你所知道的意义?",
+            "answer": "Using 引入一个名子空间，或在使用了一个对像后自动调用其IDespose，New 实例化一个对像，或修饰一个方法，表此方法完全重写此方法"
+        },
+        {
+            "ID": "332",
+            "typeID": "17",
+            "question": "DataReader和DataSet的异同?",
+            "answer": "DataReader和DataSet最大的区别在于,DataReader使用时始终占用SqlConnection,在线操作数据库..任何对SqlConnection的操作都会引发DataReader的异常..因为DataReader每次只在内存中加载一条数据,所以占用的内存是很小的..因为DataReader的特殊性和高性能.所以DataReader是只进的..你读了第一条后就不能再去读取第一条了..\r\n\r\nDataSet则是将数据一次性加载在内存中.抛弃数据库连接..读取完毕即放弃数据库连接..因为DataSet将数据全部加载在内存中.所以比较消耗内存...但是确比DataReader要灵活..可以动态的添加行,列,数据.对数据库进行回传更新操作..."
+        },
+        {
+            "ID": "331",
+            "typeID": "17",
+            "question": "C#中接口和类的异同?",
+            "answer": "接口和类都是类，不同的事，接口只包含方法或属性的声明，不包含具体实现方法的代码，接口可以实现多继承，而类只能是单继承，继承接口的类必须实现接口中声明的方法或属性。接口主要定义一种规范，统一调用方法，在大型项目中接口正发挥日益重要的作用。"
+        },
+        {
+            "ID": "330",
+            "typeID": "17",
+            "question": " C#, Java 和 c++的特色，有什么相同的当地，异样的当地，C#分别从c++和java中吸取了他们那些长处？",
+            "answer": "C#看起来与Java有着惊人的类似;它包罗了比如单一承继,界面,与Java简直相同的语法,和编译成中心代码再运转的进程.可是C#与Java有着显着的异样,它学习了Delphi的一个特色,与COM(组件目标模型)是直接集成。\r\n微软c#言语界说主要是从C和C++承继而来的,而且言语中的许多元素也反映了这一点.C#在设计者从C++承继的可选选项方面比Java要广泛一些(比如说structs),它还增加了本人新的特色(比方说源代码版别界说). \r\nC#从Java承继而来的特色\r\n类:在C#中类的声明与Java很类似。特色看起来与Java比较没有改变.布尔运算:条件表达式的结果是布尔数据类型,布尔数据类型是这种言语中独立的一种数据类型.从布尔类型到其他类型没有直接的变换进程.布尔常量true和false是C#中的关键词.错误处理:如Java中那样,经过抛出和捕捉反常目标来办理错误处理进程.内存办理:由底层.NET布局进行主动内存废物收回. "
+        },
+        {
+            "ID": "329",
+            "typeID": "17",
+            "question": "讲一讲你了解的web service,在dot net framework中，怎样很好的连系xml?",
+            "answer": "从表面上看，WebService就是一个运用顺序，它向外界暴露出一个可以经过Web进行调用的API。这就是说，你可以用编程的办法经过Web调用来完成某个功用的运用顺序。从深层次上看，WebService是一种新的Web运用顺序分支，它们是自包罗、自描绘、模块化的运用，可以在网络(通常为Web)中被描绘、发布、查找以及经过Web来调用。可扩大的符号言语XML　是WebService平台中表明数据的根本格局。除了易于树立和易于剖析外，XML首要的长处在于它既与平台无关，又与厂商无关。XML是由万维网协会(W3C)创立，W3C拟定的XMLSchemaXSD　界说了一套标准的数据类型，并给出了一种言语来扩大这套数据类型。WebService平台是用XSD来作为数据类型体系的。当你用某种言语如VB.NET或C#　来布局一个Web Service时，为了契合WebService标准，一切你运用的数据类型都有必要被变换为XSD类型。如想让它运用在异样平台和异样软件的异样安排间传递，还需求用某种东西将它包装起来。这种东西就是一种协议，如SOAP。"
+        },
+        {
+            "ID": "328",
+            "typeID": "17",
+            "question": "C#中 property 与 attribute的差异，他们各有什么用途，这种机制的长处在哪里？",
+            "answer": "property和attribute汉语都称之为特色。\r\n不过property是指类向外供给的数据区域。\r\n而attribute则是描绘目标在编译时或运转时特色的。这两者是有本质差异的。"
+        },
+        {
+            "ID": "88",
+            "typeID": "17",
+            "question": "什么是XML？",
+            "answer": "XML即可扩展标记语言。eXtensible Markup Language.标记是指计算机所能理解的信息符号，通过此种标记，计算机之间可以处理包含各种信息的文章等。如何定义这些标记，即可以选择国际通用的标记语言，比如HTML，也可以使用象XML这样由相关人士自由决定的标记语言，这就是语言的可扩展性。XML是从SGML中简化修改出来的。它主要用到的有XML、XSL和XPath等。"
+        },
+        {
+            "ID": "87",
+            "typeID": "17",
+            "question": "什么是虚函数？什么是抽像函数？",
+            "answer": "虚函数：可由子类继承并重写的函数。抽像函数：规定其非虚子类必须实现的函数，必须被重写。"
+        },
+        {
+            "ID": "86",
+            "typeID": "17",
+            "question": "什么是反射？",
+            "answer": "动态获取程序集信息"
+        },
+        {
+            "ID": "85",
+            "typeID": "17",
+            "question": "软件开发过程一般有几个阶段？每个阶段的作用？",
+            "answer": "需求分析，架构设计，代码编写，QA，部署"
+        },
+        {
+            "ID": "84",
+            "typeID": "17",
+            "question": "堆和栈的区别？",
+            "answer": "栈是编译期间就分配好的内存空间，因此你的代码中必须就栈的大小有明确的定义；堆是程序运行期间动态分配的内存空间，你可以根据程序的运行情况确定要分配的堆内存的大小"
+        },
+        {
+            "ID": "83",
+            "typeID": "17",
+            "question": "进程和线程的区别？",
+            "answer": "进程是系统进行资源分配和调度的单位；线程是CPU调度和分派的单位，一个进程可以有多个线程，这些线程共享这个进程的资源。\r\n"
+        },
+        {
+            "ID": "82",
+            "typeID": "17",
+            "question": "Session有什么重大BUG，微软提出了什么方法加以解决？",
+            "answer": "是iis中由于有进程回收机制，系统繁忙的话Session会丢失，可以用Sate server或SQL Server数据库的方式存储Session不过这种方式比较慢，而且无法捕获Session的END事件。"
+        },
+        {
+            "ID": "81",
+            "typeID": "17",
+            "question": "如何处理几十万条并发数据？",
+            "answer": "用存储过程或事务。取得最大标识的时候同时更新..注意主键不是自增量方式这种方法并发的时候是不会有重复主键的..取得最大标识要有一个存储过程来获取."
+        },
+        {
+            "ID": "80",
+            "typeID": "17",
+            "question": "谈谈final, finally, finalize的区别",
+            "answer": "inal－修饰符（关键字）如果一个类被声明为final，意味着它不能再派生出新的子类，不能作为父类被继承。因此 一个类不能既被声明为 abstract的，又被声明为final的。将变量或方法声明为final，可以保证它们在使用中 不被改变。被声明为final的变量必须在声明时给定初值，而在以后的引用中只能读取，不可修改。被声明为 final的方法也同样只能使用，不能重载\r\nfinally－再异常处理时提供 finally 块来执行任何清除操作。如果抛出一个异常，那么相匹配的 catch 子句就会 执行，然后控制就会进入 finally 块（如果有的话）。\r\nfinalize－方法名。Java 技术允许使用 finalize() 方法在垃圾收集器将对像从内存中清除出去之前做必要的清理 工作。这个方法是由垃圾收集器在确定这个对象没有被引用时对这个对象调用的。它是在 Object 类中定义的 ，因此所有的类都继承了它。子类覆盖 finalize() 方法以整理系统资源或者执行其他清理工作。finalize() 方法是在垃圾收集器删除对像之前对这个对象调用的。"
+        },
+        {
+            "ID": "79",
+            "typeID": "17",
+            "question": "接口是否可继承接口? 抽像类是否可实现(implements)接口? 抽像类是否可继承实体类(concrete class)?",
+            "answer": "接口可以继承接口。抽像类可以实现(implements)接口，抽像类是否可继承实体类，但前提是实体类必须有明确的构造函数。"
+        },
+        {
+            "ID": "78",
+            "typeID": "17",
+            "question": "启动一个线程是用run()还是start()?",
+            "answer": "启动一个线程是调用start()方法，使线程所代表的虚拟处理机处于可运行状态，这意味着它可以由JVM调度并执行。这并不意味着线程就会立即运行。run()方法可以产生必须退出的标志来停止一个线程。"
+        },
+        {
+            "ID": "77",
+            "typeID": "17",
+            "question": "abstract class和interface有什么区别?",
+            "answer": "声明方法的存在而不去实现它的类被叫做抽像类（abstract class），它用于要创建一个体现某些基本行为的类，并为该类声明方法，但不能在该类中实现该类的情况。不能创建abstract 类的实例。然而可以创建一个变量，其类型是一个抽像类，并让它指向具体子类的一个实例。不能有抽像构造函数或抽像静态方法。Abstract 类的子类为它们父类中的所有抽像方法提供实现，否则它们也是抽像类为。取而代之，在子类中实现该方法。知道其行为的其它类可以在类中实现这些方法。\r\n接口（interface）是抽像类的变体。在接口中，所有方法都是抽像的。多继承性可通过实现这样的接口而获得。接口中的所有方法都是抽像的，没有一个有程序体。接口只可以定义static final成员变量。接口的实现与子类相似，除了该实现类不能从接口定义中继承行为。当类实现特殊接口时，它定义（即将程序体给予）所有这种接口的方法。然后，它可以在实现了该接口的类的任何对像上调用接口的方法。由于有抽像类，它允许使用接口名作为引用变量的类型。通常的动态联编将生效。引用可以转换到接口类型或从接口类型转换，instanceof 运算符可以用来决定某对象的类是否实现了接口。"
+        },
+        {
+            "ID": "76",
+            "typeID": "17",
+            "question": "String s = new String(\"xyz\");创建了几个String Object?",
+            "answer": "两个对象，一个是“xyx”,一个是指向“xyx”的引用对像s。"
+        },
+        {
+            "ID": "75",
+            "typeID": "17",
+            "question": "GC是什么? 为什么要有GC?",
+            "answer": "GC是垃圾收集器。程序员不用担心内存管理，因为垃圾收集器会自动进行管理。要请求垃圾收集，可以调用下面的方法之一： \r\nSystem.gc()\r\nRuntime.getRuntime().gc()"
+        },
+        {
+            "ID": "74",
+            "typeID": "17",
+            "question": "公司要求开发一个继承System.Windows.Forms.ListView类的组件，要求达到以下的特殊功能：点击ListView各列列头时，能按照点击列的每行值进行重排视图中的所有行 (排序的方式如DataGrid相似)。根据您的知识，请简要谈一下您的思路",
+            "answer": "根据点击的列头,包该列的名称取出,按照该列名排序后,再绑定到ListView中。"
+        },
+        {
+            "ID": "73",
+            "typeID": "17",
+            "question": "net Remoting 的工作原理是什么？",
+            "answer": "服务器端向客户端发送一个进程编号，一个程序域编号，以确定对象的位置。"
+        },
+        {
+            "ID": "72",
+            "typeID": "17",
+            "question": "常用的调用WebService的方法有哪些？",
+            "answer": "1.使用WSDL.exe命令行工具。\r\n2.使用VS.NET中的Add Web Reference菜单选项"
+        },
+        {
+            "ID": "71",
+            "typeID": "17",
+            "question": "在.net中，配件的意思是？",
+            "answer": "程序集。（中间语言，源数据，资源，装配清单）"
+        },
+        {
+            "ID": "70",
+            "typeID": "17",
+            "question": "求以下表达式的值，写出您想到的一种或几种实现方法： 1-2+3-4+……+m",
+            "answer": "法一：\r\nint sum=0;\r\nbool flag=true;\r\nfor(int i=1;i<=m;i++)\r\n{\r\n   if(flag)\r\n      sum+=i;\r\n   else\r\n      sum-=i;\r\n   flag=!flag;\r\n}\r\nreturn sum;\r\n\r\n法二：\r\n\r\nif((m%2)>0)\r\n   return m/2;\r\nelse\r\n   return -m/2;\r\n"
+        },
+        {
+            "ID": "69",
+            "typeID": "17",
+            "question": "请编程实现一个冒泡排序算法？",
+            "answer": "int [] array = new int [*] ;\r\nint temp = 0 ;\r\nfor (int i = 0 ; i < array.Length - 1 ; i++)\r\n{\r\nfor (int j = i + 1 ; j < array.Length ; j++)\r\n{\r\nif (array[j] < array[i])\r\n{\r\ntemp = array[i] ;\r\narray[i] = array[j] ;\r\narray[j] = temp ;\r\n}\r\n}\r\n}"
+        },
+        {
+            "ID": "68",
+            "typeID": "17",
+            "question": "请编程遍历页面上所有TextBox控件并给它赋值为string.Empty？",
+            "answer": "foreach (Control control in this.Controls)\r\n{\r\nif (control is TextBox)\r\n{\r\nTextBox tb = (TextBox)control ; \r\ntb.Text = String.Empty ;\r\n}\r\n}"
+        },
+        {
+            "ID": "67",
+            "typeID": "17",
+            "question": "如果在一个B/S结构的系统中需要传递变量值，但是又不能使用Session、Cookie、Application，您有几种方法进行处理？",
+            "answer": "QueryString、 this.Server.Transfer,服务端cach，数据库"
+        },
+        {
+            "ID": "66",
+            "typeID": "17",
+            "question": "override与重载的区别?",
+            "answer": "override 与重载的区别。重载是方法的名称相同。参数或参数类型不同，进行多次重载以适应不同的需要  override 是进行基类中函数的重写。为了适应需要。"
+        },
+        {
+            "ID": "65",
+            "typeID": "17",
+            "question": "C#中的委托是什么？事件是不是一种委托？",
+            "answer": " 委托可以把一个方法作为参数代入另一个方法。\r\n        委托可以理解为指向一个函数的引用。\r\n        是，是一种特殊的委托"
+        }
+    ]
+
+

@@ -1,0 +1,88 @@
+[
+        {
+            "ID": "1189",
+            "typeID": "20",
+            "question": "Ruby的特色是什么？",
+            "answer": "Ruby是一种功能强大的面向对象的脚本语言，可以使用它方便快捷地进行面向对象程序设计。与Perl类似，而且Ruby具有强大的文本处理功能，使文本处理变得简单。此外还可以方便地使用C语言来扩展Ruby的功能。\r\n若您曾经“想要一种简单的面向对象的语言”，或者认为“Perl的功能虽然好用，但它的语法真让人受不了”，又或者觉得“LISP系列语言的思想不错，但到处都是括号真让人讨厌，最起码算式应该按照通常的样式书写”。那么，Ruby或许能让您满意。\r\n\r\n归纳起来，Ruby有以下优点：\r\n 解释型执行，方便快捷\r\nRuby是解释型语言，其程序无需编译即可执行。\r\n 语法简单、优雅\r\n语法比较简单，类似Algol系语法。\r\n 完全面向对象\r\nRuby从一开始就被设计成纯粹的面向对象语言，因此所有东西都是对象，例如整数等基本数据类型。\r\n 内置正则式引擎，适合文本处理\r\nRuby支持功能强大的字符串操作和正则表达式检索功能，可以方便的对字符串进行处理。\r\n 自动垃圾收集\r\n具有垃圾回收（Garbage Collect，GC）功能，能自动回收不再使用的对象。不需要用户对内存进行管理。\r\n 跨平台和高度可移植性\r\nRuby支持多种平台，在Windows, Unix, Linux, MacOS上都可以运行。Ruby程序的可移植性非常好，绝大多数程序可以不加修改的在各种平台上加以运行。\r\n 有优雅、完善的异常处理机制\r\nRuby提供了一整套异常处理机制，可以方便优雅地处理代码处理出错的情况。\r\n 拥有很多高级特性\r\nRuby拥有很多高级特性，例如操作符重载、Mix-ins、特殊方法等等，是用这些特性可以方便地完成各种强大的功能。"
+        },
+        {
+            "ID": "1188",
+            "typeID": "20",
+            "question": "Ruby如何实现动态方法调用?",
+            "answer": "在Ruby中，有多种方法可以实现方法的动态调用。\r\n1. 使用send方法\r\n第一种实现动态方法调用是使用send方法，send方法在Object类中定义，方法的第一个参数是一个符号用来表示所要调用的方法，后面则是所调用方法需要的参数。\r\n“This is a dog1″.send(:length) => 14\r\n上面的代码中通过send方法去对一个字符串执行length操作，返回字符串的长度。\r\n\r\nclass TestClass\r\n def hello(*args)\r\n  ”Hello ” + args.join(‘ ‘)\r\n end\r\nend\r\n\r\na = TestClass.new\r\nputs a.send :hello, “This”, “is”, “a”, “dog!”\r\n\r\n执行结果为：\r\nHello This is a dog!\r\n\r\n2. 使用Method类和UnboundMethod类\r\n另一种实现动态方法调用是使用Object类的method方法，这个方法返回一个Method类的对象。我们可以使用call方法来执行方法调用。\r\ntest1 = “This is a dog1″.method(:length)\r\ntest1.call  => 14\r\n\r\nclass Test\r\n def initialize(var)\r\n  @var = var\r\n end\r\n \r\n def hello()\r\n  ”Hello, @var = #{@var}”\r\n end\r\nend\r\n\r\nk = Test.new(10)\r\nm = k.method(:hello)\r\nm.call   #=> “Hello, @iv = 99″\r\n\r\nl = Test.new(‘Grant’)\r\nm = l.method(“hello”)\r\nm.call   #=> “Hello, @iv = Fred”\r\n\r\n可以在使用对象的任何地方使用method对象，当调用call方法时，参数所指明的方法会被执行，这种行为有些像Ｃ语言中的函数指针。你也可以把method对象作为一个迭代器使用。\r\ndef square(a)\r\n a*a\r\nend\r\n\r\nmObj = method(:square)\r\n[1, 2, 3, 4].collect(&mObj)  => [1 4 9 16]\r\n\r\nMethod对象都是和某一特定对象绑定的，也就是说你需要通过某一对象使用Method对象。你也可以通过UnboundMethod类创建对象，然后再把它绑定到某个具体的对象中。如果UnboundMethod对象调用时尚未绑定，则会引发异常。\r\nclass Double\r\n def get_value\r\n  2 * @side\r\n end\r\n \r\n  def initialize(side)\r\n   @side = side\r\n  end\r\nend\r\n\r\na = Double.instance_method(:get_value) #返回一个UnboundMethod对象\r\ns = Double.new(50)\r\nb = a.bind(s)\r\nputs b.call\r\n\r\n执行结果为：\r\n100\r\n\r\n看下面一个更具体的例子：\r\nclass CommandInterpreter\r\ndef do_2() print “This is 2\r\n”; end\r\n def do_1() print “This is 1\r\n”; end\r\n def do_4() print “This is 4\r\n”; end\r\n def do_3() print “This is 3\r\n”; end\r\n  \r\n Dispatcher = {\r\n   ?2 => instance_method(:do_2),\r\n   ?1 => instance_method(:do_1),\r\n   ?4 => instance_method(:do_4),\r\n   ?3 => instance_method(:do_3)\r\n }\r\n\r\n def interpret(string)\r\n   string.each_byte {|i| Dispatcher[i].bind(self).call }\r\n  end\r\nend\r\n\r\ninterpreter = CommandInterpreter.new\r\ninterpreter.interpret(’1234′)\r\n\r\n执行结果为：\r\nThis is 1\r\nThis is 2\r\nThis is 3\r\nThis is 4\r\n\r\n3. 使用eval方法\r\n我们还可以使用eval方法实现方法动态调用。eval方法在Kernel模块中定义，有多种变体如class_eval，module_eval，instance_eval等。Eval方法将分析其后的字符串参数并把这个字符串参数作为Ruby代码执行。\r\nstr = “Hello”\r\neval “str + ‘ World!’” => Hello World!\r\n\r\nsentence = %q{“This is a test!”.length}\r\neval sentence => 15\r\n当我们在使用eval方法时，我们可以通过eval方法的第二个参数指明eval所运行代码的上下文环境，这个参数可以是Binding类对象或Proc类对象。Binding类封装了代码在某一环境运行的上下文，可以供以后使用。\r\nclass BindingTest\r\n def initialize(n)\r\n   @value = n\r\n end\r\n\r\n def getBinding\r\n   return binding() #使用Kernel#binding方法返回一个Binding对象\r\n  end\r\nend\r\n\r\nobj1 = BindingTest.new(10)\r\nbinding1 = obj1.getBinding\r\nobj2 = BindingTest.new(“Binding Test”)\r\nbinding2 = obj2.getBinding\r\n\r\nputs eval(“@value”, binding1)  #=> 10\r\nputs eval(“@value”, binding2)  #=> Binding Test\r\nputs eval(“@value”)     #=> nil\r\n\r\n可以看到上述代码中，@value在binding1所指明的上下文环境中值为10，在binding2所指明的上下文环境中值为Binding Test。当eval方法不提供binding参数时，在当前上下文环境中@value并未定义，值为nil。\r\n"
+        },
+        {
+            "ID": "1187",
+            "typeID": "20",
+            "question": "Ruby 的状态模式是什么？",
+            "answer": "目的：在一个对象内部状态改变时改变它的行为， 一般做法是在方法里用大量if else， 在状态特别多的时候不可取，而且添加或删除一个状态的时候变的困难\r\n\r\n状态模式属于行为模式，行为模式是对类或对象怎样交互和怎样分配职责进行描述。\r\n\r\n适用场景：\r\n\r\n1、 一个对象的行为取决于他的状态， 并且必须在运行时刻根据状态改变它的行为\r\n2、一个操作包含庞大的多分支条件语句， 并且这些分支依赖于对象的状态\r\n\r\n状态转换的地点可在Context中也可以在State子类中， 在State中转换更灵活，更容易修改和扩展逻辑， 但需要context增加一个借口给State修改状态，也使各个State子类产生耦合;\r\n\r\n\r\n"
+        },
+        {
+            "ID": "1186",
+            "typeID": "20",
+            "question": "解释一下ruby中的特殊方法与特殊类?",
+            "answer": "特殊方法是指某实例所特有的方法。一个对象有哪些行为由对向所属的类决定，但是有时候，一些特殊的对象有何其他对象不一样的行为，在多数程序设计语言中，例如C++和Java，我们必须定义一个新类，但在Ruby中，我们可以定义只从属于某个特定对象的方法，这种方法我们成为特殊方法(Singleton Method)。\r\n\r\nclass SingletonTest\r\n  def info\r\n   puts “This is This is SingletonTest method”\r\n  end\r\nend\r\n\r\nobj1 = SingletonTest.new\r\nobj2 = SingletonTest.new\r\n\r\ndef obj2.info\r\n  puts “This is obj2″\r\nend\r\n\r\nobj1.info\r\nobj2.info\r\n\r\n 执行结果为：\r\nThis is This is SingletonTest method\r\nThis is obj2\r\n\r\n有时候，我们需要给一个对象定义一系列的特殊方法，如果按照前面的方法，那么只能一个一个定义：\r\n\r\ndef obj2.singleton_method1\r\nend\r\n\r\ndef obj2.singleton_method2\r\nend\r\n\r\ndef obj2.singleton_method3\r\nend\r\n……\r\ndef obj2.singleton_methodn\r\nend\r\n\r\n这样做非常繁复麻烦，而且无法给出一个统一的概念模型，因此Ruby提供了另外一种方法，\r\nclass << obj\r\n……\r\nend\r\n\r\nobj是一个具体的对象实例，class << 代表它的特殊类。\r\n\r\nclass SingletonTest\r\n  def meth1\r\n   puts “This is meth1″\r\n  end\r\n\r\n  def meth2\r\n   puts “This is meth2″\r\n  end\r\nend\r\n\r\nobj1 = SingletonTest.new\r\nobj2 = SingletonTest.new\r\n\r\nclass << obj2\r\n  def meth1\r\n   puts “This is obj2′s meth1″\r\n  end\r\n \r\n  def meth2\r\n   puts “This is obj2′s meth2″\r\n  end\r\nend\r\n\r\nobj1.meth1\r\nobj1.meth2\r\nobj2.meth1\r\nobj2.meth2\r\n\r\n执行结果为：\r\nThis is meth1\r\nThis is meth2\r\nThis is obj2′s meth1\r\nThis is obj2′s meth2\r\n"
+        },
+        {
+            "ID": "1185",
+            "typeID": "20",
+            "question": "Ruby如何定义一个类?",
+            "answer": "类是对具有同样属性和同样行为的对象的抽象，Ruby中类的声明使用class关键字。定义类的语法如下，\r\n  class ClassName\r\n   def method_name(variables)\r\n    #some code\r\n   end\r\n  end\r\n类的定义要在class…end之间，在上面的格式中，ClassName是类名，类名必须以大写字母开始，也就是说类名要是个常量。\r\n\r\n看下面的例子：\r\nclass Person\r\ndef initialize(name, gender, age)\r\n @name = name\r\n @gender = gender\r\n@age = age\r\nend\r\nend\r\n\r\n若某个类已经被定义过，此时又用相同的类名进行类定义的话，就意味着对原有的类的定义进行追加。\r\n\r\nclass Test\r\n  def meth1\r\n   puts “This is meth1″\r\n  end\r\nend\r\n\r\nclass Test\r\n  def meth2\r\n   puts “This is meth2″\r\n  end\r\nend\r\n\r\n在Test类中，原有meth1方法，我们又追加了meth2方法，这时候，对于Test类的对象，meth1和meth2同样可用。\r\n"
+        },
+        {
+            "ID": "1184",
+            "typeID": "20",
+            "question": "为什么说Ruby是一种真正的面向对象程序设计语言?",
+            "answer": "在Ruby中，所操作的一切都是对象，操作的结果也是对象。\r\n很多语言都说自己是面向对象的，但是他们往往对面向对象的解释都一样，大多是以自己特有的方式来解释什么是面向对象，而在实际情况中，这些面向对象语言又采用了很多非面向对象的做法。\r\n以 Java 为例：如果你想取一个数字取绝对值，java 的做法是：\r\nint num = Math.abs(-99);\r\n也就是将一个数值传递给 Math 类的一个静态函数 abs 处理。为什么这么做?因为在 java 中，数值是基本类型不是类。\r\n而在 Ruby 中，任何事物都是对象，也就是说，数字–99就是对象，取绝对值这样的操作应该属于数字本身，所以Ruby的做法就是：\r\nc = -99.abs"
+        },
+        {
+            "ID": "1183",
+            "typeID": "20",
+            "question": "介绍一下Ruby的特点？",
+            "answer": "Ruby是一种功能强大的面向对象的脚本语言，可以使用它方便快捷地进行面向对象程序设计。与Perl类似，而且Ruby具有强大的文本处理功能，使文本处理变得简单。此外还可以方便地使用C语言来扩展Ruby的功能。\r\n若您曾经“想要一种简单的面向对象的语言”，或者认为“Perl的功能虽然好用，但它的语法真让人受不了”，又或者觉得“LISP系列语言的思想不错，但到处都是括号真让人讨厌，最起码算式应该按照通常的样式书写”。那么，Ruby或许能让您满意。\r\n\r\n归纳起来，Ruby有以下优点：\r\n解释型执行，方便快捷\r\nRuby是解释型语言，其程序无需编译即可执行。\r\n语法简单、优雅\r\n语法比较简单，类似Algol系语法。\r\n完全面向对象\r\nRuby从一开始就被设计成纯粹的面向对象语言，因此所有东西都是对象，例如整数等基本数据类型。\r\n内置正则式引擎，适合文本处理\r\nRuby支持功能强大的字符串操作和正则表达式检索功能，可以方便的对字符串进行处理。\r\n自动垃圾收集\r\n具有垃圾回收（Garbage Collect，GC）功能，能自动回收不再使用的对象。不需要用户对内存进行管理。\r\n跨平台和高度可移植性\r\nRuby支持多种平台，在Windows, Unix, Linux, MacOS上都可以运行。Ruby程序的可移植性非常好，绝大多数程序可以不加修改的在各种平台上加以运行。\r\n有优雅、完善的异常处理机制\r\nRuby提供了一整套异常处理机制，可以方便优雅地处理代码处理出错的情况。\r\n拥有很多高级特性\r\nRuby拥有很多高级特性，例如操作符重载、Mix-ins、特殊方法等等，是用这些特性可以方便地完成各种强大的功能。\r\n\r\n同时，由于是解释型语言，Ruby也有下列缺点：\r\n解释型语言，所以速度较慢\r\n静态检查比较少\r\n"
+        },
+        {
+            "ID": "1182",
+            "typeID": "20",
+            "question": "介绍一下Ruby中的对象，属性和方法？",
+            "answer": "在Ruby中，除去内部类的对象以外，通常对象的构造都是动态确定的。某对象的性质由其内部定义的方法所决定。\r\n看下面的例子，我们使用new方法构造一个新的对象，\r\n\r\nclass Person\r\ndef initialize(name, gender, age)\r\n @name = name\r\n @gender = gender\r\n@age = age\r\nend\r\nend\r\n people = Person.new(‘Tom’, ‘male’, 15)\r\n\r\n我们可以使用Person.new方法来创建一个Person类的实例对象。以@打头的变量是实例变量，他们从属于某一实例对象，Ruby中实例变量的命名规则是变量名以@开始，您只能在方法内部使用它。\r\ninitialize方法使对象变为“就绪”状态，initialize方法是一个特殊的方法，这个方法在构造实例对象时会被自动调用。\r\n对实例进行初始化操作时，需要重定义initialize方法。类方法new的默认的行为就是对新生成的实例执行initialize方法，传给new方法的参数会被原封不动地传给initialize方法。另外，若带块调用时，该块会被传给initialize方法。因此，不必对new方法进行重定义。\r\n在Ruby中，只有方法可以操作实例变量，因此可以说Ruby中的封装是强制性的。在对象外部不可以直接访问，只能通过接口方法访问。\r\n\r\nclass Person\r\n  def name\r\n   @name\r\n  end\r\n\r\n  def gender\r\n   @gender\r\n  end\r\n\r\n  def age\r\n   @age\r\n  end\r\nend\r\n\r\npeople = Person.new(‘Tom’, ‘male’, 15)\r\nputs people.name\r\nputs people.gender\r\nputs people.age\r\n\r\n输出结果为：\r\nTom\r\nmale\r\n15\r\n\r\n在Ruby中，一个对象的内部属性都是私有的。 上面的代码中，我们定义了方法name，gender，age三个方法用来访问Person类实例对象的实例变量。注意name，gender，age访问只能读取相应实例变量，而不能改变它们的值。\r\n\r\n我们也可以用成员变量只读控制符attr_reader来达到同样的效果。\r\nclass Person\r\n  attr_reader :name, :gender, :age\r\nend\r\n\r\n类似地，我们可以定义方法去改变成员变量的值。\r\nclass Person\r\n  def name=(name)\r\n   @name=name\r\n  end\r\n\r\n  def gender=(gender)\r\n   @gender=gender\r\n  end\r\n\r\n  def age=(age)\r\n   @age=age\r\n  end\r\nend\r\npeople = Person.new(‘Tom’, ‘male’, 15)\r\npeople.name = “Henry”\r\npeople.gender = “male”\r\npeople.age  = 25\r\n\r\n也可以用成员变量写控制符attr_writer来达到同样的效果。\r\nclass Person\r\n  attr_writer :name, :gender, :age\r\nend\r\n\r\n我们也可以使用attr_accessor来说明成员变量既可以读，也可以写。\r\nclass Person\r\n  attr_accessor :name, :gender, :age\r\nend\r\n\r\n也可以使用attr控制符来控制变量是否可读写。attr 只能带一个符号参数， 第二个参数是一个 bool 参数，用于指示是否为符号参数产生写方法。它的默认值是 false，只产生读方法，不产生写方法。\r\nclass Person\r\n  attr :name, true  #读写\r\n  attr :gender, true #读写\r\n  attr :age, true  #读写\r\n  attr :id, false      #只读\r\nend\r\n\r\n注意attr_reader，attr_writer，attr_accessor和attr不是语言的关键字，而是Module模块的方法。\r\n\r\nclass Test\r\n  attr_accessor :value\r\nend\r\nputs Test.instance_methods – Test.superclass.public_methods\r\n\r\n执行结果为：\r\nvalue\r\nvalue=\r\n\r\n上面代码中，我们使用Test.instance_methods得到Test类所有的实例方法，使用Test.superclass.public_methods得到Test父类所有的实例方法，然后相减就得到Test类不包含父类的所有的实例方法。\r\n由于instance_methods方法返回值为一个Array，所以我们作差值运算。\r\n\r\n也可以重定义方法，重定义一个方法时，新的定义会覆盖原有的定义。\r\n\r\n下面的例子重定义类中的方法meth1，\r\nclass Test\r\n  def meth1\r\n   puts “This is meth1″\r\n  end\r\nend\r\n\r\na = Test.new\r\na.meth1\r\n\r\nclass Test\r\n  def meth1\r\n   puts “This is new meth1″\r\n  end\r\nend\r\n\r\na. meth1\r\n\r\n执行结果为：\r\nThis is meth1\r\nThis is new meth1\r\n\r\n重定义同一个类时，意味着对原有定义进行补充，不会覆盖原来的定义。而重定义方法时，则会覆盖原有定义。\r\n\r\n我们可以使用self标识本身，self和Java中的this有些类似，代表当前对象。\r\nclass Person\r\ndef initialize(name, gender, age)\r\n @name = name\r\n @gender = gender\r\n@age = age\r\nend\r\n\r\ndef (other)\r\n self.age other.age\r\nend\r\nend\r\n\r\n方法通常意思为比较，返回值为-1，0或1分别表示小于，等于和大于。\r\n\r\n"
+        },
+        {
+            "ID": "1181",
+            "typeID": "20",
+            "question": "如何安装ruby on rails？",
+            "answer": "在安装rails之前，要先安装rubygems。rubygems是ruby的在线包管理工具，可以从rubyforge下载rubygems：\r\n\r\nhttp://rubyforge.org/projects/rubygems/\r\n\r\n下载好源代码包，解压缩，安装：\r\ntar xzvf rubygems-0.9.0.tgz\r\ncd rubygems-0.9.0/\r\nruby setup.rb\r\n\r\n然后就可以安装rails了，在确认服务器已经连接互联网的情况下执行：\r\ngem install rails –y\r\n即通过gem从rubyforge网站下载rails所有依赖包安装。\r\n\r\n安装好rails以后，可以执行：\r\nrails –v\r\n确认一下rails的版本。\r\n"
+        },
+        {
+            "ID": "1180",
+            "typeID": "20",
+            "question": "Ruby能进行多重继承吗?",
+            "answer": "Ruby继承的语法很简单，使用 < 即可。\r\n\r\nRuby语言只支持单继承，每一个类都只能有一个直接父类。这样避免了多继承的复杂度。\r\n\r\n但同时，Ruby提供了mixin的机制可以用来实现多继承。"
+        },
+        {
+            "ID": "1179",
+            "typeID": "20",
+            "question": "Ruby如何创建一个线程?",
+            "answer": "可以使用Thread.new方法去创建一个线程，可以随后代码块中列出线程执行的代码：\r\nx = Thread.new { sleep 0.1; print “x”; print “y”; print “z” }\r\na = Thread.new { print “a”; print “b”; sleep 0.2; print “c” }\r\n\r\n执行结果为：\r\nab\r\n\r\n上面的示例程序中使用Thread.new创建了二个线程，线程随即开始运行。但是运行结果很奇怪，为什么程序运行结果是“ab”呢?我们预期的执行结果应该是 “abxyzc”。\r\n当Ruby程序执行完毕的时候，他会杀掉所有的线程，不管其它的线程的运行状态如何。如果没有使用join方法，那么主程序执行完毕后会把所有没有执行完毕的线程杀掉。\r\n上面的实例程序中，当主程序运行完毕时，两个线程都没有运行结束就被中止掉了。我们可以使用join方法来让主程序等待某个特定线程结束，对每一个线程使用join方法，可以确保在程序结束前所有的线程可以运行完毕。\r\n\r\nx = Thread.new { sleep 0.1; print “x”; print “y”; print “z” }\r\na = Thread.new { print “a”; print “b”; sleep 0.2; print “c” }\r\nx.join\r\na.join\r\n\r\n我们使用Thread.new方法创建两个新的线程并开始运行, 然后使用join方法等待线程结束。执行结果为：\r\nabxyzc\r\n可以看到通过使用join方法等待线程结束，程序运行结果和我们预期结果相符。\r\n\r\n另一个例子：\r\nx = Thread.new { sleep 0.1; print “x”; print “y”; print “z” }\r\na = Thread.new { sleep 0.1; print “a”; print “b”; sleep 0.2; print “c” }\r\n执行没有任何输出，因为主程序执行完毕杀死两个线程的时候这两个线程没有运行到输出语句。\r\n\r\n也可以给join方法添加时间用来指明最大等待时间。如果超时join返回nil。\r\nx = Thread.new { sleep 0.1; print “x”; print “y”; print “z” }\r\na = Thread.new { sleep 0.1; print “a”; print “b”; sleep 10; print “c” }\r\n\r\nx.join(5)\r\na.join(5)\r\n\r\n 执行结果为：\r\n abxyz\r\n\r\n 上面的例子中对于每一个线程的最大等待时间是5秒，由于a线程需要执行10秒以上，所以a线程没有运行完毕程序就将返回。\r\n"
+        },
+        {
+            "ID": "1178",
+            "typeID": "20",
+            "question": "介绍一下Ruby的多线程处理？",
+            "answer": "Ruby的多线程是用户级多线程，这样使得Ruby的多线程移植非常容易，你并不需关心具体的操作系统；这样做也使线程容易控制，程序不容易产生死锁这类严重的线程问题。\r\n但是同时，由于Ruby的多线程并不是真正意义上的操作系统级多线程，不管代码使用了多少个Thread类的实例，都只会在启动解释器这一个进程内执行，由Ruby解释器进行具体的线程切换管理，其效率要低于由操作系统管理线程的效率，且不能使用多个CPU。\r\n在Ruby中同时做多件事最简单的方式就是使用Thread类，Thread类提供了一种高效和轻量级的手段来同时处理多件任务。\r\nThread类由Ruby解释器具体实现，提供了一种同时处理多个任务的方法， Thread类实现的并不是操作系统级多线程。\r\nRuby多线程的优点和缺点同样明显，缺点是效率不如操作系统级多线程，不能使用多个CPU，但其优点也很明显，即可移植性很高。这就需要设计人员综合考虑。\r\n"
+        },
+        {
+            "ID": "1177",
+            "typeID": "20",
+            "question": "Ruby如何进行文件操作? 请用代码表示",
+            "answer": "Ruby使用File类来操作文件，可以通过File.new来创建一个File类的实例并打开这个文件。\r\nfile = File.new(“testfile”, “r”)\r\n# … process the file\r\nfile.close\r\ntestfile是想要操作的文件名，”r”说明了文件的操作模式为读取。可以使用”w”表示写入，”rw”表示读写。\r\n\r\n最后要记得关闭打开的文件，确保所有被缓冲的数据被写入文件，所有相关的资源被释放。\r\n\r\n也可以使用File.open来打开文件，open和new的不同是open可以使用其后的代码块而new方法则返回一个File类的实例。\r\nFile.open(“testfile”, “r”) do |file|\r\n# … process the file\r\nend\r\n\r\nopen操作的另一个优点是处理了异常，如果处理一个文件发生错误抛出了\r\n异常的话，那么open操作会自动关闭这个文件，下面是open操作的大致实现：\r\nclass File\r\ndef File.open(*args)\r\nresult = f = File.new(*args)\r\nif block_given?\r\nbegin\r\nresult = yield f\r\nensure\r\nf.close\r\nend\r\nend\r\nreturn result\r\nend\r\nend\r\n\r\n 对于文件的路径，Ruby会在不同的操作系统间作转换。例如，在Windows下，/ruby/sample/test.rb会被转化为\r\nubysampleest.rb。当你使用字符串表示一个Windows下的文件时，请记住使用反斜线先转义：\r\n “c:\rubysample\test.rb”\r\n也可以使用File::SEPARATOR表示不同系操作统的路径分割符。"
+        },
+        {
+            "ID": "1176",
+            "typeID": "20",
+            "question": "Ruby中一切都是对象，那么Ruby中类也是对象吗?",
+            "answer": "没错，类也是对象，这是Ruby和C++/Java的一个显著不同，在C++/Java中，类仅仅是一个数据抽象，并没有类也是对象这样的概念。而在Ruby中存在着元类的概念，类也是对象，所有类都是元类的实例对象。和C++/Java相比，Ruby的面向对象程度更高。\r\n可以看到，类对象和实例对象一样有自己的ojbect_id，你可以象调用一个实例对象的方法一样去用它去调用类方法。所有类对象的类是Class类，Oject类是所有类的基类。\r\nirb(main):003:0> Object.class\r\n=> Class\r\nirb(main):004:0> Object.superclass\r\n=> nil"
+        }
+    ]
+
+

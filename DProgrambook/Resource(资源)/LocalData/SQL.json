@@ -1,0 +1,286 @@
+[
+        {
+            "ID": "522",
+            "typeID": "16",
+            "question": "维护数据库的完整性、一致性、你喜欢用触发器还是自写业务逻辑?为什么?",
+            "answer": "尽可能用约束（包括CHECK、主键、唯一键、外键、非空字段）实现，这种方式的效率最好；其次用触发器，这种方式可以保证无论何种业务系统访问数据库都能维持数据库的完整性、一致性；最后再考虑用自写业务逻辑实现，但这种方式效率最低、编程最复杂，当为下下之策。"
+        },
+        {
+            "ID": "521",
+            "typeID": "16",
+            "question": "什么是SQL Server的确定性函数和不确定性函数?",
+            "answer": "只要使用特定的输入值集并且数据库具有相同的状态，不管何时调用，始终都能范围相同结果的函数叫确定性函数。几十访问的数据库的状态不变，每次书用特定的输入值都可能范围不同结果的函数叫非确定性函数。\r\n"
+        },
+        {
+            "ID": "520",
+            "typeID": "16",
+            "question": "在为视图创建索引前，视图本身必须满足哪些条件?",
+            "answer": "(1) 视图以及视图中引用的所有表都必须在同一数据库中，并具有同一个所有者\r\n(2) 索引视图无需包含要供优化器使用的查询中引用的所有表。\r\n(3) 必须先为视图创建唯一群集索引，然后才可以创建其它索引。\r\n(4) 创建基表、视图和索引以及修改基表和视图中的数据时，必须正确设置某些 SET 选项（在本文档的后文中讨论）。另外，如果这些 SET 选项正确，查询优化器将不考虑索引视图。\r\n(5) 视图必须使用架构绑定创建，视图中引用的任何用户定义的函数必须使用 SCHEMABINDING 选项创建。\r\n(6) 另外，还要求有一定的磁盘空间来存放由索引视图定义的数据。"
+        },
+        {
+            "ID": "519",
+            "typeID": "16",
+            "question": "哪类视图是可以更新的?哪类视图是不可更新的?各举一例说明。",
+            "answer": "基本表的行列子集视图一般是可更新的。若视图的属性来自集函数、表达式，则该视图肯定是不可以更新的。"
+        },
+        {
+            "ID": "518",
+            "typeID": "16",
+            "question": "所有的视图是否都可以更新?为什么?",
+            "answer": "不是。\r\n视图是不实际存储数据的虚表，因此对视图的更新，最终要转换为对基本表的更新。\r\n因为有些视图的更新不能惟一有意义地转换成对相应基本表的更新，所以，并不是所有的视图都是可更新的。"
+        },
+        {
+            "ID": "517",
+            "typeID": "16",
+            "question": "试述视图的优点",
+            "answer": "(1) 视图能够简化用户的操作\r\n(2) 视图使用户能以多种角度看待同一数据；\r\n(3) 视图为数据库提供了一定程度的逻辑独立性；\r\n(4) 视图能够对机密数据提供安全保护。"
+        },
+        {
+            "ID": "516",
+            "typeID": "16",
+            "question": " 什么是基本表?什么是视图?",
+            "answer": "基本表是本身独立存在的表，在 SQL 中一个关系就对应一个表。\r\n视图是从一个或几个基本表导出的表。视图本身不独立存储在数据库中，是一个虚表"
+        },
+        {
+            "ID": "515",
+            "typeID": "16",
+            "question": "什么是内存泄漏?",
+            "answer": "一般我们所说的内存泄漏指的是堆内存的泄漏。堆内存是程序从堆中为其分配的，大小任意的，使用完后要显示释放内存。当应用程序用关键字new等创建对象时，就从堆中为它分配一块内存，使用完后程序调用free或者delete释放该内存，否则就说该内存就不能被使用，我们就说该内存被泄漏了。"
+        },
+        {
+            "ID": "514",
+            "typeID": "16",
+            "question": "简述数据库的设计过程",
+            "answer": "数据库设计分为五个阶段：\r\n需求分析：主要是准确收集用户信息需求和处理需求，并对收集的结果进行整理和分析，形成需求说明。\r\n概念结构设计：对用户需求进行综合、归纳、抽象，形成一个与与具体的DBMS无关概念模型（一般为ER模型）。\r\n逻辑结构设计：将概念结构设计的概念模型转化为某个特定的DBMS所支持的数据模型，建立数据库逻辑模式，并对其进行优化，同时为各种用户和应用设计外模式。\r\n物理结构设计：为设计好的逻辑模型选择物理结构，包括存储结构和存取方法等，建立数据库物理模式。\r\n实施和维护：实施就是使用DLL语言建立数据库模式，将实际数据载入数据库，建立真正的数据库。维护阶段是对运行中的数据库进行评价、调整和修改。"
+        },
+        {
+            "ID": "513",
+            "typeID": "16",
+            "question": "简述索引存取的方法的作用和建立索引的原则",
+            "answer": "作用：加快查询速度。\r\n原则：\r\n(1) 如果某属性或属性组经常出现在查询条件中，考虑为该属性或属性组建立索引；\r\n(2) 如果某个属性常作为最大值和最小值等聚集函数的参数，考虑为该属性建立索引；\r\n(3) 如果某属性经常出现在连接操作的连接条件中，考虑为该属性或属性组建立索引；\r\n"
+        },
+        {
+            "ID": "512",
+            "typeID": "16",
+            "question": "主键和唯一索引有什么区别?",
+            "answer": "相同点:它们都属于实体完整性约束。\r\n不同点:\r\n(1) 唯一性约束所在的列允许空值，但是主键约束所在的列不允许空值。\r\n(2) 可以把唯一性约束放在一个或者多个列上，这些列或列的组合必须有唯一的。但是，唯一性约束所在的列并不是表的主键列。\r\n(3) 唯一性约束强制在指定的列上创建一个唯一性索引。在默认情况下，创建唯一性的非聚簇索引，但是，也可以指定所创建的索引是聚簇索引。\r\n(4) 建立主键的目的是让外键来引用。\r\n(5) 一个表最多只有一个主键，但可以有很多唯一键。"
+        },
+        {
+            "ID": "511",
+            "typeID": "16",
+            "question": "简述存储过程的优缺点",
+            "answer": "优点：\r\n1. 更快的执行速度：存储过程只在创造时进行编译，以后每次执行存储过程都不需再重新编译，而一般SQL语句每执行一次就编译一次,所以使用存储过程可提高数据库执行速度；\r\n2. 与事务的结合，提供更好的解决方案：当对数据库进行复杂操作时(如对多个表进行Update、Insert、Query和Delete时），可将此复杂操作用存储过程封装起来与数据库提供的事务处理结合一起使用；\r\n3. 支持代码重用：存储过程可以重复使用,可减少数据库开发人员的工作量；4. 安全性高：可设定只有某此用户才具有对指定存储过程的使用权。\r\n\r\n缺点：\r\n1. 如果更改范围大到需要对输入存储过程的参数进行更改，或者要更改由其返回的数据，则您仍需要更新程序集中的代码以添加参数、更新 GetValue() 调用，等等，这时候估计比较繁琐了。\r\n2. 可移植性差由于存储过程将应用程序绑定到 SQL Server，因此使用存储过程封装业务逻辑将限制应用程序的可移植性。如果应用程序的可移植性在您的环境中非常重要，则将业务逻辑封装在不特定于 RDBMS 的中间层中可能是一个更佳的选择。\r\n"
+        },
+        {
+            "ID": "510",
+            "typeID": "16",
+            "question": "通俗地理解三个范式",
+            "answer": "通俗地理解三个范式，对于数据库设计大有好处。在数据库设计中，为了更好地应用三个范式，就必须通俗地理解三个范式(通俗地理解是够用的理解，并不是最科学最准确的理解)：\r\n第一范式：1NF是对属性的原子性约束，要求属性具有原子性，不可再分解； 第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟\r\n一性；\r\n第三范式：3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余。没有冗余的数据库设计可以做到。但是，没有冗余的数据库未必是最好的数据库，有时为了提高运行效率，就必须降低范式标准，适当保留冗余数据。具体做法是：在概念数据模型设计时遵守第三范式，降低范式标准的工作放到物理数据模型设计时考虑。降低范式就是增加字段，允许冗余。\r\n"
+        },
+        {
+            "ID": "509",
+            "typeID": "16",
+            "question": "解决死锁的方法有哪些?",
+            "answer": "解决手段一：SQL Server自动检测和消除死锁\r\n解决手段二：设置死锁优先级\r\n解决手段三：设置锁定超时\r\n解决手段四：使用更新锁避免死锁"
+        },
+        {
+            "ID": "508",
+            "typeID": "16",
+            "question": "触发器分为事前触发和事后触发，这两种触发有何区别?语句级触发和行级触发有何区别?",
+            "answer": "事前触发器运行于触发事件发生之前，而事后触发器运行于触发事件发生之后。通常事前触发器可以获取事件之前和新的字段值。\r\n语句级触发器可以在语句执行前或后执行，而行级触发在触发器所影响的每一行触发一次。"
+        },
+        {
+            "ID": "507",
+            "typeID": "16",
+            "question": "游标的作用?如何知道游标已经到了最后?",
+            "answer": "游标用于定位结果集的行，通过判断全局变量@@FETCH_STATUS可以判断是否到了最后，通常此变量不等于0表示出错或到了最后。"
+        },
+        {
+            "ID": "506",
+            "typeID": "16",
+            "question": "事务是什么?",
+            "answer": "事务是作为一个逻辑单元执行的一系列操作，一个逻辑工作单元必须有四个属性，称为 ACID（原子性、一致性、隔离性和持久性）属性，只有这样才能成为一个事务：\r\n(1)原子性\r\n事务必须是原子工作单元；对于其数据修改，要么全都执行，要么全都不执行。\r\n(2) 一致性\r\n事务在完成时，必须使所有的数据都保持一致状态。在相关数据库中，所有规则都必须应用于事务的修改，以保持所有数据的完整性。事务结束时，所有的内部数据结构（如 B 树索引或双向链表）都必须是正确的。\r\n(3) 隔离性\r\n由并发事务所作的修改必须与任何其它并发事务所作的修改隔离。事务查看数据时数据所处的状态，要么是另一并发事务修改它之前的状态，要么是另一事务修改它之后的状态，事务不会查看中间状态的数据。这称为可串行性，因为它能够重新装载起始数据，并且重播一系列事务，以使数据结束时的状态与原始事务执行的状态相同。\r\n(4) 持久性\r\n事务完成之后，它对于系统的影响是永久性的。该修改即使出现系统故障也将一直保持。\r\n"
+        },
+        {
+            "ID": "505",
+            "typeID": "16",
+            "question": "存储过程和函数的区别?",
+            "answer": "存储过程是用户定义的一系列SQL语句的集合，涉及特定表或其它对象的任务，用户可以调用存储过程，而函数通常是数据库已定义的方法，它接收参数并返回某种类型的值并且不涉及特定用户表"
+        },
+        {
+            "ID": "504",
+            "typeID": "16",
+            "question": "数据库日志干什么用，数据库日志满的时候再查询数据库时会出现什么情况。",
+            "answer": "每个数据库都有事务日志，用以记录所有事务和每个事务对数据库所做的修改。"
+        },
+        {
+            "ID": "503",
+            "typeID": "16",
+            "question": "SQL Server是否支持行级锁，有什么好处?",
+            "answer": "支持动态行级锁定\r\nSQL Server 2000动态地将查询所引用的每一个表的锁定粒度调整到合适的级别。当查询所引用的少数几行分散在一个大型表中时，优化数据并行访问的最佳办法是使用粒度锁，如行锁。但是，如果查询引用的是一个表中的大多数行或所有行，优化数据并行访问的最佳办法可以是锁定整个表，以尽量减少锁定开销并尽快完成查询。\r\nSQL Serve 2000通过为每个查询中的每个表选择适当的锁定级别，在总体上优化了数据并发访问。对于一个查询，如果只引用一个大型表中的几行，则数据库引擎可以使用行级锁定；如果引用一个大型表的几页中的多行，则使用页级锁定；如果引用一个小型表中的所有行，则使用表级锁定。"
+        },
+        {
+            "ID": "502",
+            "typeID": "16",
+            "question": "解释存储过程和触发器",
+            "answer": "存储过程是一组Transact-SQL语句，在一次编译后可以执行多次。因为不必重新编译Transact-SQL语句，所以执行存储过程可以提高性能。\r\n触发器是一种特殊类型的存储过程，不由用户直接调用。创建触发器时会对其进行定义，以便在对特定表或列作特定类型的数据修改时执行。"
+        },
+        {
+            "ID": "501",
+            "typeID": "16",
+            "question": "什么是快照?它的作用是什么?",
+            "answer": "快照Snapshot是一个文件系统在特定时间里的镜像，对于在线实时数据备份非常有用。快照对于拥有不能停止的应用或具有常打开文件的文件系统的备份非常重要。对于只能提供一个非常短的备份时间而言，快照能保证系统的完整性。"
+        },
+        {
+            "ID": "500",
+            "typeID": "16",
+            "question": "在一个查询中，使用哪一个关键字能够除去重复列值?",
+            "answer": "使用distinct关键字"
+        },
+        {
+            "ID": "499",
+            "typeID": "16",
+            "question": "12、查询每门功成绩最好的前两名",
+            "answer": "SELECT t1.S# as 学生ID,t1.C# as 课程ID,Score as 分数\r\nFROM SC t1\r\nWHERE score IN (SELECT TOP 2 score\r\nFROM SC\r\nWHERE t1.C#= C#\r\nORDER BY score DESC )\r\nORDER BY t1.C#;"
+        },
+        {
+            "ID": "498",
+            "typeID": "16",
+            "question": "11、查询各科成绩前三名的记录:(不考虑成绩并列情况)",
+            "answer": "SELECT t1.S# as 学生ID,t1.C# as 课程ID,Score as 分数\r\nFROM SC t1\r\nWHERE score IN (SELECT TOP 3 score\r\nFROM SC\r\nWHERE t1.C#= C#\r\nORDER BY score DESC)\r\nORDER BY t1.C#; "
+        },
+        {
+            "ID": "497",
+            "typeID": "16",
+            "question": "10、查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分",
+            "answer": "SELECT L.C# 课程ID,L.score 最高分,R.score 最低分\r\nFROM SC L ,SC R\r\nWHERE L.C# = R.C#\r\nand\r\nL.score = (SELECT MAX(IL.score)\r\nFROM SC IL,Student IM\r\nWHERE IL.C# = L.C# and IM.S#=IL.S#\r\nGROUP BY IL.C#)\r\nand\r\nR.Score = (SELECT MIN(IR.score)\r\nFROM SC IR\r\nWHERE IR.C# = R.C#\r\nGROUP BY IR.C# ); "
+        },
+        {
+            "ID": "496",
+            "typeID": "16",
+            "question": "9、查询没有学全所有课的同学的学号、姓名；",
+            "answer": "select Student.S#,Student.Sname\r\nfrom Student,SC\r\nwhere Student.S#=SC.S#\r\ngroup by Student.S#,Student.Sname having count(C#) <(select count(C#) from Course); \r\n"
+        },
+        {
+            "ID": "495",
+            "typeID": "16",
+            "question": "8、查询所有课程成绩小于60分的同学的学号、姓名；",
+            "answer": "select S#,Sname\r\nfrom Student\r\nwhere S# not in (select Student.S# from Student,SC where S.S#=SC.S# and score>60); "
+        },
+        {
+            "ID": "494",
+            "typeID": "16",
+            "question": "7、查询学过“叶平”老师所教的所有课的同学的学号、姓名；",
+            "answer": "select S#,Sname\r\nfrom Student\r\nwhere S# in\r\n(select S#\r\nfrom SC ,Course ,Teacher\r\nwhere SC.C#=Course.C# and Teacher.T#=Course.T# and Teacher.Tname=’叶平’ group by S# having count(SC.C#)=(select count(C#) from Course,Teacher where Teacher.T#=Course.T# and Tname=’叶平’)); "
+        },
+        {
+            "ID": "493",
+            "typeID": "16",
+            "question": "6、查询学过“001”并且也学过编号“002”课程的同学的学号、姓名；",
+            "answer": "select Student.S#,Student.Sname\r\nfrom Student,SC\r\nwhere Student.S#=SC.S# and SC.C#=’001′and exists( Select * from SC as SC_2 where SC_2.S#=SC.S# and SC_2.C#=’002′);"
+        },
+        {
+            "ID": "492",
+            "typeID": "16",
+            "question": "5、查询没学过“叶平”老师课的同学的学号、姓名；",
+            "answer": "select Student.S#,Student.Sname\r\nfrom Student\r\nwhere S# not in (select distinct( SC.S#) from SC,Course,Teacher where SC.C#=Course.C# and Teacher.T#=Course.T# and Teacher.Tname=’叶平’); "
+        },
+        {
+            "ID": "491",
+            "typeID": "16",
+            "question": "4、查询姓“李”的老师的个数；",
+            "answer": "select count(distinct(Tname))\r\nfrom Teacher\r\nwhere Tname like ‘李%’; "
+        },
+        {
+            "ID": "490",
+            "typeID": "16",
+            "question": "3、查询所有同学的学号、姓名、选课数、总成绩；",
+            "answer": "select Student.S#,Student.Sname,count(SC.C#),sum(score)\r\nfrom Student left Outer join SC on Student.S#=SC.S#\r\ngroup by Student.S#,Sname "
+        },
+        {
+            "ID": "489",
+            "typeID": "16",
+            "question": "2、查询平均成绩大于60分的同学的学号和平均成绩；",
+            "answer": "select S#,avg(score)\r\nfrom sc\r\ngroup by S# having avg(score) >60; "
+        },
+        {
+            "ID": "488",
+            "typeID": "16",
+            "question": "1、查询“001”课程比“002”课程成绩高的所有学生的学号；",
+            "answer": "select a.S#\r\nfrom (select s#,score from SC where C#=’001′) a,\r\n(select s#,score from SC where C#=’002′) b\r\nwhere a.score>b.score and a.s#=b.s#; "
+        },
+        {
+            "ID": "487",
+            "typeID": "16",
+            "question": "已知条件",
+            "answer": "Student(S#,Sname,Sage,Ssex) 学生表\r\nCourse(C#,Cname,T#) 课程表\r\nSC(S#,C#,score) 成绩表\r\nTeacher(T#,Tname) 教师表 "
+        },
+        {
+            "ID": "486",
+            "typeID": "16",
+            "question": "用一条SQL语句 查询出每门课都大于80分的学生姓名 ...",
+            "answer": "用一条SQL语句 查询出每门课都大于80分的学生姓名 \r\n\r\nname   kecheng   fenshu \r\n张三     语文       81\r\n张三     数学       75\r\n李四     语文       76\r\n李四     数学       90\r\n王五     语文       81\r\n王五     数学       100\r\n王五     英语       90\r\n\r\nA: select distinct name from table  where  name not in (select distinct name from table where fenshu<=80)"
+        },
+        {
+            "ID": "448",
+            "typeID": "16",
+            "question": "对数据库的一张表进行操作,同时要对另一张表进行操作,如何实现?",
+            "answer": "将操作多个表的操作放入到事务中进行处理"
+        },
+        {
+            "ID": "351",
+            "typeID": "16",
+            "question": "SQLSERVER服务器中，给定表table1中有两个字段ID、LastUpdateDate，ID表示更新的事务号， LastUpdateDate表示更新时的服务器时间，请使用一句SQL语句获得最后更新的事务号。",
+            "answer": "Select ID\r\nFROM table1\r\nWhere LastUpdateDate = (Select MAX(LastUpdateDate) FROM table1)"
+        },
+        {
+            "ID": "64",
+            "typeID": "16",
+            "question": "分组:Group by",
+            "answer": "  一张表，一旦分组 完成后，查询后只能得到组相关的信息。\r\n    组相关的信息：（统计信息） count,sum,max,min,avg  分组的标准)\r\n    在SQLServer中分组时：不能以text,ntext,image类型的字段作为分组依据\r\n   在selecte统计函数中的字段，不能和普通的字段放在一起；"
+        },
+        {
+            "ID": "63",
+            "typeID": "16",
+            "question": "使用外连接 ",
+            "answer": "A、left （outer） join： \r\n左外连接（左连接）：结果集几包括连接表的匹配行，也包括左连接表的所有行。 \r\nSQL: select a.a, a.b, a.c, b.c, b.d, b.f from a LEFT OUT JOIN b ON a.a = b.c\r\nB：right （outer） join: \r\n右外连接(右连接)：结果集既包括连接表的匹配连接行，也包括右连接表的所有行。 \r\nC：full/cross （outer） join： \r\n全外连接：不仅包括符号连接表的匹配行，还包括两个连接表中的所有记录。"
+        },
+        {
+            "ID": "62",
+            "typeID": "16",
+            "question": "几个高级查询运算词",
+            "answer": "A： UNION 运算符 \r\nUNION 运算符通过组合其他两个结果表（例如 TABLE1 和 TABLE2）并消去表中任何重复行而派生出一个结果表。当 ALL 随 UNION 一起使用时（即 UNION ALL），不消除重复行。两种情况下，派生表的每一行不是来自 TABLE1 就是来自 TABLE2。 \r\nB： EXCEPT 运算符 \r\nEXCEPT 运算符通过包括所有在 TABLE1 中但不在 TABLE2 中的行并消除所有重复行而派生出一个结果表。当 ALL 随 EXCEPT 一起使用时 (EXCEPT ALL)，不消除重复行。 \r\nC： INTERSECT 运算符\r\nINTERSECT 运算符通过只包括 TABLE1 和 TABLE2 中都有的行并消除所有重复行而派生出一个结果表。当 ALL 随 INTERSECT 一起使用时 (INTERSECT ALL)，不消除重复行。 \r\n注：使用运算词的几个查询结果行必须是一致的。 "
+        },
+        {
+            "ID": "61",
+            "typeID": "16",
+            "question": "几个简单的基本的sql语句",
+            "answer": "选择：select * from table1 where 范围\r\n插入：insert into table1(field1,field2) values(value1,value2)\r\n删除：delete from table1 where 范围\r\n更新：update table1 set field1=value1 where 范围\r\n查找：select * from table1 where field1 like ’%value1%’ ---like的语法很精妙，查资料!\r\n排序：select * from table1 order by field1,field2 [desc]\r\n总数：select count as totalcount from table1\r\n求和：select sum(field1) as sumvalue from table1\r\n平均：select avg(field1) as avgvalue from table1\r\n最大：select max(field1) as maxvalue from table1\r\n最小：select min(field1) as minvalue from table1"
+        },
+        {
+            "ID": "60",
+            "typeID": "16",
+            "question": "删除新表？",
+            "answer": "drop table tabname "
+        },
+        {
+            "ID": "59",
+            "typeID": "16",
+            "question": "创建新表？",
+            "answer": "create table tabname(col1 type1 [not null] [primary key],col2 type2 [not null],..)"
+        },
+        {
+            "ID": "58",
+            "typeID": "16",
+            "question": "删除数据库？",
+            "answer": "drop database dbname"
+        },
+        {
+            "ID": "57",
+            "typeID": "16",
+            "question": "创建数据库？",
+            "answer": "CREATE DATABASE database-name "
+        }
+    ]
+
+

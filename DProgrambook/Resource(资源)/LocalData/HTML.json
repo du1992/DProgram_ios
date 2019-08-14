@@ -1,0 +1,628 @@
+ [
+        {
+            "ID": "1269",
+            "typeID": "18",
+            "question": "应用缓存中的网络是什么?",
+            "answer": "网络命令描述不需要缓存的文件,例如以下代码中,我们说”home.aspx”永远都不应该被缓存或者离线 访问。\r\n1 NETWORK:\r\n2 home.aspx"
+        },
+        {
+            "ID": "1268",
+            "typeID": "18",
+            "question": "应用缓存中的回退是什么?",
+            "answer": "应用缓存中的回退帮助你指定在服务器不可访问的时候,将会显示某文件。例如在下面的manifest文件 中,我们说如果谁敲击了”/home”同时服务器不可到达的时候,”homeoffline.html”文件应送达\r\n1 FALLBACK:\r\n2 /home/ /homeoffline.html"
+        },
+        {
+            "ID": "1267",
+            "typeID": "18",
+            "question": "WebSql是HTML5的一个规范吗?",
+            "answer": "不是,许多人把它标记为HTML5,但是他不是HTML5的规范的一部分,这个规范是基于SQLite的"
+        },
+        {
+            "ID": "1266",
+            "typeID": "18",
+            "question": "什么是WebSQL?",
+            "answer": "WebSQL是一个在浏览器客户端的结构关系数据库,这是浏览器内的本地RDBMS(关系型数据库系统),你 可以使用SQL查询"
+        },
+        {
+            "ID": "1265",
+            "typeID": "18",
+            "question": "本地存储和事务存储之间的区别是什么?",
+            "answer": "本地存储数据持续永久,但是会话在浏览器打开时有效知道浏览器关闭时会话变量重置"
+        },
+        {
+            "ID": "1264",
+            "typeID": "18",
+            "question": "什么是事务存储?我们如何创建一个事务存储?",
+            "answer": "会话存储和本地存储类似,但是数据在会话中有效,简而言之数据在你关闭浏览器的时候就被删除了。 为了创建一个会话存储你需要使用“sessionStorage.variablename.”在以下的代码我们创建了一个名 为”clickcount”的变量; 如果你刷新浏览器则数目增加,但是如果你关闭浏览器,“clickcount”变量又会从0开始。\r\n if(sessionStorage.clickcount)\r\n{\r\n sessionStorage.clickcount=Number(sessionStorage.clickcount)+1; 4}\r\n else\r\n{\r\n sessionStorage.clickcount = 0;\r\n}\r\n"
+        },
+        {
+            "ID": "1263",
+            "typeID": "18",
+            "question": "本地存储的生命周期是什么?",
+            "answer": "本地存储没有生命周期,它将保留知道用户从浏览器清除或者使用Javascript代码移除。"
+        },
+        {
+            "ID": "1262",
+            "typeID": "18",
+            "question": "HTML5中的本地存储概念是什么?",
+            "answer": "很多时候我们会存储用户本地信息到电脑上,例如:比方说用户有一个填充了一半的长表格,然后突然网 络连接断开了,这样用户希望你能存储这些信息到本地,当网络恢复的时候,他想获取这些信息然后发送 到服务器进行存储\r\n现代浏览器拥有的存储被叫做“Local Storage”,你可以存储这些信息"
+        },
+        {
+            "ID": "1261",
+            "typeID": "18",
+            "question": "为什么我们需要HTML5的服务发送事件?",
+            "answer": "网络世界的普遍需求是从服务器更新。以一个股票应用为例,浏览器必须定期从服务器更新最新的股票值。\r\n现在实现这类需求开发者通常写一些PULL的代码,到服务器同时抓取某些区间数据。现在PULL的解决方案 是很好的,但是这使得网络健谈有很多的调用,同时增加了服务器的负担。\r\n因此相比于PULL,如果我们能采用某种PUSH的解决方案那会是很棒的。简而言之,当服务器更新的时 候,将会发送更新到浏览器客户端,那可以被接受通过使用”SERVER SENT EVENT”因此首要的是浏览器需要连接将会发送更新的服务器资源,比方说我们有一个”stock.aspx”页面会发送股 票更新,因此连接该页面,我们需要使用附加时间来源对象,如下所示:\r\n1 var source = new EventSource(\"stock.aspx\");\r\n当我们将要接受服务器发送的更新信息时,我们需要附加功能。我们需要附加功能到”onmessage”事件 就像以下显示的那样。\r\nsource.onmessage = function (event) {\r\n  document.getElementById(\"result\").innerHTML += event.data + \"\";\r\n 现在来自服务端,我们需要去发送事件,下面是一些用命令需要从服务端发送的重要事件列表\r\n \r\n Event Command\r\n      发送数据到客户端 data : hello\r\n      告诉客户端10s内重试 retry : 10000\r\n      提出具体事件与数据 event : successdata : You are logged in.\r\n  因此,举例说明,如果你想下面的ASP.NET代码一样发送数据,请标记内容类型设置给文本/事件\r\n Response.ContentType=\"text/event‐stream\";\r\n Response.Expires=‐1;\r\n Response.Write(\"data: \" + DateTime.Now.ToString());\r\n Response.Flush();\r\n以下是设置10s后重试的命令\r\n Response.Write(\"retry: 10000\"); 如果你想附加事件,我们需要使用“addEventListener”事件,如下代码所示:\r\n\r\n来自服务器端的以下信息将会触发Javascript的”message”方法\r\nevent: message\r\ndata : hello"
+        },
+        {
+            "ID": "1260",
+            "typeID": "18",
+            "question": "如何中止Web Worker?",
+            "answer": "w.terminate();"
+        },
+        {
+            "ID": "1259",
+            "typeID": "18",
+            "question": "我们如何在JavaScript中创建一个worker线程?",
+            "answer": "创建一个worker线程,我们需要通过Javascript文件名创建worker对象\r\n1 var worker = new Worker(\"MyHeavyProcess.js\"); 我们需要使用“PostMessage”发送信息给worker对象,下面是相同的代码。\r\n1 worker.postMessage(); 当worker线程发送数据的时候,我们在调用结束的时候,通过”onMessage”事件获取\r\n worker.onmessage = function (e)\r\n{\r\n document.getElementById(\"txt1\").value = e.data; 4 };\r\n         \r\n这个繁重的循环在“MyHeavyProcess.js”的Javascript文件中,以下代码,当Javascript文件想发送信 息,他使用”postmessage”,同时任何来自发送者的信息都在“onmessage”事件中接收到。\r\n varx=0\r\n self.onmessage = function (e) {\r\n for (i = 0; i < 1000000000; i++) 4{\r\n x = i + x;\r\n}\r\n self.postMessage(x);\r\n };\r\n"
+        },
+        {
+            "ID": "1258",
+            "typeID": "18",
+            "question": "Web Worker线程的限制是什么?",
+            "answer": "Web worker线程不能修改HTML元素,全局变量和Window.Location一类的窗口属性。你可以自由使用 Javascript数据类型,XMLHttpRequest调用等。\r\n"
+        },
+        {
+            "ID": "1257",
+            "typeID": "18",
+            "question": "CSS(cascading style sheets级联样式表)中的选择器是什么?",
+            "answer": "选择器在你想应用一个样式的时候,帮助你去选择元素。举例,下面是简单的被命名为”instro”的样式, 他适用于HTML元素显示红色背景\r\n <style>\r\n .intro{\r\n background‐color:red; 4}\r\n </style>\r\n应用上面的”intro”样式给div,我们可以使用”class”选择器,如下图所示\r\n <div class=\"intro\">\r\n <p>My name is Shivprasad koirala.</p>\r\n <p>I write interview questions.</p>\r\n </div>"
+        },
+        {
+            "ID": "1256",
+            "typeID": "18",
+            "question": "什么是SVG(Scalable Vector Graphics可缩放矢量图形)?",
+            "answer": "SVG(Scalable Vector Graphics可缩放矢量图形)表示可缩放矢量图形。他是基于文本的图形语言,使用 文本,线条,点等来进行图像绘制,这使得他轻便,显示更加迅速。"
+        },
+        {
+            "ID": "1255",
+            "typeID": "18",
+            "question": "HTML5中什么是不同的新的表单元素类型?",
+            "answer": "有10个重要的新的表单元素在HTML5中被介绍 \r\n1. Color\r\n2. Date\r\n3. Datetime-local 4. Email\r\n5. Time\r\n6. Url\r\n7. Range\r\n8. Telephone\r\n9. Number\r\n10. Search\r\n"
+        },
+        {
+            "ID": "1254",
+            "typeID": "18",
+            "question": "HTML5的页面结构同HTML4或者更前的HTML有什么区别?",
+            "answer": "一个典型的WEB页面包含头部,脚部,导航,中心区域,侧边栏。现在如果我们想在在HTML4的HTML区 域中呈现这些内容,我们可能要使用DIV标签。\r\n但是在HTML5中通过为这些区域创建元素名称使他们更加清晰,也使得你的HTML更加可读\r\n\r\n<header>:代表HTML的头部数据\r\n<footer>:页面的脚部区域\r\n<nav>:页面导航元素\r\n<article>:自包含的内容 <section>:使用内部article去定义区域或者把分组内容放到区域里 <aside>:代表页面的侧边栏内容"
+        },
+        {
+            "ID": "1253",
+            "typeID": "18",
+            "question": "如果不放入<! DOCTYPE html> ,HTML5还会工作么?",
+            "answer": "不会,浏览器将不能识别他是HTML文档,同时HTML5的标签将不能正常工作"
+        },
+        {
+            "ID": "1252",
+            "typeID": "18",
+            "question": "为什么HTML5里面我们不需要DTD(Document Type Definition文档类型定义)?",
+            "answer": "HTML5没有使用SGML或者XHTML,他是一个全新的东西,因此你不需要参考DTD,对于HTML5,你仅 需放置下面的文档类型代码告诉浏览器识别这是HTML5文档"
+        },
+        {
+            "ID": "1251",
+            "typeID": "18",
+            "question": "SGML(标准通用标记语言)和HTML(超文本标记语言),XML(可扩展标记语言)和HTML的之间有什 么关系?",
+            "answer": "SGML(标准通用标记语言)是一个标准,告诉我们怎么去指定文档标记。他是只描述文档标记应该是怎么 样的元语言,HTML是被用SGML描述的标记语言。\r\n因此利用SGML创建了HTML参照和必须共同遵守的DTD,你会经常在HTML页面的头部发 现“DOCTYPE”属性,用来定义用于解析目标DTD\r\n1 <!DOCTYPE html PUBLIC \"‐//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"> 现在解析SGML是一件痛苦的事情,所以创建了XML使事情更好。XML使用了SGML,例如:在SGML中你必须使用起始和结束标签,但是在XML你可以有自动关闭的结束标签。 XHTML创建于XML,他被使用在HTML4.0中。你可以参考下面代码片段中展示的XML DTD\r\n                                                          \r\nTD/xhtm\r\n\r\n<!DOCTYPE html PUBLIC \"‐//W3C//DTD XHTML 1.0 Transitional//EN\" \"http:\r\n//www.w3.org/TR/xhtml1/D\r\n \r\n 总之,SGML是所有类型的父类,较旧的HTML利用SGML,HTML4.0使用派生自XML的XHTML"
+        },
+        {
+            "ID": "1082",
+            "typeID": "18",
+            "question": "除了 audio 和 video，HTML5 还有哪些媒体标签？",
+            "answer": "HTML5 对于多媒体提供了强有力的支持，除了 audio 和 video 标签外，还支持以下标签：\r\n\r\n<embed> 标签定义嵌入的内容，比如插件。\r\n\r\n<embed type=”video/quicktime” src=”Fishing.mov”>\r\n<source> 对于定义多个数据源很有用。\r\n\r\n<video width=”450″ height=”340″ controls>\r\n     <source src=”jamshed.mp4″ type=”video/mp4″>\r\n     <source src=”jamshed.ogg” type=”video/ogg”>\r\n</video>\r\n<track> 标签为诸如 video 元素之类的媒介规定外部文本轨道。 用于规定字幕文件或其他包含文本的文件，当媒介播放时，这些文件是可见的。\r\n\r\n<video width=”450″ height=”340″ controls>\r\n     <source src=”jamshed.mp4″ type=”video/mp4″>\r\n     <source src=”jamshed.ogg” type=”video/ogg”>\r\n     <track kind=”subtitles” label=”English” src=”jamshed_en.vtt” srclang=”en” default></track>\r\n      <track kind=”subtitles” label=”Arabic” src=”jamshed_ar.vtt” srclang=”ar”></track>\r\n</video>\r\n"
+        },
+        {
+            "ID": "1081",
+            "typeID": "18",
+            "question": "新的 HTML5 文档类型和字符集是？",
+            "answer": "HTML5 文档类型很简单：\r\n\r\n<!doctype html>\r\nHTML5 使用 UTF-8 编码示例：\r\n\r\n<meta charset=”UTF-8″>\r\n"
+        },
+        {
+            "ID": "1080",
+            "typeID": "18",
+            "question": "WEB应用从服务器主动推送Data到客户端有那些方式？",
+            "answer": "html5 websoket     \r\n WebSocket通过Flash  \r\n   XHR长时间连接     \r\n XHR Multipart Streaming  \r\n   不可见的Iframe     \r\n <script>标签的长时间连接(可跨域)"
+        },
+        {
+            "ID": "1079",
+            "typeID": "18",
+            "question": "eval是做什么的？",
+            "answer": "它的功能是把对应的字符串解析成JS代码并运行；  避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。"
+        },
+        {
+            "ID": "1078",
+            "typeID": "18",
+            "question": "说说最近最流行的一些东西吧？常去哪些网站？",
+            "answer": " Node.js、Mongodb、npm、MVVM、MEAN、three.js"
+        },
+        {
+            "ID": "1077",
+            "typeID": "18",
+            "question": "一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的 越详细越好）",
+            "answer": "查找浏览器缓存 \r\n      DNS解析、查找该域名对应的IP地址、重定向（301）、发出第二个GET请求\r\n     进行HTTP协议会话\r\n     客户端发送报头(请求报头\r\n)     服务器回馈报头(响应报头\r\n)     html文档开始下载\r\n      文档树建立，根据标记请求所需指定MIME类型的文件\r\n     文件显示\r\n     \r\n[     浏览器这边做的工作大致分为以下几步：\r\n      加载：根据请求的URL进行域名解析，向服务器发起请求，接收文件（HTML、JS、CSS、图象等）。\r\n      解析：对加载到的资源（HTML、JS、CSS等）进行语法解析，建议相应的内部数据结构（比如HTML的DOM\r\n树，JS的（对象）属性表，CSS的样式规则等等）\r\n     \r\n}"
+        },
+        {
+            "ID": "1076",
+            "typeID": "18",
+            "question": "http状态码有那些？分别代表是什么意思？",
+            "answer": "100-199 用于指定客户端应相应的某些动作。 \r\n 200-299 用于表示请求成功。 \r\n  300-399 用于已经移动的文件并且常被包含在定位头信息中指定新的地址信息。 \r\n 400-499 用于指出客户端的错误。\r\n  400   语义有误，当前请求无法被服务器理解。\r\n 401   当前请求需要用户验证 \r\n  403  服务器已经理解请求，但是拒绝执行它\r\n500-599 用于支持服务器错误。 \r\n 503 – 服务不可用"
+        },
+        {
+            "ID": "1075",
+            "typeID": "18",
+            "question": "有哪些性能优化的方法？",
+            "answer": "    （1） 减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。\r\n    （2） 前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX\r\n请求结果，每次操作本地变量，不用请求，减少请求次数\r\n    （3） 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。\r\n   （4） 当需要设置的样式很多时设置className而不是直接操作style。\r\n   （5） 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。\r\n    （6） 避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)。\r\n   （7） 图片预加载，将样式表放在顶部，将脚本放在底部  加上时间戳。\r\n    （8） 避免在页面的主体布局中使用table，table要等其中的内容完全下载之后才会显示出来，显示比div+css布局慢。\r\n"
+        },
+        {
+            "ID": "1074",
+            "typeID": "18",
+            "question": "webSocket如何兼容低浏览器？(阿里)",
+            "answer": "Adobe Flash Socket 、 ActiveX HTMLFile (IE) 、 基于 multipart 编码发送 XHR 、 基于长轮询的 XHR"
+        },
+        {
+            "ID": "1073",
+            "typeID": "18",
+            "question": "如何实现浏览器内多个标签页之间的通信? (阿里)",
+            "answer": "调用localstorge、cookies等本地存储方式"
+        },
+        {
+            "ID": "1072",
+            "typeID": "18",
+            "question": "请描述一下 cookies，sessionStorage 和 localStorage 的区别？\r\n",
+            "answer": "cookie在浏览器和服务器间来回传递。 sessionStorage和localStorage不会\r\n sessionStorage和localStorage的存储空间更大；\r\n sessionStorage和localStorage有更多丰富易用的接口；\r\n sessionStorage和localStorage各自独立的存储空间；\r\n "
+        },
+        {
+            "ID": "1071",
+            "typeID": "18",
+            "question": " iframe有那些缺点？",
+            "answer": "*iframe会阻塞主页面的Onload事件；\r\n*iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。\r\n 使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过\r\njavascript 动态给iframe添加src属性值，这样可以可以绕开以上两个问题。"
+        },
+        {
+            "ID": "1070",
+            "typeID": "18",
+            "question": "描述一段语义的html代码吧",
+            "answer": "（HTML5中新增加的很多标签（如：<article>、<nav>、<header>和<footer>等）就是基于语义化设计原则）  \r\n \r\n< div id=\"header\"> < h1>标题\r\n< /h1>  < h2>专注Web前端技术\r\n< /h2> \r\n< /div> "
+        },
+        {
+            "ID": "1069",
+            "typeID": "18",
+            "question": "HTML5的离线储存？",
+            "answer": "localStorage    长期存储数据，浏览器关闭后数据不丢失；\r\nsessionStorage  数据在浏览器关闭后自动删除。\r\n "
+        },
+        {
+            "ID": "1068",
+            "typeID": "18",
+            "question": "如何区分： DOCTYPE声明新增的结构元素功能元素，语义化的理解？",
+            "answer": "用正确的标签做正确的事情！\r\n  html语义化就是让页面的内容结构化，便于对浏览器、搜索引擎解析；\r\n 在没有样式CCS情况下也以一种文档格式显示，并且是容易阅读的。\r\n 搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于 SEO。\r\n 使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。"
+        },
+        {
+            "ID": "1067",
+            "typeID": "18",
+            "question": "html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？\r\n如何区分 HTML 和 HTML5？",
+            "answer": "* HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。\r\n * 绘画 canvas 用于媒介回放的 video 和 audio 元素  \r\n  本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；   sessionStorage 的数据在浏览器关闭后自动删除 \r\n  语意化更好的内容元素，比如 article、footer、header、nav、section    表单控件，calendar、date、time、email、url、search     新的技术webworker, websockt, Geolocation \r\n* 移除的元素-纯表现的元素：basefont，big，center，font, s，strike，tt，u； 对可用性产生负面影响的元素：frame，frameset，noframes；"
+        },
+        {
+            "ID": "1066",
+            "typeID": "18",
+            "question": "常见兼容性问题？",
+            "answer": "* png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8. \r\n* 浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。 * IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。  浮动ie产生的双倍距离 #box{ float:left; width:10px; margin:0 0 0 100px;}  \r\n这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入 ——_display:inline;将其转化为行内属性。(_这个符号只有ie6会识别) 渐进识别的方式，从总体中逐渐排除局部。  \r\n首先，巧妙的使用“9”这一标记，将IE游览器从所有情况中分离出来。  接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。   css       .bb{ \r\n       background-color:#f1ee18;/*所有识别*/       .background-color:#00deff9; /*IE6、7、8识别*/       +background-color:#a200ff;/*IE6、7识别*/       _background-color:#1e0bd1;/*IE6识别*/        }  \r\n*  IE下,可以使用获取常规属性的方法来获取自定义属性,也可以使用getAttribute()获取自定义属性;Firefox下,只能使用getAttribute()获取自定义属性. 解决方法:统一通过getAttribute()获取自定义属性. * IE下,even对象有x,y属性,但是没有pageX,pageY属性;  Firefox下,event对象有pageX,pageY属性,但是没有x,y属性. \r\n* 解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。\r\n* Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决. \r\n超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}"
+        },
+        {
+            "ID": "1065",
+            "typeID": "18",
+            "question": "浏览器的内核分别是什么?",
+            "answer": "* IE浏览器的内核Trident、Mozilla的Gecko、Chrome的Blink（WebKit的分支）、Opera内核原为Presto，现为Blink；"
+        },
+        {
+            "ID": "1064",
+            "typeID": "18",
+            "question": "link 和@import 的区别是？\r\n",
+            "answer": "（1）link属于XHTML标签，而@import是CSS提供的;  \r\n（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载; \r\n（3）import只在IE5以上才能识别，而link是XHTML标签，无兼容问题; \r\n（4）link方式的样式的权重 高于@import的权重."
+        },
+        {
+            "ID": "1063",
+            "typeID": "18",
+            "question": "行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？",
+            "answer": "（1）CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，比如div\r\n默认display属性值为“block”，成为“块级”元素；span默认display属性值为“inline”，是“行内”元素。  \r\n （2）行内元素有：a b span img input select strong（强调的语气） 块级元素有：div ul ol li dl dt dd h1 h2 h3 h4…p  \r\n （3）知名的空元素： \r\n<br><hr><img><input><link><meta>  鲜为人知的是： \r\n<area><base><col><command><embed><keygen><param><source><track><wbr> "
+        },
+        {
+            "ID": "1062",
+            "typeID": "18",
+            "question": "Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?",
+            "answer": "（1）、<!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器的解析器，用什么文档类型 规范来解析这个文档。  \r\n（2）、严格模式的排版和 JS 运作模式是  以该浏览器支持的最高标准运行。 \r\n（3）、在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。\r\n（4）、DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。"
+        },
+        {
+            "ID": "904",
+            "typeID": "18",
+            "question": "你怎么来实现页面设计图，你认为前端应该如何高质量完成工作? 一个满屏 品 字布局 如何设计?",
+            "answer": "首先划分成头部、body、脚部；。。。。。 \r\n\r\n*  \r\n  实现效果图是最基本的工作，精确到2px；\r\n\r\n  与设计师，产品经理的沟通和项目的参与\r\n\r\n  做好的页面结构，页面重构和用户体验\r\n\r\n  处理hack，兼容、写出优美的代码格式\r\n\r\n  针对服务器的优化、拥抱 HTML5。"
+        },
+        {
+            "ID": "903",
+            "typeID": "18",
+            "question": "html5CSS3有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？",
+            "answer": "HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，地理定位等功能的增加。\r\n\r\n* 绘画 canvas 元素\r\n\r\n  用于媒介回放的 video 和 audio 元素\r\n\r\n  本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；\r\n  sessionStorage 的数据在浏览器关闭后自动删除\r\n\r\n  语意化更好的内容元素，比如 article、footer、header、nav、section\r\n\r\n  表单控件，calendar、date、time、email、url、search\r\n\r\n  CSS3实现圆角，阴影，对文字加特效，增加了更多的CSS选择器  多背景 rgba\r\n\r\n  新的技术webworker, websockt, Geolocation\r\n移除的元素\r\n\r\n纯表现的元素：basefont，big，center，font, s，strike，tt，u；\r\n\r\n对可用性产生负面影响的元素：frame，frameset，noframes；\r\n\r\n* 是IE8/IE7/IE6支持通过document.createElement方法产生的标签，\r\n  可以利用这一特性让这些浏览器支持HTML5新标签，\r\n\r\n  浏览器支持新标签后，还需要添加标签默认的样式：\r\n\r\n* 当然最好的方式是直接使用成熟的框架、使用最多的是html5shim框架\r\n   <!--[if lt IE 9]> \r\n   <script> src=\"http://html5shim.googlecode.com/svn/trunk/html5.js\"</script> \r\n   <![endif]--> "
+        },
+        {
+            "ID": "902",
+            "typeID": "18",
+            "question": "浏览器的内核分别是什么?经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？",
+            "answer": "* IE浏览器的内核Trident、 Mozilla的Gecko、google的WebKit、Opera内核Presto；\r\n\r\n    * png24为的图片在iE6浏览器上出现背景，解决方案是做成PNG8.\r\n\r\n    * 浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。\r\n\r\n    * IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。 \r\n\r\n      浮动ie产生的双倍距离 #box{ float:left; width:10px; margin:0 0 0 100px;} \r\n\r\n     这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入 ——_display:inline;将其转化为行内属性。(_这个符号只有ie6会识别)\r\n\r\n      渐进识别的方式，从总体中逐渐排除局部。 \r\n\r\n      首先，巧妙的使用“9”这一标记，将IE游览器从所有情况中分离出来。 \r\n      接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。\r\n\r\n      css\r\n          .bb{\r\n           background-color:#f1ee18;/*所有识别*/\r\n          .background-color:#00deff9; /*IE6、7、8识别*/\r\n          +background-color:#a200ff;/*IE6、7识别*/\r\n          _background-color:#1e0bd1;/*IE6识别*/\r\n\r\n          } \r\n\r\n    *  IE下,可以使用获取常规属性的方法来获取自定义属性,\r\n       也可以使用getAttribute()获取自定义属性;\r\n       Firefox下,只能使用getAttribute()获取自定义属性. \r\n       解决方法:统一通过getAttribute()获取自定义属性.\r\n\r\n    *  IE下,even对象有x,y属性,但是没有pageX,pageY属性; \r\n      Firefox下,event对象有pageX,pageY属性,但是没有x,y属性.\r\n\r\n    * （条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。\r\n\r\n    * Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决.\r\n\r\n    超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:\r\n    L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}\r\n"
+        },
+        {
+            "ID": "901",
+            "typeID": "18",
+            "question": "如何居中div,如何居中一个浮动元素?",
+            "answer": "给div设置一个宽度，然后添加margin:0 auto属性\r\n\r\n    div{\r\n        width:200px;\r\n        margin:0 auto;\r\n     }  \r\n居中一个浮动元素\r\n\r\n      确定容器的宽高 宽500 高 300 的层\r\n      设置层的外边距\r\n\r\n     .div { \r\n      Width:500px ; height:300px;//高度可以不设\r\n      Margin: -150px 0 0 -250px;\r\n      position:relative;相对定位\r\n      background-color:pink;//方便看效果\r\n      left:50%;\r\n      top:50%;\r\n    } "
+        },
+        {
+            "ID": "900",
+            "typeID": "18",
+            "question": "CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？",
+            "answer": "*   1.id选择器（ # myid）\r\n        2.类选择器（.myclassname）\r\n        3.标签选择器（div, h1, p）\r\n        4.相邻选择器（h1 + p）\r\n        5.子选择器（ul < li）\r\n        6.后代选择器（li a）\r\n        7.通配符选择器（ * ）\r\n        8.属性选择器（a[rel = \"external\"]）\r\n        9.伪类选择器（a: hover, li: nth - child）\r\n\r\n    *   可继承： font-size font-family color, UL LI DL DD DT;\r\n\r\n    *   不可继承 ：border padding margin width height ;\r\n\r\n    *   优先级就近原则，样式定义最近者为准;\r\n\r\n    *   载入样式以最后载入的定位为准;\r\n优先级为:\r\n\r\n       !important >  id > class > tag  \r\n\r\n       important 比 内联优先级高\r\nCSS3新增伪类举例：\r\n\r\n    p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。\r\n    p:last-of-type  选择属于其父元素的最后 <p> 元素的每个 <p> 元素。\r\n    p:only-of-type  选择属于其父元素唯一的 <p> 元素的每个 <p> 元素。\r\n    p:only-child    选择属于其父元素的唯一子元素的每个 <p> 元素。\r\n    p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <p> 元素。\r\n    :enabled、:disabled 控制表单控件的禁用状态。\r\n    :checked，单选框或复选框被选中。\r\n"
+        },
+        {
+            "ID": "899",
+            "typeID": "18",
+            "question": "link 和@import 的区别是?",
+            "answer": "    （1）、link属于XHTML标签，而@import是CSS提供的;\r\n\r\n    （2）、页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;\r\n\r\n    （3）、import只在IE5以上才能识别，而link是XHTML标签，无兼容问题;\r\n\r\n    （4）、link方式的样式的权重 高于@import的权重."
+        },
+        {
+            "ID": "898",
+            "typeID": "18",
+            "question": "CSS的盒子模型？",
+            "answer": "（1）两种， IE 盒子模型、标准 W3C 盒子模型；IE 的content部分包含了 border 和 pading;\r\n\r\n（2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border)."
+        },
+        {
+            "ID": "897",
+            "typeID": "18",
+            "question": "行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？",
+            "answer": "（1）CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，比如div默认display属性值为“block”，成为“块级”元素；span默认display属性值为“inline”，是“行内”元素。  \r\n\r\n（2）行内元素有：a b span img input select strong（强调的语气） 块级元素有：div ul ol li dl dt dd h1 h2 h3 h4…p  \r\n\r\n（3）知名的空元素： <br> <hr> <img> <input> <link> <meta> \r\n     鲜为人知的是： <area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>"
+        },
+        {
+            "ID": "896",
+            "typeID": "18",
+            "question": "Doctype作用? 严格模式与混杂模式-如何触发这两种模式，区分它们有何意义?",
+            "answer": "      1）、<!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器的解析器，用什么文档类型 规范来解析这个文档。 \r\n\r\n    （2）、严格模式的排版和 JS 运作模式是  以该浏览器支持的最高标准运行。\r\n\r\n    （3）、在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。\r\n\r\n    （4）、DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。"
+        },
+        {
+            "ID": "624",
+            "typeID": "18",
+            "question": "HTML5 应用程序缓存和浏览器缓存有什么区别？",
+            "answer": "应用程序缓存是 HTML5 的重要特性之一，提供了离线使用的功能，让应用程序可以获取本地的网站内容，例如 HTML、CSS、图片以及 JavaScript。这个特性可以提高网站性能，它的实现借助于 manifest 文件，如下：\r\n<!doctype html>\r\n<html manifest=”example.appcache”>\r\n…..\r\n</html>\r\n与传统浏览器缓存相比，它不强制用户访问的网站内容被缓存。"
+        },
+        {
+            "ID": "623",
+            "typeID": "18",
+            "question": "HTML5 标准提供了哪些新的 API？",
+            "answer": "HTML5 提供的应用程序 API 主要有：\r\n\r\nMedia API\r\nText Track API\r\nApplication Cache API\r\nUser Interaction\r\nData Transfer API\r\nCommand API\r\nConstraint Validation API\r\nHistory API"
+        },
+        {
+            "ID": "622",
+            "typeID": "18",
+            "question": "HTML5 废弃了哪些 HTML4 标签？",
+            "answer": "HTML5 废弃了一些过时的，不合理的 HTML 标签：\r\n\r\nframe\r\nframeset\r\nnoframe\r\napplet\r\nbig\r\ncenter\r\nbasefront"
+        },
+        {
+            "ID": "621",
+            "typeID": "18",
+            "question": "HTML5 有哪些新增的表单元素？",
+            "answer": "HTML5 新增了很多表单元素让开发者构建更优秀的 Web 应用程序。\r\n\r\ndatalist\r\ndatetime\r\noutput\r\nkeygen \r\ndate \r\nmonth \r\nweek\r\ntime\r\ncolor\r\nnumber \r\nrange \r\nemail \r\nurl"
+        },
+        {
+            "ID": "620",
+            "typeID": "18",
+            "question": "HTML5 存储类型有什么区别？",
+            "answer": "HTML5 能够本地存储数据，在之前都是使用 cookies 使用的。HTML5 提供了下面两种本地存储方案：\r\n\r\nlocalStorage 用于持久化的本地存储，数据永远不会过期，关闭浏览器也不会丢失。\r\nsessionStorage 同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储"
+        },
+        {
+            "ID": "619",
+            "typeID": "18",
+            "question": "除了 audio 和 video，HTML5 还有哪些媒体标签？",
+            "answer": "HTML5 对于多媒体提供了强有力的支持，除了 audio 和 video 标签外，还支持以下标签：\r\n\r\n<embed> 标签定义嵌入的内容，比如插件。\r\n\r\n1\r\n<embed type=”video/quicktime” src=”Fishing.mov”>\r\n<source> 对于定义多个数据源很有用。\r\n\r\n<video width=”450″ height=”340″ controls>\r\n     <source src=”jamshed.mp4″ type=”video/mp4″>\r\n     <source src=”jamshed.ogg” type=”video/ogg”>\r\n</video>\r\n<track> 标签为诸如 video 元素之类的媒介规定外部文本轨道。 用于规定字幕文件或其他包含文本的文件，当媒介播放时，这些文件是可见的。\r\n\r\n<video width=”450″ height=”340″ controls>\r\n     <source src=”jamshed.mp4″ type=”video/mp4″>\r\n     <source src=”jamshed.ogg” type=”video/ogg”>\r\n     <track kind=”subtitles” label=”English” src=”jamshed_en.vtt” srclang=”en” default></track>\r\n      <track kind=”subtitles” label=”Arabic” src=”jamshed_ar.vtt” srclang=”ar”></track>\r\n</video>"
+        },
+        {
+            "ID": "618",
+            "typeID": "18",
+            "question": "HTML5 中如何嵌入视频？",
+            "answer": "，HTML5 支持 MP4、WebM 和 Ogg 格式的视频，下面是简单示例：\r\n<video width=”450″ height=”340″ controls>\r\n  <source src=”jamshed.mp4″ type=”video/mp4″>\r\n   Your browser does’nt support video embedding feature.\r\n</video>"
+        },
+        {
+            "ID": "617",
+            "typeID": "18",
+            "question": "HTML5 中如何嵌入音频？",
+            "answer": "HTML5 支持 MP3、Wav 和 Ogg 格式的音频，下面是在网页中嵌入音频的简单示例：\r\n<audio controls>\r\n    <source src=”jamshed.mp3″ type=”audio/mpeg”>\r\n    Your browser does’nt support audio embedding feature.\r\n</audio>"
+        },
+        {
+            "ID": "616",
+            "typeID": "18",
+            "question": "新的 HTML5 文档类型和字符集是？",
+            "answer": "<!doctype html>"
+        },
+        {
+            "ID": "614",
+            "typeID": "18",
+            "question": "应用缓存中的网络是什么？",
+            "answer": "网络命令描述不需要缓存的文件，例如以下代码中，我们说”home.aspx”永远都不应该被缓存或者离线访问。\r\n\r\nNETWORK:\r\nhome.aspx"
+        },
+        {
+            "ID": "613",
+            "typeID": "18",
+            "question": "应用缓存中的回退是什么？",
+            "answer": "应用缓存中的回退帮助你指定在服务器不可访问的时候，将会显示某文件。例如在下面的manifest文件中，我们说如果谁敲击了”/home”同时服务器不可到达的时候，”homeoffline.html”文件应送达\r\n\r\n1\r\n2\r\nFALLBACK:\r\n/home/ /homeoffline.html"
+        },
+        {
+            "ID": "612",
+            "typeID": "18",
+            "question": "我们如何刷新浏览器的应用缓存？",
+            "answer": "应用缓存通过变更“#”标签后的版本版本号而被移除，如下所示：\r\n\r\nCACHE MANIFEST\r\n# version 2.0(new)\r\nCACHE :\r\nLogin.aspx\r\nAboutus.aspx\r\nNETWORK :\r\nPages.aspx"
+        },
+        {
+            "ID": "611",
+            "typeID": "18",
+            "question": "HTML5中我们如何实现应用缓存？",
+            "answer": "首先我们需要指定”manifest”文件，“manifest”文件帮助你定义你的缓存如何工作。以下是”mainfest”文件的结构\r\n\r\nCACHE MANIFEST\r\n# version 1.0\r\nCACHE :\r\nLogin.aspx\r\n所有manifest文件都以“CACHE MANIFEST”语句开始.\r\n#（散列标签）有助于提供缓存文件的版本.\r\nCACHE 命令指出哪些文件需要被缓存.\r\nMainfest文件的内容类型应是“text/cache-manifest”.\r\n以下是如何在ASP.NET C#使用manifest缓存\r\n\r\nResponse.ContentType = \"text/cache-manifest\";\r\nResponse.Write(\"CACHE MANIFEST \r\n\");\r\nResponse.Write(\"# 2012-02-21 v1.0.0 \r\n\");\r\nResponse.Write(\"CACHE : \r\n\");\r\nResponse.Write(\"Login.aspx \r\n\");\r\nResponse.Flush();\r\nResponse.End();\r\n创建一个缓存manifest文件以后，接下来的事情实在HTML页面中提供mainfest连接，如下所示：\r\n\r\n1\r\n<html manifest=\"cache.aspx\">"
+        },
+        {
+            "ID": "610",
+            "typeID": "18",
+            "question": "HTML5中的应用缓存是什么？",
+            "answer": "一个最需要的事最终是用户的离线浏览，换句话说，如果网络连接不可用时，页面应该来自浏览器缓存，离线应用缓存可以帮助你达到这个目的\r\n应用缓存可以帮助你指定哪些文件需要缓存，哪些不需要。"
+        },
+        {
+            "ID": "609",
+            "typeID": "18",
+            "question": "WebSql是HTML5的一个规范吗？",
+            "answer": "不是，许多人把它标记为HTML5，但是他不是HTML5的规范的一部分，这个规范是基于SQLite的"
+        },
+        {
+            "ID": "608",
+            "typeID": "18",
+            "question": "什么是WebSQL？",
+            "answer": "WebSQL是一个在浏览器客户端的结构关系数据库，这是浏览器内的本地RDBMS(关系型数据库系统)，你可以使用SQL查询"
+        },
+        {
+            "ID": "607",
+            "typeID": "18",
+            "question": "本地存储和事务存储之间的区别是什么？",
+            "answer": "本地存储数据持续永久，但是会话在浏览器打开时有效知道浏览器关闭时会话变量重置"
+        },
+        {
+            "ID": "606",
+            "typeID": "18",
+            "question": "什么是事务存储？我们如何创建一个事务存储？",
+            "answer": "会话存储和本地存储类似，但是数据在会话中有效，简而言之数据在你关闭浏览器的时候就被删除了。\r\n为了创建一个会话存储你需要使用“sessionStorage.variablename.”在以下的代码我们创建了一个名为”clickcount”的变量；\r\n如果你刷新浏览器则数目增加，但是如果你关闭浏览器，“clickcount”变量又会从0开始。\r\n\r\nif(sessionStorage.clickcount)\r\n{\r\nsessionStorage.clickcount=Number(sessionStorage.clickcount)+1;\r\n}\r\nelse\r\n{\r\nsessionStorage.clickcount = 0;\r\n}"
+        },
+        {
+            "ID": "605",
+            "typeID": "18",
+            "question": "本地存储和cookies（储存在用户本地终端上的数据）之间的区别是什么？",
+            "answer": "Cookies\tLocal storage\r\n1 客户端/服务端\t\r\n客户端和服务端都能访问数据。Cookie的数据通过每一个请求发送到服务端\t\r\n只有本地浏览器端可访问数据，服务器不能访问本地存储直到故意通过POST或者GET的通道发送到服务器\r\n2 大小\t\r\n每个cookie有4095byte\r\n每个域5MB\r\n过期\r\n3 Cookies有有效期，所以在过期之后cookie和cookie数据会被删除\t\r\n没有过期数据，无论最后用户从浏览器删除或者使用Javascript程序删除，我们都需要删除"
+        },
+        {
+            "ID": "604",
+            "typeID": "18",
+            "question": "本地存储的生命周期是什么？",
+            "answer": "本地存储没有生命周期，它将保留知道用户从浏览器清除或者使用Javascript代码移除。\r\n"
+        },
+        {
+            "ID": "603",
+            "typeID": "18",
+            "question": "我们如何从本地存储中添加和移除数据？",
+            "answer": "数据添加到本地存储采用键值对，以下示例显示了城市数据”India”添加了键”Key001”\r\n\r\n\r\nlocalStorage.setItem(“Key001”,”India”);\r\n从本地存储中检索数据我们可以提供键名并使用”getItem”方法\r\n\r\n\r\nvar country = localStorage.getItem(“Key001”);\r\n你也可以使用以下代码，存储Javascript对象在本地存储中\r\nvar country = {};\r\ncountry.name = “India”;\r\ncountry.code = “I001”;\r\nlocalStorage.setItem(“I001”, country);\r\nvar country1 = localStorage.getItem(“I001”);\r\n如果你想存储Json格式，你可以使用“JSON.stringify”方法，如下所示：\r\n\r\n\r\nlocalStorage.setItem(“I001”,JSON.stringify(country));"
+        },
+        {
+            "ID": "602",
+            "typeID": "18",
+            "question": "HTML5中的本地存储概念是什么？",
+            "answer": "很多时候我们会存储用户本地信息到电脑上，例如：比方说用户有一个填充了一半的长表格，然后突然网络连接断开了，这样用户希望你能存储这些信息到本地，当网络恢复的时候，他想获取这些信息然后发送到服务器进行存储\r\n现代浏览器拥有的存储被叫做“Local Storage”,你可以存储这些信息。"
+        },
+        {
+            "ID": "601",
+            "typeID": "18",
+            "question": "如何中止Web Worker?",
+            "answer": "w.terminate();"
+        },
+        {
+            "ID": "600",
+            "typeID": "18",
+            "question": "我们如何在JavaScript中创建一个worker线程？",
+            "answer": "创建一个worker线程，我们需要通过Javascript文件名创建worker对象\r\n\r\n\r\nvar worker = new Worker(\"MyHeavyProcess.js\");\r\n我们需要使用“PostMessage”发送信息给worker对象，下面是相同的代码。\r\n\r\n\r\nworker.postMessage();\r\n当worker线程发送数据的时候，我们在调用结束的时候，通过”onMessage”事件获取\r\n\r\nworker.onmessage = function (e) \r\n{\r\ndocument.getElementById(\"txt1\").value = e.data;\r\n};\r\n\r\n这个繁重的循环在“MyHeavyProcess.js”的Javascript文件中，以下代码，当Javascript文件想发送信息，他使用”postmessage”，同时任何来自发送者的信息都在“onmessage”事件中接收到。\r\n\r\n\r\nvar x =0\r\nself.onmessage = function (e) {\r\n    for (i = 0; i < 1000000000; i++)\r\n    {\r\n        x = i + x;\r\n    }\r\n    self.postMessage(x);\r\n};\r\n"
+        },
+        {
+            "ID": "599",
+            "typeID": "18",
+            "question": "Web Worker线程的限制是什么？",
+            "answer": "Web worker线程不能修改HTML元素，全局变量和Window.Location一类的窗口属性。你可以自由使用Javascript数据类型，XMLHttpRequest调用等。"
+        },
+        {
+            "ID": "598",
+            "typeID": "18",
+            "question": "什么是Web Workers？为什么我们需要他们？",
+            "answer": "考虑以下会执行上百万次的繁重的循环代码\r\n\r\nfunction  SomeHeavyFunction()\r\n{\r\nfor (i = 0; i < 10000000000000; i++)\r\n{\r\nx = i + x;\r\n}\r\n}\r\n比方说上面的循环代码在HTML按钮点击以后执行，现在这个方法执行是同步的，换句话说这个浏览器必须等到循环完成才能操作\r\n\r\n\r\n<input type=\"button\" onclick=\"SomeHeavyFunction();\" />\r\n这个会进一步导致浏览器冻结并且没有相应，屏幕还会显示如下的异常信息\r\n\r\n\r\n如果你能移动这些繁重的循环到Javascript文件中，采用异步的方式运行，这意味着浏览器不需要等到循环接触，我们可以有更敏感的浏览器，这就是web worker的作用\r\n\r\nWeb worker帮助我们用异步执行Javascript文件"
+        },
+        {
+            "ID": "597",
+            "typeID": "18",
+            "question": "你能解释一些CSS3中的文本效果么？",
+            "answer": "阴影文本效果\r\n\r\n1\r\n2\r\n3\r\n4\r\n.specialtext\r\n{\r\ntext-shadow: 5px 5px 5px #FF0000;\r\n}\r\n\r\n文字包装效果\r\n\r\n1\r\n2\r\n3\r\n4\r\n<style>\r\n.breakword\r\n{word-wrap:break-word;}\r\nstyle>\r\n\r\n"
+        },
+        {
+            "ID": "596",
+            "typeID": "18",
+            "question": "CSS中使用列布局是什么？",
+            "answer": "CSS列布局帮助你分割文本变为列，例如考虑下面的杂志新闻在一个大的文本中，但是我们需要在他们之间使用边界划分为3列，这里HTML5的列布局就有所帮助了\r\n\r\n为了实现列布局我们需要指定以下内容\r\n\r\n我们需要把text划分为多少列\r\n指定列数我们需要使用column-count，对于Chrome和firefox分别需要”webkit”和“moz-column”\r\n\r\n-moz-column-count:3; /* Firefox */\r\n-webkit-column-count:3; /* Safari and Chrome */\r\ncolumn-count:3;\r\n两列之间我们想要多少差距\r\n\r\n-moz-column-gap:40px; /* Firefox */\r\n-webkit-column-gap:40px; /* Safari and Chrome */\r\ncolumn-gap:20px;\r\n· 你想在这些列之间画一条线么？如果是，那么多厚呢？\r\n\r\n\r\n-moz-column-rule:4px outset #ff00ff; /* Firefox */\r\n-webkit-column-rule:4px outset #ff00ff; /* Safari and Chrome */\r\ncolumn-rule:6px outset #ff00ff;\r\n以下是完整代码\r\n\r\n\r\n<style>\r\n.magazine\r\n{\r\n-moz-column-count:3; /* Firefox */\r\n-webkit-column-count:3; /* Safari and Chrome */\r\ncolumn-count:3;\r\n \r\n-moz-column-gap:40px; /* Firefox */\r\n-webkit-column-gap:40px; /* Safari and Chrome */\r\ncolumn-gap:20px;\r\n \r\n-moz-column-rule:4px outset #ff00ff; /* Firefox */\r\n-webkit-column-rule:4px outset #ff00ff; /* Safari and Chrome */\r\ncolumn-rule:6px outset #ff00ff;\r\n}\r\nstyle>\r\n你可以使用class属性来应用样式到文本\r\n\r\n\r\n<div class=\"magazine\">\r\nYour text goes here which you want to divide in to 3 columns.\r\ndiv>\r\n\r\n你能解释一下CSS的盒子模型么？\r\nCSS和模型是围绕在HTML元素周围的定义Border(边界)，padding(内边距)和margin(外边距)的矩形空间\r\nBorder(边界)：定义了元素包含的最大区域，我们能够使边界可见，不可见，定义高度和宽度等；\r\nPadding(内边距)：定义了边界和内部元素的间距\r\nMargin：定义了边界和任何相邻元素的间距\r\n\r\n\r\n例如以下是简单的CSS代码定义了盒子的边界，内边距和外边距值\r\n\r\n.box {\r\n    width: 200px;\r\n    border: 10px solid #99c;\r\n    padding: 20px;\r\n    margin: 50px;\r\n}\r\n现在如果我们应用了以上的CSS到一个如下显示的DIV标签，你输出将会和下面图形中显示的那样。我已经创建两个测试“Some text”和“Some other text”，因此我们能看到多少margin(外边距)的属性功能\r\n\r\n\r\n<div align=\"middle\" class=\"box\">\r\nSome text\r\ndiv>\r\nSome other text\r\n\r\n"
+        },
+        {
+            "ID": "595",
+            "typeID": "18",
+            "question": "如何使用ID值来应用一个CSS样式？",
+            "answer": "假设，你有一个HTML段落标签，使用id是”mytext”，就和下面的片段中显示的那样\r\n\r\n\r\n<p id=\"mytext\">This is HTML interview questions.p>\r\n你可以使用”#”选择器和”id”的名字创建一种样式，并把CSS值应用到段落标签中，因此应用样式到”mytext”元素，我们可以使用”#mytext”，如下所示\r\n\r\n<style>\r\n#mytext\r\n{\r\nbackground-color:yellow;\r\n}\r\nstyle>\r\n迅速修订一些重要的选择器\r\n设置所有段落标签背景色为黄色\r\n\r\ndiv p\r\n{ \r\nbackground-color:yellow;\r\n}\r\n设置所有div内部的段落标签为黄色背景\r\n\r\ndiv p\r\n{ \r\nbackground-color:yellow;\r\n}\r\n设置所有div之后的段落标签为黄色背景\r\n\r\ndiv+p\r\n{ \r\nbackground-color:yellow;\r\n}\r\n设置所有含有“target”属性的变为黄色背景\r\n\r\na[target]\r\n{ \r\nbackground-color:yellow;\r\n}\r\n<a href=\"http://www.questpond.com\">ASP.NET interview questionsa>\r\n<a href=\"http://www.questpond.com\" target=\"_blank\">c# interview questionsa>\r\n<a href=\"http://www.questpond.org\" target=\"_top\">.NET interview questions with answersa>\r\n当控制得到焦点的时候设置所有的元素为黄色背景\r\n\r\ninput:focus\r\n{ \r\nbackground-color:yellow;\r\n}\r\n根据相关连接操作设置超链接样式\r\n\r\na:link    {color:green;}\r\na:visited {color:green;}\r\na:hover   {color:red;}\r\na:active  {color:yellow;}\r\n"
+        },
+        {
+            "ID": "594",
+            "typeID": "18",
+            "question": "CSS（cascading style sheets级联样式表）中的选择器是什么？\r\n",
+            "answer": "选择器在你想应用一个样式的时候，帮助你去选择元素。举例，下面是简单的被命名为”instro”的样式，他适用于HTML元素显示红色背景\r\n\r\n<style>\r\n.intro{\r\nbackground-color:red;\r\n}\r\nstyle>\r\n应用上面的”intro”样式给div，我们可以使用”class”选择器，如下图所示\r\n\r\n<div class=\"intro\">\r\n<p>My name is Shivprasad koirala.p>\r\n<p>I write interview questions.p>\r\ndiv>\r\n"
+        },
+        {
+            "ID": "593",
+            "typeID": "18",
+            "question": "如何使用Canvas和HTML5中的SVG去画一个矩形？\r\n",
+            "answer": "HTML5使用SVG绘制矩形的代码\r\n\r\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\r\n<rect style=\"fill: rgb(0, 0, 255); stroke-width: 1px; stroke: rgb(0, 0, 0);\" height=\"[object SVGAnimatedLength]\" width=\"[object SVGAnimatedLength]\">\r\nrect>\r\nHTML5使用Canvas绘制矩形的代码\r\n\r\nvar c=document.getElementById(\"mycanvas\");\r\nvar ctx=c.getContext(\"2d\");\r\nctx.rect(20,20,150,100);\r\nctx.stroke();\r\n"
+        },
+        {
+            "ID": "592",
+            "typeID": "18",
+            "question": "我们如何使用Canvas来画一条简单的线？\r\n",
+            "answer": "定义Canvas区域\r\n获取访问canvas上下文区域\r\n绘制图形\r\n定义Canvas区域\r\n\r\n定义Canvas区域你需要使用下面的HTML代码，这定义了你能进行绘图的区域\r\n\r\n\r\n<canvas id=\"mycanvas\" width=\"600\" height=\"500\" style=\"border:1px solid #000000;\">canvas>\r\n获取画布区域的访问\r\n\r\n在画布上进行绘图我们首先需要获取上下文区域的关联，下面是获取画布区域的代码。\r\nvar c=document.getElementById(\"mycanvas\");\r\nvar ctx=c.getContext(\"2d\");\r\n绘制图形\r\n\r\n现在一旦你获取了访问上下文，我们就可以开始在上下文中绘制了。首先调用“move”方法并从一个点开始，使用线条方法绘制线条然后使用stroke方法结束。\r\n\r\n\r\nctx.moveTo(10,10);\r\nctx.lineTo(200,100);\r\nctx.stroke();\r\n以下是完整的代码\r\n\r\n<body  onload=\"DrawMe();\">\r\n<canvas id=\"mycanvas\" width=\"600\" height=\"500\" style=\"border:1px solid #000000;\">canvas>\r\nbody>\r\n<script>\r\nfunction DrawMe()\r\n{\r\nvar c=document.getElementById(\"mycanvas\");\r\nvar ctx=c.getContext(\"2d\");\r\nctx.moveTo(10,10);\r\nctx.lineTo(200,100);\r\nctx.stroke();\r\n}\r\n你可以得到以下输出\r\n\r\n \r\n\r\n\r\nCanvas和SVG图形的区别是什么？\r\n\r\nNote：-如果你看了之前的两个的问题，Canvas和SVG都可以在浏览器上绘制图形。因此在这个问题中，面试官想知道你在什么时候选用哪种方式。\r\n\r\nSVG\tCanvas\r\n这个就好像绘制和记忆，换句话说任何使用SVG绘制的形状都能被记忆和操作，浏览器可以再次显示\tCanvas就像绘制和忘记，一旦绘制完成你不能访问像素和操作它\r\nSVG对于创建图形例如CAD软件是良好的，一旦东西绘制，用户就想去操作它\tCanvas在绘制和忘却的场景例如动画和游戏是良好的\r\n因为为了之后的操作，需要记录坐标，所以比较缓慢\t因为没有记住以后事情的意向，所以更快\r\n我们可以用绘制对象的相关事件处理\t我们不能使用绘制对象的相关事件处理，因为我们没有他们的参考\r\n分辨率无关\t分辨率相关\r\n"
+        },
+        {
+            "ID": "591",
+            "typeID": "18",
+            "question": "HTML5中canvas是什么？",
+            "answer": "Canvas是HTML中你可以绘制图形的区域\r\n\r\n"
+        },
+        {
+            "ID": "590",
+            "typeID": "18",
+            "question": "什么是SVG（Scalable Vector Graphics可缩放矢量图形）？",
+            "answer": "SVG（Scalable Vector Graphics可缩放矢量图形）表示可缩放矢量图形。他是基于文本的图形语言，使用文本，线条，点等来进行图像绘制，这使得他轻便，显示更加迅速\r\n\r\n\r\n我们能看到使用HTML5的SVG的简单例子么？\r\n\r\n比方说，我们希望使用HTML5 SVG去显示以下简单的线条\r\n\r\n\r\n下面是HTML5代码\r\n\r\n1\r\n2\r\n3\r\n<svg id=\"svgelem\" height=\"[object SVGAnimatedLength]\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<line style=\"stroke: rgb(255, 0, 0); stroke-width: 2px;\" y2=\"[object SVGAnimatedLength]\" x2=\"[object SVGAnimatedLength]\" y1=\"[object SVGAnimatedLength]\" x1=\"[object SVGAnimatedLength]\">\r\nline>"
+        },
+        {
+            "ID": "589",
+            "typeID": "18",
+            "question": "HTML5中什么是输出元素？",
+            "answer": "当你需要计算两个输入的和值到一个标签中的时候你需要输出元素。例如你有两个文本框（如下图），你想将来自这两个输入框中的数字求和并放到标签中。\r\n\r\n\r\n下面是如何在HTML5中使用输出元素的代码\r\n\r\n<form onsubmit=\"return false\"  öninput=\"o.value = parseInt(a.value) + parseInt(b.value)\">\r\n  <input name=\"a\" type=\"number\"> +\r\n  <input name=\"b\" type=\"number\"> =\r\n  <output name=\"o\" />\r\nform>\r\n为了简单起见，你也可以使用“valueAsNumber”来代替“parseInt”。你同样能在output元素中使用“for”使其更加可读\r\n\r\n\r\n<output name=\"o\" for=\"a b\">output>"
+        },
+        {
+            "ID": "588",
+            "typeID": "18",
+            "question": "HTML5中什么是不同的新的表单元素类型？",
+            "answer": "这里有10个重要的新的表单元素在HTML5中被介绍\r\n\r\nColor\r\nDate\r\nDatetime-local\r\nEmail\r\nTime\r\nUrl\r\nRange\r\nTelephone\r\nNumber\r\nSearch\r\n让我们一步一步了解这10个元素\r\n\r\n如果你想显示颜色选择对话框\r\n\r\n1\r\n<input type=\"color\" name=\"favcolor\">\r\n\r\n如果你想显示日历对话框\r\n\r\n1\r\n<input type=\"date\" name=\"bday\">\r\n\r\n如果你想显示含有本地时间的日历\r\n\r\n1\r\n<input type=\"datetime-local\" name=\"bdaytime\">\r\n\r\n如果你想创建一个含有email校验的HTML文本框，我们可以设置类型为“email”\r\n\r\n1\r\n<input type=\"email\" name=\"email\">\r\n\r\n对于URL验证设置类型为”url”，如下图显示的HTML代码\r\n\r\n1\r\n<input type=\"url\" name=\"sitename\">\r\n\r\n如果你想用文本展示数字范围，你可以设置类型为“number”\r\n\r\n1\r\n<input type=\"number\" name=\"quantity\" min=\"1\" max=\"5\">\r\n\r\n如果你想显示范围控制，你可以使用类型”range”\r\n\r\n1\r\n<input type=\"range\" min=\"0\" max=\"10\" step=\"2\" value=\"6\">\r\n\r\n想让文本框作为搜索引擎\r\n\r\n1\r\n<input type=\"search\" name=\"googleengine\">\r\n想只能输入时间\r\n\r\n1\r\n<input type=\"time\" name=\"usr_time\">\r\n如果你想使用文本框接受电话号码\r\n\r\n1\r\n<input type=\"tel\" name=\"mytel\">"
+        },
+        {
+            "ID": "587",
+            "typeID": "18",
+            "question": "HTML5中的datalist是什么？",
+            "answer": "HTML5中的Datalist元素有助于提供文本框自动完成特性\r\n以下是DataList功能的HTML代码：\r\n\r\n<input list=\"Country\">\r\n<datalist id=\"Country\">\r\n  <option value=\"India\">\r\n  <option value=\"Italy\">\r\n  <option value=\"Iran\">\r\n  <option value=\"Israel\">\r\n  <option value=\"Indonesia\">\r\ndatalist>"
+        },
+        {
+            "ID": "586",
+            "typeID": "18",
+            "question": "HTML5的页面结构同HTML4或者更前的HTML有什么区别？",
+            "answer": "一个典型的WEB页面包含头部，脚部，导航，中心区域，侧边栏。现在如果我们想在在HTML4的HTML区域中呈现这些内容，我们可能要使用DIV标签。\r\n\r\n但是在HTML5中通过为这些区域创建元素名称使他们更加清晰，也使得你的HTML更加可读"
+        },
+        {
+            "ID": "585",
+            "typeID": "18",
+            "question": "哪些浏览器支持HTML5？",
+            "answer": "几乎所有的浏览器Safari，Chrome，Firefox，Opera，IE都支持HTML5"
+        },
+        {
+            "ID": "584",
+            "typeID": "18",
+            "question": "如果我不放入 ，HTML5还会工作么？",
+            "answer": "不会，浏览器将不能识别他是HTML文档，同时HTML5的标签将不能正常工作"
+        },
+        {
+            "ID": "583",
+            "typeID": "18",
+            "question": "为什么HTML5里面我们不需要DTD（Document Type Definition文档类型定义）？",
+            "answer": "HTML5没有使用SGML或者XHTML，他是一个全新的东西，因此你不需要参考DTD，对于HTML5，你仅需放置下面的文档类型代码告诉浏览器识别这是HTML5文档"
+        },
+        {
+            "ID": "582",
+            "typeID": "18",
+            "question": "什么是HTML5？",
+            "answer": "HTML5是最新的HTML标准，他的主要目标是提供所有内容而不需要任何的像flash，silverlight等的额外插件，这些内容来自动画，视频，富GUI等\r\n\r\nHTML5是万维网联盟（W3C）和网络超文本应用技术工作组（WHATWG）之间合作输出的"
+        },
+        {
+            "ID": "581",
+            "typeID": "18",
+            "question": "SGML（标准通用标记语言）和HTML（超文本标记语言），XML（可扩展标记语言）和HTML的之间有什么关系？",
+            "answer": "SGML（标准通用标记语言）是一个标准，告诉我们怎么去指定文档标记。他是只描述文档标记应该是怎么样的元语言，HTML是被用SGML描述的标记语言。\r\n\r\n因此利用SGML创建了HTML参照和必须共同遵守的DTD，你会经常在HTML页面的头部发现“DOCTYPE”属性，用来定义用于解析目标DTD\r\n现在解析SGML是一件痛苦的事情，所以创建了XML使事情更好。XML使用了SGML，例如：在SGML中你必须使用起始和结束标签，但是在XML你可以有自动关闭的结束标签。\r\n\r\nXHTML创建于XML，他被使用在HTML4.0中。你可以参考下面代码片段中展示的XML DTD\r\n总之，SGML是所有类型的父类，较旧的HTML利用SGML，HTML4.0使用派生自XML的XHTML"
+        },
+        {
+            "ID": "100",
+            "typeID": "18",
+            "question": "HTML5 和老的 HTML之间的缓存机制有什么不同？",
+            "answer": "HTML5 有了一个新的Application Cache, 它为web应用创建了一个离线的缓存，包括HTML文件、CSS、图片和JS等，能提供访问性能。"
+        },
+        {
+            "ID": "99",
+            "typeID": "18",
+            "question": "什么是quirks mode（怪异模式）？",
+            "answer": "怪异模式（英语：quirks mode）是指在计算机领域中，一些网页浏览器为了维持对较旧的网页设计的向后兼容性，而使用的一种技术，有别于严格遵循万维网联盟（W3C）与互联网工程任务组（IETF）标准而设计的“标准模式”。"
+        },
+        {
+            "ID": "98",
+            "typeID": "18",
+            "question": "DOCTYPE 有什么作用？",
+            "answer": "DOCTYPE主要作用是告诉浏览器这个网页是哪种HTML， 浏览器根据这个标示进行页面渲染。如果DOCTYPE声明不当或没有声明，浏览器将会用quirks mode（怪异模式）对页面进行渲染。"
+        },
+        {
+            "ID": "97",
+            "typeID": "18",
+            "question": "什么是Semantic HTML（语义HTML）?",
+            "answer": "Semantic HTML是一种编码风格, 它通过添加能够被计算器所理解的语义(Meta data)，从而使HTML成为一个通用的信息交换媒介。在语义HTML中，<b></b>,<i></i>这类其中的内容不具有实际意义的标签是不应该被使用的，因为他们只是为了进行格式化，没有提供要表达的意义及页面结构。"
+        },
+        {
+            "ID": "96",
+            "typeID": "18",
+            "question": "HTML5 应用缓存和常规的 HTML 浏览器缓存有何差别？",
+            "answer": "HTML5 的应用缓存最关键的就是支持离线应用，可获取少数或者全部网站内容，包括 HTML、CSS、图像和 JavaScript 脚本并存在本地。该特性加速了网站的性能，可通过如下方式实现：\r\n\r\n<!doctype html> \r\n<html manifest=\"example.appcache\"> \r\n..... \r\n</html> \r\n"
+        },
+        {
+            "ID": "95",
+            "typeID": "18",
+            "question": "HTML5 标准提供了哪些新的 API？",
+            "answer": "HTML 5 提供很多新的 API，包括：\r\n\r\nMedia API\r\nText Track API\r\nApplication Cache API\r\nUser Interaction\r\nData Transfer API\r\nCommand API\r\nConstraint Validation API\r\nHistory API\r\nand many more...."
+        },
+        {
+            "ID": "94",
+            "typeID": "18",
+            "question": "与 HTML4 比较，HTML5 废弃了哪些元素？",
+            "answer": "废弃的元素包括：\r\n\r\nframe\r\nframeset\r\nnoframe\r\napplet\r\nbig\r\ncenter\r\nbasefront"
+        },
+        {
+            "ID": "93",
+            "typeID": "18",
+            "question": " HTML5 引入什么新的表单属性？",
+            "answer": "HTML5 引入大量新的表达属性：\r\n\r\ndatalist\r\ndatetime\r\noutput\r\nkeygen\r\ndate\r\nmonth\r\nweek\r\ntime\r\nnumber\r\nrange\r\nemail\r\nurl"
+        },
+        {
+            "ID": "92",
+            "typeID": "18",
+            "question": "HTML5 有哪些不同类型的存储？",
+            "answer": "HTML 5 支持本地存储，在之前版本中是通过 Cookie 实现的。HTML5 本地存储速度快而且安全。\r\n\r\n有两种不同的对象可用来存储数据：\r\n\r\nlocalStorage 适用于长期存储数据，浏览器关闭后数据不丢失\r\nsessionStorage 存储的数据在浏览器关闭后自动删除"
+        },
+        {
+            "ID": "91",
+            "typeID": "18",
+            "question": "What is the usage of canvas Element in HTML 5?",
+            "answer": "<canvas> is an element in HTML5 which we can use to draw graphics with the help of scripting (which is most probably JavaScript).\r\n\r\nThis element behaves like a container for graphics and rest of things will be done by scripting. We can draw images, graphs and a bit of animations etc using <canvas> element.\r\n\r\n<canvas id=\"canvas1\" width=\"300\" height=\"100\">\r\n\r\n</canvas>"
+        },
+        {
+            "ID": "90",
+            "typeID": "18",
+            "question": "除了音频和视频，HTML5 还支持其他什么新的媒体元素？",
+            "answer": "HTML 5 对媒体支持很强，除了 audio 和 video 外，还提供：\r\n\r\n<embed> 作为外部应用的容器\r\n<track> 定义媒体的文本跟踪\r\n<source> 对多种媒体源的支持很有帮助"
+        },
+        {
+            "ID": "89",
+            "typeID": "18",
+            "question": "HTML5 新的 DocType 和 Charset 是什么？",
+            "answer": "HTML5 现在已经不是 SGML 的子集，DocType 简化为：\r\n\r\n<!doctype html> \r\nHTML 5 指定 UTF-8 编码的方式如下：\r\n\r\n<meta charset=\"UTF-8\"> "
+        }
+    ]
+
+

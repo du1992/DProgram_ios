@@ -1,0 +1,244 @@
+[
+        {
+            "ID": "802",
+            "typeID": "15",
+            "question": "python如何捕获异常 ？",
+            "answer": "（1）使用try和except语句来捕获异常;\r\n（2）用raise语句手工引发一个异常;\r\n（3）采用sys模块回溯最后的异常;\r\n"
+        },
+        {
+            "ID": "801",
+            "typeID": "15",
+            "question": "写一个简单的python socket编程 ?",
+            "answer": "python 编写server的步骤： \r\n1. \r\n第一步是创建socket对象。调用socket构造函数。如：\r\n\r\nsocket = socket.socket( family, type )\r\nfamily参数代表地址家族，可为AF_INET或AF_UNIX。AF_INET家族包括Internet地址，AF_UNIX家族用于同一台机器上的进程间通信。 \r\ntype参数代表套接字类型，可为SOCK_STREAM(流套接字)和SOCK_DGRAM(数据报套接字)。 \r\n2. \r\n第二步是将socket绑定到指定地址。这是通过socket对象的bind方法来实现的：\r\n\r\nsocket.bind( address )\r\n由AF_INET所创建的套接字，address地址必须是一个双元素元组，格式是(host,port)。host代表主机，port代表端口号。如果端口号正在使用、主机名不正确或端口已被保留，bind方法将引发socket.error异常。 \r\n3. \r\n第三步是使用socket套接字的listen方法接收连接请求。\r\n\r\nsocket.listen( backlog )\r\nbacklog指定最多允许多少个客户连接到服务器。它的值至少为1。收到连接请求后，这些请求需要排队，如果队列满，就拒绝请求。 \r\n4. \r\n第四步是服务器套接字通过socket的accept方法等待客户请求一个连接。\r\n\r\nconnection, address = socket.accept()\r\n调用accept方法时，socket会进入“waiting”状态。客户请求连接时，方法建立连接并返回服务器。accept方法返回一个含有两个元素的元组(connection,address)。第一个元素connection是新的socket对象，服务器必须通过它与客户通信；第二个元素 address是客户的Internet地址。 \r\n5.\r\n\r\n第五步是处理阶段，服务器和客户端通过send和recv方法通信(传输 数据)。服务器调用send，并采用字符串形式向客户发送信息。send方法返回已发送的字符个数。服务器使用recv方法从客户接收信息。调用recv 时，服务器必须指定一个整数，它对应于可通过本次方法调用来接收的最大数据量。recv方法在接收数据时会进入“blocked”状态，最后返回一个字符 串，用它表示收到的数据。如果发送的数据量超过了recv所允许的，数据会被截短。多余的数据将缓冲于接收端。以后调用recv时，多余的数据会从缓冲区 删除(以及自上次调用recv以来，客户可能发送的其它任何数据)。 \r\n6. 传输结束，服务器调用socket的close方法关闭连接。 \r\n\r\npython编写client的步骤： \r\n1. 创建一个socket以连接服务器：socket = socket.socket( family, type ) \r\n2.使用socket的connect方法连接服务器。对于AF_INET家族,连接格式如下：\r\n\r\nsocket.connect( (host,port) )\r\nhost代表服务器主机名或IP，port代表服务器进程所绑定的端口号。如连接成功，客户就可通过套接字与服务器通信，如果连接失败，会引发socket.error异常。 \r\n3. 处理阶段，客户和服务器将通过send方法和recv方法通信。 \r\n4. 传输结束，客户通过调用socket的close方法关闭连接。 "
+        },
+        {
+            "ID": "800",
+            "typeID": "15",
+            "question": "Python如何copy一个文件？",
+            "answer": "shutil模块有一个copyfile函数可以实现文件拷贝 "
+        },
+        {
+            "ID": "799",
+            "typeID": "15",
+            "question": "如何用Python删除一个文件？ ",
+            "answer": "使用os.remove(filename)或者os.unlink(filename); "
+        },
+        {
+            "ID": "798",
+            "typeID": "15",
+            "question": "如何在一个function里面设置一个全局的变量？ ",
+            "answer": "global"
+        },
+        {
+            "ID": "797",
+            "typeID": "15",
+            "question": "有没有一个工具可以帮助查找python的bug和进行静态的代码分析？ ",
+            "answer": "pycheck pylint "
+        },
+        {
+            "ID": "796",
+            "typeID": "15",
+            "question": "Python如何定义一个函数? ",
+            "answer": "定义函数的格式是: def functionName(arg): "
+        },
+        {
+            "ID": "795",
+            "typeID": "15",
+            "question": "如何用Python来发送邮件？",
+            "answer": "可以使用smtplib标准库。 \r\n以下代码可以在支持SMTP监听器的服务器上执行。\r\n\r\n 1 import sys, smtplib\r\n 2 \r\n 3 fromaddr = raw_input(“From: “)\r\n 4 toaddrs = raw_input(“To: “).split(‘,’)\r\n 5 print “Enter message, end with ^D:”\r\n 6 msg = ”\r\n 7 while 1:\r\n 8     line = sys.stdin.readline()\r\n 9     if not line:\r\n10         break\r\n11     msg = msg + line\r\n12 \r\n13 # 发送邮件部分\r\n14 server = smtplib.SMTP(‘localhost’)\r\n15 server.sendmail(fromaddr, toaddrs, msg)\r\n16 server.quit()"
+        },
+        {
+            "ID": "794",
+            "typeID": "15",
+            "question": "Python里面如何生成随机数？ ",
+            "answer": "import random \r\nrandom.random() \r\n它会返回一个随机的0和1之间的浮点数 "
+        },
+        {
+            "ID": "793",
+            "typeID": "15",
+            "question": "用Python匹配HTML tag的时候，<.*>和<.*?>有什么区别？ ",
+            "answer": "前者是贪婪匹配，会从头到尾匹配 <a>xyz</a>，而后者是非贪婪匹配，只匹配到第一个 >。 "
+        },
+        {
+            "ID": "792",
+            "typeID": "15",
+            "question": "Python里面search()和match()的区别？ ",
+            "answer": "match()函数只检测RE是不是在string的开始位置匹配，search()会扫描整个string查找匹配, 也就是说match()只有在0位置匹配成功的话才有返回，如果不是开始位置匹配成功的话，match()就返回none "
+        },
+        {
+            "ID": "791",
+            "typeID": "15",
+            "question": "如何用Python来进行查询和替换一个文本字符串？",
+            "answer": "可以使用sub()方法来进行查询和替换，sub方法的格式为：sub(replacement, string[, count=0]) \r\nreplacement是被替换成的文本 \r\nstring是需要被替换的文本 \r\ncount是一个可选参数，指最大被替换的数量 \r\n"
+        },
+        {
+            "ID": "790",
+            "typeID": "15",
+            "question": "绍一下Python下range()函数的用法？ ",
+            "answer": "range(start, stop[, step]) "
+        },
+        {
+            "ID": "789",
+            "typeID": "15",
+            "question": "如何知道一个python对象的类型？ ",
+            "answer": "type() "
+        },
+        {
+            "ID": "788",
+            "typeID": "15",
+            "question": "Python中pass语句的作用是什么？ ",
+            "answer": "pass语句什么也不做，一般作为占位符或者创建占位程序，pass语句不会执行任何操作 "
+        },
+        {
+            "ID": "787",
+            "typeID": "15",
+            "question": "介绍一下except的用法和作用？ ",
+            "answer": "Python的except用来捕获所有异常，因为Python里面的每次错误都会抛出一个异常，所以每个程序的错误都被当作一个运行时错误。 "
+        },
+        {
+            "ID": "786",
+            "typeID": "15",
+            "question": "Python里面如何拷贝一个对象？ ",
+            "answer": "标准库中的copy模块提供了两个方法来实现拷贝.一个方法是copy,它返回和参数包含内容一样的对象. \r\n使用deepcopy方法,对象中的属性也被复制 \r\n"
+        },
+        {
+            "ID": "785",
+            "typeID": "15",
+            "question": "Python如何实现单例模式？其他23种设计模式python如何实现？",
+            "answer": "1 #使用__metaclass__（元类）的高级python用法  \r\n 2 class Singleton2(type):  \r\n 3     def __init__(cls, name, bases, dict):  \r\n 4         super(Singleton2, cls).__init__(name, bases, dict)  \r\n 5         cls._instance = None  \r\n 6     def __call__(cls, *args, **kw):  \r\n 7         if cls._instance is None:  \r\n 8             cls._instance = super(Singleton2, cls).__call__(*args, **kw)  \r\n 9         return cls._instance  \r\n10  \r\n11 class MyClass3(object):  \r\n12     __metaclass__ = Singleton2  \r\n13  \r\n14 one = MyClass3()  \r\n15 two = MyClass3()  \r\n16  \r\n17 two.a = 3  \r\n18 print one.a  \r\n19 #3  \r\n20 print id(one)  \r\n21 #31495472  \r\n22 print id(two)  \r\n23 #31495472  \r\n24 print one == two  \r\n25 #True  \r\n26 print one is two  \r\n27 #True  \r\n 1 #使用装饰器(decorator),  \r\n 2 #这是一种更pythonic,更elegant的方法,  \r\n 3 #单例类本身根本不知道自己是单例的,因为他本身(自己的代码)并不是单例的  \r\n 4 def singleton(cls, *args, **kw):  \r\n 5     instances = {}  \r\n 6     def _singleton():  \r\n 7         if cls not in instances:  \r\n 8             instances[cls] = cls(*args, **kw)  \r\n 9         return instances[cls]  \r\n10     return _singleton  \r\n11  \r\n12 @singleton  \r\n13 class MyClass4(object):  \r\n14     a = 1  \r\n15     def __init__(self, x=0):  \r\n16         self.x = x  \r\n17  \r\n18 one = MyClass4()  \r\n19 two = MyClass4()  \r\n20  \r\n21 two.a = 3  \r\n22 print one.a  \r\n23 #3  \r\n24 print id(one)  \r\n25 #29660784  \r\n26 print id(two)  \r\n27 #29660784  \r\n28 print one == two  \r\n29 #True  \r\n30 print one is two  \r\n31 #True  \r\n32 one.x = 1  \r\n33 print one.x  \r\n34 #1  \r\n35 print two.x  \r\n36 #1  "
+        },
+        {
+            "ID": "784",
+            "typeID": "15",
+            "question": "请写出一段Python代码实现删除一个list里面的重复元素?",
+            "answer": "1 >>> l = [1,1,2,3,4,5,4]\r\n2 >>> list(set(l))\r\n3 [1, 2, 3, 4, 5]\r\n4 或者\r\n5 d = {}\r\n6 for x in mylist:\r\n7     d[x] = 1\r\n8 mylist = list(d.keys())"
+        },
+        {
+            "ID": "783",
+            "typeID": "15",
+            "question": "Python是如何进行类型转换的？ ",
+            "answer": "1 函数                      描述\r\n 2 int(x [,base ])         将x转换为一个整数\r\n 3 long(x [,base ])        将x转换为一个长整数\r\n 4 float(x )               将x转换到一个浮点数\r\n 5 complex(real [,imag ])  创建一个复数\r\n 6 str(x )                 将对象 x 转换为字符串\r\n 7 repr(x )                将对象 x 转换为表达式字符串\r\n 8 eval(str )              用来计算在字符串中的有效Python表达式,并返回一个对象\r\n 9 tuple(s )               将序列 s 转换为一个元组\r\n10 list(s )                将序列 s 转换为一个列表\r\n11 chr(x )                 将一个整数转换为一个字符\r\n12 unichr(x )              将一个整数转换为Unicode字符\r\n13 ord(x )                 将一个字符转换为它的整数值\r\n14 hex(x )                 将一个整数转换为一个十六进制字符串\r\n15 oct(x )                 将一个整数转换为一个八进制字符串"
+        },
+        {
+            "ID": "782",
+            "typeID": "15",
+            "question": "how do I iterate over a sequence in reverse order?",
+            "answer": "for x in reversed(sequence):\r\n    ... # do something with x..\r\n如果不是list, 最通用但是稍慢的解决方案是：\r\n\r\nfor i in range(len(sequence)-1, -1, -1):\r\n    x = sequence[i]\r\n    <do something with x>"
+        },
+        {
+            "ID": "781",
+            "typeID": "15",
+            "question": "解释一下python的and-or语法 ",
+            "answer": "与C表达式 bool ? a : b类似，但是bool and a or b，当 a 为假时，不会象C表达式 bool ? a : b 一样工作 \r\n应该将 and-or 技巧封装成一个函数：\r\n\r\ndef choose(bool, a, b):\r\nreturn (bool and [a] or [b])[0]\r\n因为 [a] 是一个非空列表，它永远不会为假。甚至 a 是 0 或 ' 或其它假值，列表[a]为真，因为它有一个元素。 \r\n"
+        },
+        {
+            "ID": "780",
+            "typeID": "15",
+            "question": "介绍一下Python中webbrowser的用法？ ",
+            "answer": "webbrowser模块提供了一个高级接口来显示基于Web的文档，大部分情况下只需要简单的调用open()方法。 \r\nwebbrowser定义了如下的异常： \r\nexception webbrowser.Error, 当浏览器控件发生错误是会抛出这个异常 \r\nwebbrowser有以下方法： \r\nwebbrowser.open(url[, new=0[, autoraise=1]]) \r\n这个方法是在默认的浏览器中显示url, 如果new = 0, 那么url会在同一个浏览器窗口下打开，如果new = 1, 会打开一个新的窗口，如果new = 2, 会打开一个新的tab, 如果autoraise ＝ true, 窗口会自动增长。 \r\nwebbrowser.open_new(url) \r\n在默认浏览器中打开一个新的窗口来显示url, 否则，在仅有的浏览器窗口中打开url \r\nwebbrowser.open_new_tab(url) \r\n在默认浏览器中当开一个新的tab来显示url, 否则跟open_new()一样 \r\nwebbrowser.get([name]) 根据name返回一个浏览器对象，如果name为空，则返回默认的浏览器 \r\nwebbrowser.register(name, construtor[, instance]) \r\n注册一个名字为name的浏览器，如果这个浏览器类型被注册就可以用get()方法来获取。 "
+        },
+        {
+            "ID": "779",
+            "typeID": "15",
+            "question": "如何用Python输出一个Fibonacci数列？",
+            "answer": "1      a,b = 0, 1\r\n2      while b<100:\r\n3     print (b),\r\n4     a, b = b, a+b"
+        },
+        {
+            "ID": "778",
+            "typeID": "15",
+            "question": "什么是lambda函数？它有什么好处? ",
+            "answer": "lambda 函数是一个可以接收任意多个参数(包括可选参数)并且返回单个表达式值的函数。 lambda 函数不能包含命令，它们所包含的表达式不能超过一个。不要试图向lambda 函数中塞入太多的东西；如果你需要更复杂的东西，应该定义一个普通函数，然后想让它多长就多长。 "
+        },
+        {
+            "ID": "777",
+            "typeID": "15",
+            "question": "python下多线程的限制以及多进程中传递参数的方式 ?",
+            "answer": "python多线程有个全局解释器锁（global interpreter lock），这个锁的意思是任一时间只能有一个线程使用解释器，跟单cpu跑多个程序一个意思，大家都是轮着用的，这叫“并发”，不是“并行”。 \r\n多进程间共享数据，可以使用 multiprocessing.Value 和 multiprocessing.Array "
+        },
+        {
+            "ID": "776",
+            "typeID": "15",
+            "question": "Python中pass语句的作用是什么？ ",
+            "answer": "pass语句什么也不做，一般作为占位符或者创建占位程序，pass语句不会执行任何操作，比如： while False: pass  pass通常用来创建一个最简单的类： class MyEmptyClass: pass"
+        },
+        {
+            "ID": "775",
+            "typeID": "15",
+            "question": "如何在一个function里面设置一个全局的变量？",
+            "answer": "解决方法是在function的开始插入一个global声明： def f() global x"
+        },
+        {
+            "ID": "774",
+            "typeID": "15",
+            "question": "Python里面如何拷贝一个对象？",
+            "answer": "一般来说可以使用copy.copy()方法或者copy.deepcopy()方法，几乎所有的对象都可以被拷贝  一些对象可以更容易的拷贝，Dictionaries有一个copy方法： newdict = olddict.copy()"
+        },
+        {
+            "ID": "773",
+            "typeID": "15",
+            "question": "如何用Python来发送邮件？",
+            "answer": "可以使用smtplib标准库。 "
+        },
+        {
+            "ID": "772",
+            "typeID": "15",
+            "question": "Python里面如何生成随机数？",
+            "answer": "标准库random实现了一个随机数生成器"
+        },
+        {
+            "ID": "771",
+            "typeID": "15",
+            "question": "Python如何copy一个文件？ ",
+            "answer": "shutil模块有一个copyfile函数可以实现文件拷贝"
+        },
+        {
+            "ID": "770",
+            "typeID": "15",
+            "question": "如何用Python删除一个文件？",
+            "answer": "使用os.remove(filename)或者os.unlink(filename);"
+        },
+        {
+            "ID": "769",
+            "typeID": "15",
+            "question": "Python是如何进行内存管理的？",
+            "answer": "Python的内存管理是由Python得解释器负责的，开发人员可以从内存管理事务中解放出来，致力于应用程序的开发，这样就使得开发的程序错误更少，程序更健壮，开发周期更短"
+        },
+        {
+            "ID": "768",
+            "typeID": "15",
+            "question": "Python是如何进行类型转换的？",
+            "answer": "Python提供了将变量或值从一种类型转换成另一种类型的内置函数。int函数能够将符合数学格式数字型字符串转换成整数。否则，返回错误信息。 >>> int(”34″) 34  >>> int(”1234ab”) #不能转换成整数  ValueError: invalid literal for int(): 1234ab  函数int也能够把浮点数转换成整数，但浮点数的小数部分被截去。 >>> int(34.1234) 34  >>> int(-2.46) \r\n undefined\r\n-2  函数°oat将整数和字符串转换成浮点数： >>> float(”12″) 12.0  >>> float(”1.111111″) 1.111111  函数str将数字转换成字符： >>> str(98) ‘98′  >>> str(”76.765″) ‘76.765′  整数1和浮点数1.0在python中是不同的。虽然它们的值相等的，但却属于不同的类型。这两个数在计算机的存储形式也是不一样。"
+        },
+        {
+            "ID": "767",
+            "typeID": "15",
+            "question": "什么是lambda函数？",
+            "answer": "Python允许你定义一种单行的小函数。定义lambda函数的形式如下：labmda 参数：表达式lambda函数默认返回表达式的值。你也可以将其赋值给一个变量。lambda函数可以接受任意个参数，包括可选参数，但是表达式只有一个： >>> g = lambda x, y: x*y >>> g(3,4) "
+        },
+        {
+            "ID": "766",
+            "typeID": "15",
+            "question": "Python如何实现单例模式？",
+            "answer": "Python有两种方式可以实现单例模式，下面两个例子使用了不同的方式实现单例模式：   使用decorator来实现单例模式 def singleton(cls): instances = {} def getinstance():  if cls not in instances: instances[cls] = cls() return instances[cls] return getinstance @singleton  class MyClass:"
+        },
+        {
+            "ID": "765",
+            "typeID": "15",
+            "question": "RE模块中match和search方法的不同？",
+            "answer": "match() 函数只检查 RE 是否在字符串开始处匹配，而 search() 则是扫描整个字符串。"
+        },
+        {
+            "ID": "56",
+            "typeID": "15",
+            "question": "alias 的用法, alias 与 alias_method 的区别",
+            "answer": "alias是ruby语言关键字，对当前类的method定义别名，alias_method是库增强（好像是active support），参数是symbol"
+        },
+        {
+            "ID": "55",
+            "typeID": "15",
+            "question": "proc, lambda, 和 Proc 的区别?",
+            "answer": "proc记得不太清楚了，好像是内部能够支持return到外层，lambda比较简单，就是普通的lambda闭包（return不能跨越作用域），它们创建的对象，其class都是Proc"
+        }
+    ]
+
+

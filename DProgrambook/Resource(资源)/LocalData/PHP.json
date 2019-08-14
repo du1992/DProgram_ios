@@ -1,0 +1,286 @@
+[
+        {
+            "ID": "546",
+            "typeID": "13",
+            "question": " PHP的垃圾收集机制是怎样的?",
+            "answer": "PHP作为脚本语言是页面结束即释放变量所占内存的，当一个 PHP线程结束时，当前占用的所有内存空间都会被销毁，当前程序中所有对象同时被销毁。"
+        },
+        {
+            "ID": "545",
+            "typeID": "13",
+            "question": "请对POSIX风格和兼容Perl风格两种正则表达式的主要函数进行类比说明ereg preg_match:ereg_replace preg_replace",
+            "answer": "ereg/preg_match 为执行正则匹配，ereg里面是不需要也不能使用分隔符和修饰符的，所以ereg的功能比preg要弱上不少。\r\n关于”.”：点在正则里面一般是除了换行符以外的全部字符，但是在ereg里面的”.”是任意字符，即包括换行符！如果在preg里面希望”.” 能够包括换行符，可以在修饰符中加上”s”\r\nereg默认使用贪婪模式，并且不能修改，这个给很多替换和匹配带来麻烦。\r\n速度：这个或许是很多人关心的问题，会不会preg功能强大是以速度来换取的？不用担心，preg的速度要远远比ereg快3倍"
+        },
+        {
+            "ID": "544",
+            "typeID": "13",
+            "question": "对于大流量的网站,您采用什么样的方法来解决访问量问题?(",
+            "answer": "首先，确认服务器硬件是否足够支持当前的流量\r\n其次，优化数据库访问。\r\n第三，禁止外部的盗链。\r\n第四，控制大文件的下载。\r\n第五，使用不同主机分流主要流量\r\n第六，使用流量分析统计软件。"
+        },
+        {
+            "ID": "543",
+            "typeID": "13",
+            "question": "请写出pHp5权限控制修饰符",
+            "answer": "private protected public"
+        },
+        {
+            "ID": "542",
+            "typeID": "13",
+            "question": "apache+mysql+php实现最大负载的方法",
+            "answer": "主要是配置文件的优化了，另外用linux跑要比用windows跑效果好一点。\r\nmkdir创建目录 touch创建文件夹 修改权限chmod之类"
+        },
+        {
+            "ID": "541",
+            "typeID": "13",
+            "question": "请写一个函数验证电子邮件的格式是否正确（要求使用正则）",
+            "answer": "function checkEmail($mail){\r\n$reg = ‘/^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$/’;\r\n$rst = preg_match($reg , $mail);\r\nif($rst){\r\nreturn TRUE;\r\n}else {\r\nreturn FALSE;\r\n}\r\n}"
+        },
+        {
+            "ID": "540",
+            "typeID": "13",
+            "question": "打开php.ini中的Safe_mode，会影响哪些参数？至少说出6个",
+            "answer": "此模块打开时，php将检查当前脚本的拥有者是否和被操作文件的拥有者相同，因此，将影响文件操作类函数，程序执行函数（program Execution Functions）。这些函数有.pathinfo,basename,fopen,system,exec,proc_open 等函数；"
+        },
+        {
+            "ID": "539",
+            "typeID": "13",
+            "question": "如何实现pHp、JSp交互？",
+            "answer": "SOAp,XML_RpC,Socket function,CURL都可以实现这些,如果是考pHp和Java的整合,pHp内置了这种机制(如果考pHp和.NET的整合,也可以这么回答), 例如$foo = new Java(‘java.lang.System’);"
+        },
+        {
+            "ID": "538",
+            "typeID": "13",
+            "question": "error_reporting(2047)什么作用？",
+            "answer": "相当于 error_reporting(‘E_ALL’); 输出所有的错误"
+        },
+        {
+            "ID": "537",
+            "typeID": "13",
+            "question": "用pHp写出显示客户端Ip与服务器Ip的代码",
+            "answer": "客户端 getenv(‘REMOTE_ADDR’);\r\n服务器端 getenv(‘SERVER_ADDR’); // gethostbyname(“www.baidu.com”);"
+        },
+        {
+            "ID": "536",
+            "typeID": "13",
+            "question": "echo count(“abc”); 输出什么？",
+            "answer": "1"
+        },
+        {
+            "ID": "300",
+            "typeID": "13",
+            "question": "如何调用父类的构造方法?",
+            "answer": "使用parent::constructor($value)。"
+        },
+        {
+            "ID": "299",
+            "typeID": "13",
+            "question": "如何知道有几个参数传入到了一个function?",
+            "answer": "func_num_args() 函数返回传入的参数的个数。"
+        },
+        {
+            "ID": "298",
+            "typeID": "13",
+            "question": "PHP里面所有的对象是passed by value (值传递)还是 passed by reference（引用传递）?",
+            "answer": "PHP里面所有的对象都是值传递。"
+        },
+        {
+            "ID": "297",
+            "typeID": "13",
+            "question": "sleep和_wakeup有什么特殊含义?",
+            "answer": "_sleep返回需要被保存的变量的数组，而_wakeup则是取得这些需要被保存的变量"
+        },
+        {
+            "ID": "296",
+            "typeID": "13",
+            "question": "PHP里面单引号与双引号的区别？",
+            "answer": "双引号内的变量或转义符号可以被解释执行，单引号则不行"
+        },
+        {
+            "ID": "295",
+            "typeID": "13",
+            "question": "对于大流量的网站,您采用什么样的方法来解决访问量问题？",
+            "answer": "首先，确认服务器硬件是否足够支持当前的流量\r\n\r\n其次，优化数据库访问。\r\n\r\n第三，禁止外部的盗链。\r\n\r\n第四，控制大文件的下载。\r\n\r\n第五，使用不同主机分流主要流量\r\n\r\n第六，使用流量分析统计软件"
+        },
+        {
+            "ID": "294",
+            "typeID": "13",
+            "question": "如何通过javascript判断一个窗口是否已经被屏蔽？",
+            "answer": "获取open()的返回值，如果是null，就是屏蔽了"
+        },
+        {
+            "ID": "293",
+            "typeID": "13",
+            "question": "PHP中传值和传引用、传地址的区别是什么？",
+            "answer": "传值  是把实参的值赋值给行参 那么对行参的修改，不会影响实参的值 \r\n\r\n传地址 是传值的一种特殊方式，只是他传递的是地址，不是普通的如int 那么传地址以后，实参和行参都指向同一个对象"
+        },
+        {
+            "ID": "292",
+            "typeID": "13",
+            "question": "防止SQL注射漏洞一般用什么函数？",
+            "answer": "__addslashes___"
+        },
+        {
+            "ID": "291",
+            "typeID": "13",
+            "question": "请举例说明在你的开发过程中用什么方法来加快页面的加载速度？",
+            "answer": "要用到服务器资源时才打开，及时关闭服务器资源，数据库添加索引，页面可生成静态，图片等大文件单独服务器。使用代码优化工具"
+        },
+        {
+            "ID": "290",
+            "typeID": "13",
+            "question": "GD 函式库用来做什么？",
+            "answer": "这个函式库让你处理和显示各式格式的图档，它的另一个常见用途是制作所图档。GD 以外的另一个选择是 ImageMagick，但这个函式库并不内建于 PHP 之中，必须由系统管理员安装在伺服器上"
+        },
+        {
+            "ID": "289",
+            "typeID": "13",
+            "question": "实现中文字串截取无乱码的方法？",
+            "answer": "mb_substr()"
+        },
+        {
+            "ID": "288",
+            "typeID": "13",
+            "question": "echo(),print(),print_r()的区别？",
+            "answer": "echo是语言结构，无返回值;print功能和echo基本相同，不同的是print是函数，有返回值;print_r是递归打印，用于输出数组对象"
+        },
+        {
+            "ID": "287",
+            "typeID": "13",
+            "question": "在PHP中，heredoc是一种特殊的字符串，它的结束标志必须？",
+            "answer": "结束标识符所在的行不能包含任何其它字符除\";\""
+        },
+        {
+            "ID": "286",
+            "typeID": "13",
+            "question": "一个函数的参数不能是对变量的引用，除非在php.ini中把什么设为on？",
+            "answer": "allow_call_time_pass_reference"
+        },
+        {
+            "ID": "285",
+            "typeID": "13",
+            "question": "为了避免多次包含同一文件，可以用语句什么来代替它们？",
+            "answer": "require_once()/include_once()"
+        },
+        {
+            "ID": "284",
+            "typeID": "13",
+            "question": "语句 include 和 require 都能把另外一个文件包含到当前文件中，它们的区别是?",
+            "answer": "发生异常时include产生警告require产生致命错误"
+        },
+        {
+            "ID": "283",
+            "typeID": "13",
+            "question": "写出一个正则表达式，过虑网页上的所有JS/VBS脚本（即把标记及其内容都去掉）",
+            "answer": "/<[^>].*?>.*?</>/si"
+        },
+        {
+            "ID": "282",
+            "typeID": "13",
+            "question": "语句 error_reporting(2047)的作用是?",
+            "answer": "All errors and warnings"
+        },
+        {
+            "ID": "281",
+            "typeID": "13",
+            "question": "数组函数 arsort 的作用是?",
+            "answer": "对数组进行逆向排序并保持索引关系"
+        },
+        {
+            "ID": "280",
+            "typeID": "13",
+            "question": "如果返回“找不到文件”的提示，则可用 header 函数，其语句为?",
+            "answer": "header(\"HTTP/1.0 404 Not Found\");"
+        },
+        {
+            "ID": "279",
+            "typeID": "13",
+            "question": "在HTTP 1.0中，状态码 401 的含义是?",
+            "answer": "未授权 "
+        },
+        {
+            "ID": "278",
+            "typeID": "13",
+            "question": "执行程序段<?php echo 8%(-2) ?>将输出?",
+            "answer": "0"
+        },
+        {
+            "ID": "37",
+            "typeID": "13",
+            "question": "请简述项目中优化sql语句执行效率的方法,从哪些方面,sql语句性能如何分析?",
+            "answer": " ANSWER:  sql优化有鸟用，不如直接加索引。"
+        },
+        {
+            "ID": "36",
+            "typeID": "13",
+            "question": "表中有A B C三列,用SQL语句实现：当A列大于B列时选择A列否则选择B列，当B列大于C列时选择B列否则选择C列",
+            "answer": "select\r\n case\r\n  when first_name>middle_name then \r\n  case when first_name>last_name then first_name \r\n  else last_name end \r\n else\r\n  case when middle_name>last_name then middle_name else last_name\r\n   end \r\n  end as name\r\n from member"
+        },
+        {
+            "ID": "35",
+            "typeID": "13",
+            "question": " 请简述数据库设计的范式及应用",
+            "answer": "一般第3范式就足以，用于表结构的优化，这样做既可以避免应用程序过于复杂同时也避免了SQL语句过于庞大所造成系统效率低下。 \r\nANSWER：\r\n第一范式：若关系模式R的每一个属性是不可再分解的，再属于第一范式。\r\n第二范式：若R属于第一范式，且所有的非码属性都完全函数依赖于码属性，则为第二范式。\r\n第三范式：若R属于第二范式，且所有的非码属性没有一个是传递函数依赖于候选码，则属于第三范式。"
+        },
+        {
+            "ID": "34",
+            "typeID": "13",
+            "question": "谈谈事务处理?",
+            "answer": "可以控制并发操作所产生的数据同步提交、更新所带来的冲突问题.可以进行comit,rollback操作，数据的安全性得到了提高。"
+        },
+        {
+            "ID": "33",
+            "typeID": "13",
+            "question": "如何实现PHP、JSP交互？",
+            "answer": "PHP提供了支持JAVA的类库文件,或者通过HTTP协议来交互数据"
+        },
+        {
+            "ID": "32",
+            "typeID": "13",
+            "question": "echo(),print(),print_r()的区别?",
+            "answer": "echo可以接多个参数,print只能接一个参数,它们都是PHP的语言结构,print_r是递规打印,用来打印数组或对象"
+        },
+        {
+            "ID": "31",
+            "typeID": "13",
+            "question": "php中include和require的区别？",
+            "answer": "这两种结构除了在如何处理失败之外完全一样。include()产生一个警告而 require() 则导致一个致命错误。换句话说，如果你想在遇到丢失文件时停止处理页面就用 require()。include() 就不是这样，脚本会继续运行。"
+        },
+        {
+            "ID": "30",
+            "typeID": "13",
+            "question": "表单提交get和post有何区别？",
+            "answer": "get的方式是把数据在地址栏中发送，get传送的数据量较小，不能大于2KB。post传送的数据量较大，一般被默认为不受限制。但理论上，IIS4中最大量为80KB，IIS5中为100KB。"
+        },
+        {
+            "ID": "29",
+            "typeID": "13",
+            "question": "实现中文字串截取无乱码方法?",
+            "answer": "mb_substr($str, 1, 1, \"GB2312\");"
+        },
+        {
+            "ID": "28",
+            "typeID": "13",
+            "question": "优化MYSQL数据库的方法?",
+            "answer": "语句方面：\r\n1 使用索引，增加查询效率\r\n2 优化查询语句，提高索引命中率\r\n数据库涉及方面：\r\n1 构造分库分表，提高数据库的存储和扩展能力\r\n2 根据需要使用不同的存储引擎"
+        },
+        {
+            "ID": "27",
+            "typeID": "13",
+            "question": "如何实现字符串翻转?",
+            "answer": "strrev($a)\r\n中文或其他文字：\r\n中文：GB2312， 代码是使用GB2312编码\r\n<?php\t\r\nfunction reverse($str)\r\n{\r\n\t\t$ret = \"\";\t\r\n\t\t$len = mb_strwidth($str,\"GB2312\");\r\n\t\tfor($i=0; $i< $len; $i++)\r\n\t\t{\r\n\t\t\t$arr[] = mb_substr($str, $i, 1, \"GB2312\");\r\n\t\t}\r\n\t\treturn implode(\"\", array_reverse($arr));\r\n}\r\nprint_r(reverse(\"你好\"));\r\n"
+        },
+        {
+            "ID": "26",
+            "typeID": "13",
+            "question": "能够使HTML和PHP分离开使用的模板?",
+            "answer": "smarty,phplib"
+        },
+        {
+            "ID": "25",
+            "typeID": "13",
+            "question": "用PHP打印出前一天的时间格式是2006-5-10 22:21:21",
+            "answer": "$a = date(\"Y-m-d H:i:s\", strtotime(\"-1 day\"));\r\nprint_r($a);"
+        }
+    ]
+
+
