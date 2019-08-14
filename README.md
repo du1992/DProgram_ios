@@ -1,13 +1,13 @@
 # iOS-DAudiobook
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub last commit](https://img.shields.io/github/last-commit/kevindcw/DAudiobook.svg)](https://github.com/kevindcw/DAudiobook/commits/master)
-[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/kevindcw/DAudiobook.svg?colorB=fa5b19)](https://github.com/kevindcw/DAudiobook)
+[![GitHub last commit](https://img.shields.io/github/last-commit/kevindcw/DProgram_ios.svg)](https://github.com/kevindcw/DProgram_ios/commits/master)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/kevindcw/DProgram_ios.svg?colorB=fa5b19)](https://github.com/kevindcw/DProgram_ios)
 
 
 
 ## 效果图：
-目前主要是有菜单页面，音乐播放，视频播放，文字段子，论坛讨论和图片美图这几个大的板块：
+目前主要是有书籍页面，题库页面，论坛讨论和资讯新闻这几个大的板块：
 
 <p align="center">
   <img width="200" src="Screenshots/1.png" hspace="30px" />
@@ -20,6 +20,11 @@
   <img width="200" src="Screenshots/5.png" hspace="30px" />
   <img width="200" src="Screenshots/6.png" hspace="30px" />
 </p>
+
+
+## 实现效果：
+![](https://upload-images.jianshu.io/upload_images/3323633-2d3aac19ea207c00.gif)
+
 
 ## 用到的第三方SDK：
 Bmob后端云       （主要用于，用户的登录注册和论坛的发布）
