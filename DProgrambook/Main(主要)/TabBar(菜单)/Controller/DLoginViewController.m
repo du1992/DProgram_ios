@@ -30,6 +30,7 @@
 }
 -(void)setLayout{
     self.bgImageView.frame=self.view.frame;
+    
     DPropsModel *PropsModel=[DPropsModel new];
     PropsModel.idString=@"0";
     [self.showPropView didReceiveProp:PropsModel];
