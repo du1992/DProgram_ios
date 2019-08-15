@@ -26,10 +26,12 @@
 ![](https://upload-images.jianshu.io/upload_images/3323633-2d3aac19ea207c00.gif)
 
 
-##小程序演示(个人开发者不让有论坛，代码里有)：
+
+## 小程序演示(个人开发者不让有论坛，代码里有)[小程序源码](https://github.com/kevindcw/DProgram_WeChat)：
+
 ![](https://upload-images.jianshu.io/upload_images/3323633-d30bfba6dd528312.jpeg)
 
-[小程序源码](https://github.com/kevindcw/DProgram_WeChat)
+
 
 
 ## 代码结构：
